@@ -1,0 +1,63 @@
+<div class="shared-post-reply-component">
+  <div class="col-xs-12 " >
+      <div class="reply-container">
+        <div class="form-group">
+          <div class="input-group">
+            <input required [(ngModel)]="postReply.comment" type="text" class="form-control" required>
+            <span class="input-group-btn">
+              <button
+                  class="btn btn-peersview-primary"
+                  type="button" (click)="onPostReply()"
+                  [disabled]="isUserCurrentlyCommenting">Comment</button>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="post.postReply">
+        <div *ngFor="let item of post.postReply.slice().reverse()">
+          <ul style="display: flex;" *ngIf="!item.quoteReplyId">
+            <cl-image
+              public-id="{{item.user.socialImage ? (item.user.profilePicture === 'avatar' ? item.user.socialImage: item.user.profilePicture): item.user.profilePicture}}"
+              *ngIf="item.user?.profilePicture"
+              class="user-img"
+              [ngStyle]="{'border-radius': '50%'}">
+              <cl-transformation width="55" height="55" radius="max" gravity="custom" crop="thumb">
+              </cl-transformation>
+            </cl-image>
+            <li class="comment-container">
+              <span>
+                <span>
+                  <b>{{item.user.firstName | titlecase}} {{item.user.lastName | titlecase}}</b>
+                </span> {{item.comment}}
+              </span>
+              <div class="post-time"> <small>{{item.createdAt | date : 'short'}}</small></div>
+              <!--<a>Like</a> &nbsp; <a (click)="onOpenReplyComment(item)">Reply</a>-->
+              <hr class="m-peersview-y-1 post-options-hr">
+              <div class="options-logo" [ngStyle]="{'width': '100%'}">
+                <div class="col-xs-6 p-peersview-0 text-center">
+                  <button
+                    class="btn-peersivew-transparent like"
+                    [ngClass]="item.isUserPostReplyLike === true ? 'liked' : 'not-yet-liked'"
+                    (click)="onClickPostReplyLike(item)">
+                    <i class="material-icons" >thumb_up</i>
+                    <span class="peersview-primary-color colon-separator">:</span>
+                    <shared-stars-component [ratingCount]="item.postReplyRating && item.postReplyRating.roundedRating" (onStarClick)="onStarClick($event, item)"></shared-stars-component>
+                  </button>
+                </div>
+                <div class="col-xs-3 text-center">
+                  <button
+                    class="btn-peersivew-transparent reply"
+                    (click)="onOpenReplyComment(item);">
+                    <i class="material-icons">reply</i>
+                  </button>
+                </div>
+                <div class="col-xs-3 text-center">
+                 <report-post-reply-component [reply]="item" (onDeletePostReply)="onDeletePostReply($event)"></report-post-reply-component>
+                </div>
+              </div>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>

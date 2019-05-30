@@ -1,0 +1,42 @@
+.index-sticky-navbar-component {
+  position: relative;
+  .sticky-navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #65298a;
+  }
+  .nav-left {
+    .sticky-menu {
+      display: inline-flex;
+      a {
+        text-decoration: none;
+        cursor: pointer;
+      }
+      li {
+        margin: 15px;
+        padding: 10px;
+        background-color: #f5f5f5;
+        a {
+          font-family: "Maven Pro", sans-serif;
+          color: #631990;
+          border-radius: 3px;
+        }
+      }
+    }
+    img {
+      margin-right: 25px;
+    }
+  }
+  .nav-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 15px;
+    padding: 4px;
+    button {
+      border-radius: 5px;
+    }
+  }
+  .sign-up {
+    font-family: Conv_MavenPro-Bold;
+  }
+}

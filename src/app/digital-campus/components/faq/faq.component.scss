@@ -1,0 +1,43 @@
+@import 'src/assets/scss/variables';
+
+.digial-campus-faq-component {
+  .faq-header {
+    padding: 50px;
+    text-align: center;
+    background-color: $primary-color-dark;
+    color: #fff;
+    h1 {
+      font-size: 65px;
+    }
+    p {
+      font-size: 18px;
+    }
+  }
+  .inline-widget {
+    margin: 40px 0;
+    .inline-widget-header {
+      display: flex;
+      align-items: center;
+      .material-icons {
+        margin-right: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+  .inline-content {
+    overflow: hidden;
+    max-height: 0;
+  }
+  .faq-list {
+    padding: 30px 0;
+    li {
+      margin: 50px 0;
+      h3 {
+        padding: 0 0 0 30px;
+        font-size: 18px;
+        background: url(/assets/images/icon-plus.png) no-repeat 0 2px;
+        cursor: pointer;
+      }
+    }
+  }
+}

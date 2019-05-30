@@ -1,0 +1,49 @@
+.community-tab-menu-component {
+  background-color: #4e4e4e;
+  padding-left: 50px;
+  margin-bottom: 10px;
+  padding-top: 25px;
+  ul li {
+    display: inline-block;
+    a {
+      line-height: 55px;
+      padding: 5px 25px;
+      font-size: 16px;
+      display: block;
+      font-family: 'Conv_MavenPro-Bold';
+      background-color: #646464;
+      color: #d1d1d1;
+      text-transform: none;
+      border-radius: 0;
+    }
+  }
+  ul li.active {
+    a {
+      background-color: #fff;
+      color: #4e4e4e;
+    }
+  }
+  .select-degree {
+    padding-top: 10px;
+    padding-right: 10px;
+    float: right;
+    i {
+      color: #ffffff;
+    }
+  }
+  .courses, .student-level {
+    display: inline-block;
+    width: auto;
+    background-color: #646464;
+    font-size: 13px;
+    font-family: 'Conv_MavenPro-Bold';
+    color: #fff;
+    border: 0;
+    box-shadow: none;
+    padding-left: 0;
+    max-width: 250px;
+  }
+  .student-level {
+    background-color: #4e4e4e !important;
+  }
+}

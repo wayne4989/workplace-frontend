@@ -1,0 +1,27 @@
+<div class="new-message">
+  <button
+    class="close m-peersview-y-1"
+    mat-dialog-close
+    (click)="onCancel();">×</button>
+  <div class="create-new-forum">
+    <h3 class="modal-heading">New Message</h3>
+    <div class="modal-divider"></div>
+    <div class="modal-body">
+      <textarea
+        class="form-control"
+        rows="3"
+        placeholder="Whats happening?"
+        #postMessage></textarea>
+    </div>
+    <div class="modal-body">
+      <button
+        type="button"
+        class="btn-peersview-primary btn-peersview-md"
+        (click)="onCancel();">Cancel</button>
+      <button
+        type="button"
+        class="btn-peersview-secondary btn-peersview-md"
+        (click)="onSendMessage(postMessage);">Send</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+main > {
+  router-outlet ~ * {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+}
+.peersiew-navbar {
+  z-index: 3;
+}
+#global-notifications .alert .text-container {
+  position: relative;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+#global-notifications {
+  .alert {
+    .text-container {
+      position: relative;
+      margin-left: 3rem;
+      margin-right: 3rem;
+    }
+    .icon .material-icons {
+      font-size: 2rem;
+      vertical-align: top;
+    }
+    button.close {
+      font-size: 3rem;
+      vertical-align: top;
+      vertical-align: top;
+      line-height: 1rem;
+    }
+  }
+}
+
+// Handle LoadingBar Full Screen and Model Layout
+.black-overlay {
+  position:fixed !important;
+}

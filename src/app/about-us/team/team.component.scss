@@ -1,0 +1,84 @@
+.about-us-team-component {
+  background: url('https://res.cloudinary.com/peersview-com/image/upload/v1519654010/teamBg.png') no-repeat;
+  background-size: cover;
+  // padding: 100px 0;
+  .container {
+    // padding-top: 350px;
+  }
+  .members {
+    padding-bottom: 40px;
+    .members-info {
+      margin: 0 20px;
+    }
+    .members-info:nth-child(4) {
+      margin-left: 40px;
+    }
+  }
+  .members-info {
+    img {
+      margin-bottom: 10px;
+      border-radius: 50%
+    }
+  }
+  .header {
+    margin-bottom: 75px;
+    color: #ffffff;
+    h1 {
+      // font-size: 8rem;
+      font-size: 6rem;
+    }
+    p {
+      font-size: 18px;
+    }
+  }
+  .members-info {
+    display: inline-grid;
+    .name, .position {
+      color: #ffffff;
+    }
+    .name {
+      font-size: 1.6rem;
+    }
+    .position {
+      font-size: 2rem;
+      font-style: oblique;
+    }
+  }
+  .advisory-team {
+    position: relative;
+    h1 {
+      font-size: 6rem;
+      color: #000000;
+    }
+    .members-info {
+      .name {
+        color: #000000;
+      }
+    }
+  }
+
+  // Custom, iPhone Retina
+  @media only screen and (min-width : 320px) {}
+  // extra Small Devices, Phones
+  @media only screen and (min-width : 480px) {}
+  // Small Devices, Tablets
+  @media only screen and (min-width : 768px) {
+    .header {
+      h1 {
+        font-size: 8rem;
+      }
+    }
+    .container {
+      padding-top: 350px;
+    }
+    .advisory-team {
+      top: 6rem;
+    }
+  }
+  // Medium Devices, Desktops
+  @media only screen and (min-width : 992px) {
+
+  }
+  // Large Devices, Wide Screens
+  @media only screen and (min-width : 1200px) {}
+}

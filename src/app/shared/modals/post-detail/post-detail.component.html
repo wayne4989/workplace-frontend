@@ -1,0 +1,102 @@
+<div class="shared-post-detail-modal-component" add-css [cssToAdd]="'mat-dialog-is-open'" remove-css [cssToRemove]="'mat-dialog-is-open'">
+  <button class="modal-close" mat-dialog-close>
+    <i class="material-icons"> clear </i>
+  </button>
+
+  <div class="post-outer-container">
+    <div class="post">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="pull-left">
+            <cl-image
+              class="post-image"
+              public-id="{{post.user.socialImage ? (post.user.profilePicture === 'avatar' ? post.user.socialImage: post.user.profilePicture): post.user.profilePicture}}"
+              *ngIf="post?.user?.profilePicture"
+            >
+              <cl-transformation width="50" height="50" radius="max" gravity="custom" crop="thumb">
+              </cl-transformation>
+            </cl-image>
+          </div>
+  
+          <div class="user-name">
+            <span
+              [ngStyle]="{'display': 'inline-grid'}"
+              (click)="onClickUserProfile(post.user);"
+              class="post-user-name">
+              {{post.user.firstName}} {{post.user.lastName}}
+            </span>
+            <div class="user-school-name">
+              {{post.user.schoolName}}
+            </div>
+            <span class="post-time">
+              {{post.createdAt | date :'short'}}
+            </span>
+          </div>
+        </div>
+        <!-- Commented user rating in case client would want to add this in the future -->
+         <div class="col-xs-12 profile-stars">
+           <shared-user-rating [userCredits]="post.user && post.user.userCredits && post.user.userCredits[0]"></shared-user-rating>
+        </div>
+        <div class="col-xs-12 post-message">
+          <h4 *ngIf="post.title">{{post.title}}</h4>
+          <p>
+            {{post.message ? post.message : post.question}}
+          </p>
+        </div>
+        <div class="col-xs-12 poll-options" *ngIf="!!post.question">
+          <ul>
+            <form>
+              <li *ngFor="let option of post.postPollOptions; let i = index;">
+                <input type="radio" name="pollOption" [value]="option.name" (click)="onPollVote(i, option, post.postPollOptions)"/> {{option.name}}
+                <div class="poll-percentage">{{ getPollPercentage(option, post.postPollOptions) }}%</div>
+                <div class="vote-shade-percentage" [ngStyle]="{'width': getPollPercentage(option, post.postPollOptions) + '%'}"></div>
+              </li>
+            </form>
+          </ul>
+          <div class="col-xs-12 poll-details">
+            <div class="col-xs-3">
+              {{ getPollVoteCount(post.postPollOptions) <= 1 ? getPollVoteCount(post.postPollOptions) + ' vote' : getPollVoteCount(post.postPollOptions) + ' votes'}}
+            </div>
+            <div class="col-xs-9">{{ getPollExpiryDuration(post.createdAt, post.duration) }}</div>
+          </div>
+        </div>
+  
+        <div class="col-xs-12 post-images">
+          <div
+            class="image-outer"
+            *ngFor="let attachment of post.attachments; let imageIndex = index"
+            [ngClass]="{'single-image': post.attachments.length === 1, 'multiple-image': post.attachments.length > 1}"
+            (click)="onClickPhoto(post.attachments, imageIndex)"
+          >
+            <div
+              class="image-inner"
+              *ngIf="attachment.cloudinaryPublicId"
+              >
+              <cl-image
+                public-id="{{attachment.cloudinaryPublicId}}"
+                >
+                <cl-transformation
+                  [attr.height]="post.attachments.length > 1 ? 500 : 250"
+                  width="500"
+                  crop="fill"
+                  radius="3"
+                  gravity="face"
+                >
+                </cl-transformation>
+              </cl-image>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <shared-post-reply-component 
+      [post]="post"
+      [route]="route">
+    </shared-post-reply-component>
+
+    <div *ngIf="post.postReply.length === 0">
+      <h5 class="text-center">No comments yet.</h5>
+    </div>
+  </div>
+</div>

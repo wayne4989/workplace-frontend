@@ -1,0 +1,45 @@
+<div class="shared-followee-component">
+  <h5>
+    <i class="material-icons social-icon color-purple">reply</i>
+    <div class="followee-label">Following (<strong>{{followees.length}}</strong>)</div>
+  </h5>
+  <ul class="users-list" *ngIf="followees.length !== 0">
+    <li
+      data-toggle="tooltip"
+      title="{{follows.followee.firstName}} {{follows.followee.lastName}}"
+      *ngFor="let follows of followees">
+        <!-- <cl-image
+          public-id="{{follows.followee.profilePicture}}"
+          radius="max"
+          width="50">
+        </cl-image>
+        <img src="/assets/images/user1.jpg" alt="" ng-click="vm.openUsersProfile('sm')"/> -->
+        <cl-image
+          public-id="{{follows.followee.socialImage ? (follows.followee.profilePicture === 'avatar' ? follows.followee.socialImage: follows.followee.profilePicture): follows.followee.profilePicture}}"
+          *ngIf="follows.followee?.profilePicture"
+          [ngStyle]="{'border-radius': '50%'}"
+          (click)="onClickUserProfile(follows.followee);"
+        >
+          <cl-transformation width="50" height="50" radius="max" gravity="custom" crop="thumb">
+          </cl-transformation>
+        </cl-image>
+        <div class="follow-user-name">
+          <span
+            [ngStyle]="{'display': 'inline-grid'}"
+            (click)="onClickUserProfile(follows.followee);"
+            class="user-name">
+            {{follows.followee.firstName}} {{follows.followee.lastName}}
+          </span>
+        </div>
+    </li>
+  </ul>
+  <div 
+    *ngIf="followees.length > 0" 
+    class="view-all text-right color-purple"
+    >
+    View All
+  </div>
+  <h4 *ngIf="followees.length === 0" class="text-center">
+    No Followings
+  </h4>
+</div>

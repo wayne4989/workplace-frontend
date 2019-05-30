@@ -1,0 +1,20 @@
+.index-component {
+  height: 100%;
+  .index-component-sticky {
+    display: none;
+  }
+  .sticky-navbar-show {
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  .index-sticky-navbar-component {
+    .active {
+      background-color: #631990 !important;
+      a {
+        color: #ffffff !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+<div class="shared-image-preview-component" add-css [cssToAdd]="'mat-dialog-is-open'" remove-css [cssToRemove]="'mat-dialog-is-open'">
+	<div
+		class="close-col"
+		(click)="onCloseModal()"
+	>
+		<i class="material-icons">
+			close
+		</i>
+	</div>
+	<div class="image-container-outer">
+		<div class="image-container-inner">
+			<cl-image
+				#clImageRef
+				class="cl-image-scale {{ imageOrientation }}"
+        public-id="{{imageAttachments.images ? imageAttachments.images[imageAttachments.clickIndex].cloudinaryPublicId: imageAttachments.image}}"
+      >
+			</cl-image>
+		</div>
+  </div>
+
+  <!-- Post Image Navigation -->
+	<div class="image-nav-container" *ngIf="imageAttachments.source === 'post'">
+    <div
+      class="prev-col"
+      (click)="onPreviousImage()"
+    >
+      <i class="material-icons">
+        skip_previous
+      </i>
+    </div>
+    <div>
+      {{ imageAttachments.clickIndex + 1 }} of {{ imageAttachments.images.length }}
+    </div>
+    <div
+      class="next-col"
+      (click)="onNextImage()"
+    >
+      <i class="material-icons">
+        skip_next
+      </i>
+    </div>
+  </div>
+
+  <!-- Profile (Upload Profile Picture) Navigation -->
+  <div
+    id="changeProfilePicture"
+    class="change-profile-picture-container"
+    *ngIf="imageAttachments.source === 'profile-picture' && !otherUser"
+  >
+    <button
+      class="col-xs-12 remove-photo-button"
+      *ngIf="!isToogleUploadComponentVisible && profileUser.profilePicture !== 'avatar'"
+      (click)="onRemoveProfilePicture()"
+    >
+      Remove Photo
+    </button>
+    <button
+      class="col-xs-12"
+      (click)="isToogleUploadComponentVisible = !isToogleUploadComponentVisible"
+    >
+      {{ !isToogleUploadComponentVisible ? 'Change Photo' : 'Cancel' }}
+    </button>
+    <shared-upload-image-component
+      *ngIf="isToogleUploadComponentVisible"
+      [uploadOptions]="{'queueLimit': 1, 'event': 'changeProfilePic'}"
+      (uploadComplete)="onUploadComplete($event)"
+    ></shared-upload-image-component>
+    <button
+      class="col-xs-12"
+      *ngIf="isToogleUploadComponentVisible"
+      (click)="onChangeProfilePicture()"
+    >
+      Save
+    </button>
+  </div>
+</div>

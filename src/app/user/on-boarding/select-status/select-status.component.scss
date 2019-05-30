@@ -1,0 +1,47 @@
+.user-on-boarding-select-status-component {
+  margin: 0;
+  hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 0;
+    border-top: 1px solid #eeeeee;
+  }
+  .select-status-center {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mouse-pointer {
+    &:focus {
+      outline: none;
+    }
+  }
+  .select-status-student {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 36px;
+  }
+  .select-status-ex-student {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 36px;
+  }
+  .select-status-institution {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 28px;
+  }
+}

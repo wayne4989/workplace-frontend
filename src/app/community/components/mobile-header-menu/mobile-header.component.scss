@@ -1,0 +1,24 @@
+mobile-community-header-component {
+	.active {
+		border-bottom: 1px solid #631990;
+	}
+	ul {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		margin: 10px -15px;
+		border-bottom: 0.01em solid #9a9a9a;
+		li {
+			a {
+				font-weight: 500;
+				font-size: 14px;
+				color: #9a9a9a;
+				&:focus,
+				&:hover {
+					color: #9a9a9a;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,140 @@
+<div class="digital-campus-component">
+  <shared-navbar-unauth-component
+    [aboutUs]=true
+    [signIn]=true
+    [signUp]=true>
+  </shared-navbar-unauth-component>
+  <div class="header">
+    <div class="content-body text-center">
+      <div class="container">
+        <h1>Connect Your University's Community, with Peersview</h1>
+        <p>Drive engagement and collaboration among students in different Campuses, Faculties and Classes from orientation to graduation.</p>
+      </div>
+    </div>
+  </div>
+  <div class="content container">
+    <h2 class="text-center peersview-primary-color">EVERYTHING YOU NEED TO ENGAGE YOUR STUDENTS</h2>
+    <div class="row">
+      <p class="content-description text-center">
+        The digital campus helps your students access broader networks within the school community.
+      </p>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            <h4><b>STUDENT-CENTERED</b></h4>
+          </div>
+          <div class="card-body">
+            The Peersview Digital Campus helps centralize the collective knowledge of the entire school, hereby making the
+            crowd sourcing for knowledge or information more efficient for all students.
+          </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+              <h4><b>CO-CURRICULAR NETWORK</b></h4>
+            </div>
+            <div class="card-body">
+              Dedicated sections for Clubs and Societies. An online marketplace for your students.
+            </div>
+          </div>
+
+      </div>
+      <div class="col-md-4 content-left">
+        <div class="image text-center">
+          <cl-image
+            public-id="campusPeersCycle">
+          </cl-image>
+        </div>
+      </div>
+      <div class="col-md-4">
+       <div class="card">
+          <div class="card-header">
+            <h4><b>INCLUSIVE ACCESS</b></h4>
+          </div>
+          <div class="card-body">
+            For Instructors and Non academic staffs to provide your students opportunities for holistic growth through mentoring.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h4><b>PEER MENTORING</b></h4>
+          </div>
+          <div class="card-body">
+            Help junior students benefit from senior students "peer mentors" who can act as 'big brother/sister' when needed.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="all-students-page-section p-peersview-y-2">
+    <h2 class="text-center col-xs-12 peersview-primary-color">STUDENT FRIENDLY & OPTIMIZED FOR FACULTY</h2>
+    <cl-image
+      public-id="all-students"
+      class="img-responsive"
+      >
+    </cl-image>
+  </div>
+  <div id="benefits">
+    <div class="benefits-heading">
+    <cl-image
+      class="peersview-brand"
+      public-id="peersviewBrand">
+    </cl-image>
+    <h1 class="text-center">Benefits Of The Digital Campus</h1>
+    <ul class="choose-category text-center">
+      <li>
+        <a
+          class="btn-peersview-white btn-peersview-md"
+          [ngClass]="{'active': section === 'institutions'}"
+          (click)="section = 'institutions'">Academic Institutions
+        </a>
+      </li>
+      <li>
+        <a
+          class="btn-peersview-white btn-peersview-md"
+          [ngClass]="{'active': section === 'students'}"
+          (click)="section = 'students'">Students
+        </a>
+      </li>
+      <li>
+        <a
+          class="btn-peersview-white btn-peersview-md"
+          [ngClass]="{'active': section === 'instructors'}"
+          (click)="section = 'instructors'">Instructors and Teaching Assistants
+        </a>
+      </li>
+      <li>
+        <a
+          class="btn-peersview-white btn-peersview-md"
+          [ngClass]="{'active': section === 'networkAdministrators'}"
+          (click)="section = 'networkAdministrators'">Network Administrators
+        </a>
+      </li>
+      <li>
+        <a
+          class="btn-peersview-white btn-peersview-md"
+          [ngClass]="{'active': section === 'faq'}"
+          (click)="section = 'faq'">FAQ
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <digital-campus-institutions-component
+      [hidden]="section !== 'institutions'">
+    </digital-campus-institutions-component>
+    <digital-campus-students-component
+      [hidden]="section !== 'students'">
+    </digital-campus-students-component>
+    <digital-campus-instructors-component
+      [hidden]="section !== 'instructors'">
+    </digital-campus-instructors-component>
+    <digital-campus-network-administrators-component
+      [hidden]="section !== 'networkAdministrators'">
+    </digital-campus-network-administrators-component>
+    <digital-campus-faq-component
+      [hidden]="section !== 'faq'">
+    </digital-campus-faq-component>
+  </div>
+  </div>
+  <index-footer-component></index-footer-component>
+</div>

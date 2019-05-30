@@ -1,0 +1,26 @@
+become-a-mentor-modal-component {
+	.modal-close {
+		position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background: transparent;
+    padding: 0;
+    border: 0;
+    -webkit-appearance: none;
+		cursor: pointer;
+		i {
+      font-size: 25px;
+      margin: 3px 0px;
+    }
+    &:focus {
+      outline: none;
+    }
+	}
+	.modal-heading {
+		border-bottom: 1px solid #e5e5e5;
+	}
+	.btn-apply {
+		margin: 10px 40px;
+	}
+}

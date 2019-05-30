@@ -1,0 +1,43 @@
+@import '../../../../assets/scss/variables';
+
+.shared-social-component {
+  min-height: auto;
+  // padding: 10px 15px;
+  padding-bottom: 10px;
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  font-family: 'Conv_MavenPro-Bold';
+  .email-site {
+    a {
+      display: inline-block;
+      padding-top: 8px;
+      margin: 0 3px;
+      height: 40px;
+      width: 40px;
+      color: #fff;
+      border-radius: 50px;
+    }
+    .email-fb {
+      background: darkblue;
+    }
+    .email-twitter {
+      background: #59e6ff;
+    }
+    .email-instagram {
+      background: #964ec8;
+    }
+    .email-snapchat {
+      background: #fffc00;
+    }
+  }
+  .text {
+    padding: 0;
+  }
+  h5 {
+    border-bottom: 1px solid #eee;
+    display: flex;
+  }
+  .social-icon {
+    margin: -5px 5px 0 7px;
+  }
+}

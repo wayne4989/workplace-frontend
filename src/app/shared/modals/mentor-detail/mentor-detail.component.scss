@@ -1,0 +1,33 @@
+mentor-detail-modal-component {
+	.modal-close {
+		position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background: transparent;
+    padding: 0;
+    border: 0;
+    -webkit-appearance: none;
+		cursor: pointer;
+		i {
+      font-size: 25px;
+      margin: 3px 0px;
+    }
+    &:focus {
+      outline: none;
+    }
+	}
+	.profile-picture {
+		width: 100px;
+    height: 100px;
+    display: inline-block;
+    border-radius: 50%;
+	}
+	.detail-item {
+		span {
+			margin: auto;
+			float: left;
+			font-size: 17px;
+		}
+	}
+}

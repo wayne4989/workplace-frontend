@@ -1,0 +1,77 @@
+.home-left-sidebar-component {
+  .fixed-sidebar {
+    background: #fff;
+    height: 100%;
+    margin-top: 10px;
+    box-shadow: 0px 0px 26px -7px #999;
+    .profile-widget {
+      text-align: center;
+      padding: 0 15px;
+      .top-info {
+        padding: 15px 10px;
+      }
+      .follow-box {
+        padding: 15px 0;
+        margin: 10px 0;
+        border-top: 1px solid #e5e5e5;
+        border-bottom: 1px solid #e5e5e5;
+        p {
+          font-family: "Maven Pro", sans-serif;
+        }
+      }
+    }  
+    .top-info {
+      .user-img {
+        img {
+          width: 130px;
+          height: 130px;
+          display: inline-block;
+          border-radius: 50%;
+        }
+      }
+      .user-name {
+        margin: 10px 0 5px 0;
+        vertical-align: middle;
+        word-wrap: break-word;
+        font-size: 21px;
+        color: #323c47;
+      }
+    }
+    .follow-box {
+      a {
+        display: inline-block;
+        width: 48%;
+        color: #949494;
+        i {
+          color: #631a90;
+        }
+      }
+    }
+    .quick-feed {
+      margin-bottom: 30px;
+      h3 {
+        padding: 0 15px;
+        padding-bottom: 20px;
+        font-size: 22px;
+        color: #6e6e6e;
+        border-bottom: 1px solid #e5e5e5;
+      }
+      .list {
+        padding-left: 30px;
+        li {
+          padding: 10px;
+          list-style: disc;
+          font-family: "Maven Pro", sans-serif; 
+          font-weight: bold;
+          border-bottom: solid 1px #d8d8d8;
+        }
+        a {
+          color: #000000;
+        }
+        a:hover {
+          color: #bb5d00;
+        }
+      }
+    }
+  }
+}

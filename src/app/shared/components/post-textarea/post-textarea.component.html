@@ -1,0 +1,128 @@
+<div class="shared-post-textarea-component">
+  <div class="post-menu">
+    <li role="presentation" [ngClass]="{'active' : typePost === 'Post'}">
+      <a (click)="onClickWhichTypeIsSelected('Post')">Write a Post</a></li>
+    <li role="presentation" *ngIf="pollMenu" [ngClass]="{'active' : typePost === 'Poll'}">
+      <a (click)="onClickWhichTypeIsSelected('Poll')">Create Poll</a></li>
+    <li role="presentation" *ngIf="shareMenu" [ngClass]="{'active' : typePost === 'Story'}">
+      <a (click)="onClickWhichTypeIsSelected('Story')">Share a Story</a></li>
+    <li role="presentation" *ngIf="askAQuestionMenu" [ngClass]="{'active' : typePost === 'Question'}">
+      <a (click)="onClickWhichTypeIsSelected('Question')">Ask a Question</a>
+    </li>
+  </div>
+  <!-- POST -->
+  <div class="post" *ngIf="typePost === 'Post'">
+    <textarea class="form-control" placeholder="Whats happening?" name="post_title" (keyup)="getLinksFromTextarea()"
+      [(ngModel)]="post.message" [ngClass]="{'text-area-expanded' : textAreaIsExpanded}"></textarea>
+    <!-- bigger full width link preview -->
+    <!-- <div class="linkPreview">
+      <div class="link-container" *ngFor="let link of linkPreviewData; let i = index">
+        <img [src]="link.image" alt="logo" />
+        <div class="link-details">
+          <div class="link-title">{{link.title}}</div>
+          <small>{{link.description}}</small>
+          <div><a [href]="link.url" target="_blank">{{link.url}}</a></div>
+        </div>
+      </div>
+    </div> -->
+    <!-- Single linear preview -->
+    <div class="link-preview" *ngFor="let link of linkPreviewData; let i = index">
+      <div class="link-area">
+        <div class="og-image">
+          <img [src]="link.image" alt="logo">
+        </div>
+        <div class="descriptions">
+          <div class="og-title">{{link.title}} </div>
+          <div class="og-description">{{link.description}}</div>
+          <div class="og-url">{{link.url}} </div>
+        </div>
+      </div>
+    </div>
+    <button class="text-area-size-toggle" (click)="textAreaIsExpanded = !textAreaIsExpanded;">
+      <i class="material-icons">
+        {{ !textAreaIsExpanded ? 'expand_more': 'expand_less'}}
+      </i>
+    </button>
+
+    <shared-upload-image-component *ngIf="isToogleUploadComponentVisible"
+      [uploadOptions]="{'queueLimit': 4, 'event': 'postPost'}" (uploadComplete)="onUploadComplete($event)">
+    </shared-upload-image-component>
+
+    <div class="text-right options">
+      <label class="img-upload flat-btn" (click)="isToogleUploadComponentVisible = !isToogleUploadComponentVisible">
+        <i class="material-icons">image</i>
+      </label>
+      <button type="submit" class="btn-peersview-primary btn-peersview-sm" [disabled]="isButtonDisabledOnSubmit"
+        (click)="onAddPost();">
+        ADD POST
+      </button>
+    </div>
+  </div>
+  <!-- POLL -->
+  <div class="poll" *ngIf="typePost === 'Poll' || typePost === 'Question'">
+    <form>
+      <textarea class="form-control" name="post-poll-question" [(ngModel)]="post.postPoll.question"
+        placeholder="Ask something..." [ngClass]="{'text-area-expanded' : textAreaIsExpanded}"></textarea>
+      <button class="text-area-size-toggle story-textarea" (click)="textAreaIsExpanded = !textAreaIsExpanded;">
+        <i class="material-icons">
+          {{ !textAreaIsExpanded ? 'expand_more': 'expand_less'}}
+        </i>
+      </button>
+      <ul class="poll-option">
+        <li *ngFor="let item of postPoll.options; let i = index;">
+          <input class="form-control" type="text" placeholder="Add an option" [name]="'option-' + i"
+            [(ngModel)]="post.postPoll.options[i]" />
+        </li>
+      </ul>
+      <div>
+        <a id="add-poll-opt" class="btn-add-new" (click)="onAddPollOption()">
+          Add New
+        </a> <br />
+        <p class="text-danger" style="margin-left:11px;" *ngIf="errorMessage">
+          {{this.errorMessage}}
+        </p>
+      </div>
+      <div class="bottom-block">
+        <div class="duration-poll">
+          <div class="duration-label">
+            <span> {{typePost === 'Question' ? 'Question ' : 'Poll '}} Duration(Days):</span>
+          </div>
+          <div class="duration-form">
+            <button class="col-xs-2"
+              (click)="post.postPoll.duration !== 1 ? post.postPoll.duration = post.postPoll.duration - 1 : 1">
+              <i class="material-icons">
+                remove
+              </i>
+            </button>
+            <input name="newPollDuration" type="number" class="col-xs-8 poll-duration-input"
+              [(ngModel)]="post.postPoll.duration" />
+            <button class="col-xs-2" (click)="post.postPoll.duration = post.postPoll.duration + 1">
+              <i class="material-icons">
+                add
+              </i>
+            </button>
+          </div>
+        </div>
+        <button class="btn btn-peersview-primary btn-sm post-btn poll-btn" type="submit"
+          [disabled]="isButtonDisabledOnSubmit" (click)="onAddPoll()">
+          ADD {{typePost === 'Question' ? 'QUESTION ' : 'POLL '}}
+        </button>
+      </div>
+    </form>
+  </div>
+  <!-- Share a Story -->
+  <div class="story" *ngIf="typePost === 'Story'">
+    <input type="text" class="form-control" name="story_title" placeholder="Title" [(ngModel)]="post.title" />
+    <textarea class="form-control" placeholder="Tell us your story..." name="story_body" [(ngModel)]="post.message"
+      [ngClass]="{'text-area-expanded' : textAreaIsExpanded}"></textarea>
+    <button class="text-area-size-toggle" (click)="textAreaIsExpanded = !textAreaIsExpanded;">
+      <i class="material-icons">
+        {{ !textAreaIsExpanded ? 'expand_more': 'expand_less'}}
+      </i>
+    </button>
+    <button class="share_button btn btn-peersview-primary btn-sm mx-5 my-5" type="submit"
+      [disabled]="isButtonDisabledOnSubmit" (click)="onAddStory()">
+      SHARE STORY
+    </button>
+  </div>
+</div>

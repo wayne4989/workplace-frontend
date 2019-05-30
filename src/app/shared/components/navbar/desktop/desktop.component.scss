@@ -1,0 +1,208 @@
+.navbar-desktop-component {
+  .page-active {
+    border-bottom: 3px solid #ffffff;
+  }
+  .navbar-default {
+    display: flex;
+    align-items: center;
+    font-family: 'Conv_MavenPro-Bold';
+    font-size: 15px;
+    background-color: #631a90;
+  }
+  .notification-icon, .search-icon {
+    cursor: pointer;
+    color: #ffffff;
+  }
+  .nav-right {
+    position: relative;
+    display: inline-flex;
+    height: 48px;
+    float: right;
+    .menu {
+      margin: auto;
+      padding: 0 5px;
+    }
+  }
+  .nav-left {
+    position: relative;
+    float: left;
+    display: flex;
+    .home, .community, .campus, .leisure {
+      display: flex;
+      margin-left: 30px;
+      align-items: center;
+      height: 48px;
+      font-weight: 600;
+      color: #ffffff;
+      cursor: pointer;
+      i {
+        margin: 0 5px;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    .brand-image {
+      margin: auto;
+      cursor: pointer;
+    }
+    .nav-link {
+      display: contents;
+    }
+  }
+  .users-menu {
+    margin: auto;
+    padding-left: 5px;
+    .welcome-user {
+      font-size: 13px;
+      color: #ffffff;
+      font-weight: 600;
+    }
+    #users-menu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+    }
+  }
+  .input-search {
+    display: inline-flex;
+    width: 260px;
+    padding: 10px;
+    input {
+      border-radius: 0;
+    }
+  }
+  .users-message {
+    width: 260px;
+    .flyout-title {
+      padding-left: 8px;
+      text-transform: uppercase;
+      font-weight: 500;
+      a {
+        float: right;
+        margin-right: 5px;
+        text-transform: capitalize;
+        font-size: 13px;
+        cursor: pointer;
+      }
+    }
+    .flyout-view {
+      margin: 0;
+      padding: 5px;
+      text-align: center;
+      background: #e6e6e6;
+    }
+    
+    hr {
+      margin: 5px 0px;
+    }
+
+    .notification-list {
+      li {
+        padding: 8px 5px;
+        border-bottom: solid 1px #f5f5f5;
+      }
+    }
+  }
+
+  .users-notification {
+    height: 450px;
+    min-width: 350px;
+
+    .flyout-title {
+      padding-left: 8px;
+      font-weight: 500;
+    }
+
+    hr {
+      margin: 5px 0px;
+    }
+
+    .flyout-view {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 5px 0px;
+      text-align: center;
+      background-color: #e2e2e2;
+      border-bottom: 2px solid #631a90;
+
+      a {
+        color: #631a90;
+      }
+    }
+
+    .no-notifications {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .notification-list {
+    padding: 3px 5px;
+    .co-row {
+      padding: 5px 0;
+      border-bottom: 1px solid #e2e2e2;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #e2e2e2;
+      }
+    }
+    .co-img {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      vertical-align: middle;
+      margin-left: 5px;
+      
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+      }
+    }
+    .co-info {
+      display: inline-block;
+      vertical-align: middle;
+      width: 78%;
+      margin-left: 10px;
+
+      .co-name {
+        color: #333;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .co-time {
+        // float: right;
+        font-size: 12px;
+        color: #999;
+      }
+
+      .co-day {
+        float: right;
+      }
+    }
+  }
+  .users-search, 
+  .users-message, 
+  .users-notification, 
+  .users-dropdown {
+    &:before {
+      content: "";
+      position: absolute;
+      border-bottom: 10px solid white;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      top: -10px;
+      right: 5px;
+    }
+  }
+  .users-dropdown {
+    a {
+      font-family: 'ProximaNovaAltRegular';
+    }
+  }
+}

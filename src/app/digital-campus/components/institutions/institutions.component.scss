@@ -1,0 +1,42 @@
+.digital-campus-institutions-component {
+  min-height: 500px;
+  background: url('https://res.cloudinary.com/peersview-com/image/upload/v1519063841/academicBg.jpg') no-repeat 0 150px;
+  background-color: #ffffff;
+  .header-block {
+    h5 {
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+  }
+  .bubble {
+    margin: 10px 0 20px 0;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #bababa;
+    border-radius: 7px;
+    box-shadow: 0 0 5px #b7b7b7;
+  }
+  .inline-widget {
+    .inline-widget-header {
+      display: flex;
+      align-items: center;
+      .material-icons {
+        margin-right: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+  .inline-content {
+    overflow: hidden;
+    max-height: 0;
+    li {
+      margin: 6px;
+      list-style-type: disc;
+    }
+  }
+  .text-center {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+}

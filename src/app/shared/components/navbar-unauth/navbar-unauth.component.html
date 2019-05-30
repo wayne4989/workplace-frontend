@@ -1,0 +1,69 @@
+<div class="shared-navbar-unauth-component">
+  <div class="container">
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#index-collapse" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" [routerLink]="['/']">
+            <cl-image
+              alt="peersview"
+              public-id="logo"
+              width="80">
+            </cl-image>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="index-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li
+              class="about-us text-center m-peersview-x-1"
+              *ngIf="digitalCampus">
+              <button
+                class="btn-peersview-transparent btn-lg btn-block"
+                [routerLink]="['/digital-campus']">
+                DIGITAL CAMPUS
+              </button>
+            </li>
+            <li
+              class="about-us text-center m-peersview-x-1"
+              *ngIf="aboutUs">
+              <button
+                class="btn-peersview-transparent btn-lg btn-block"
+                [routerLink]="['/about-us']">
+                ABOUT US
+              </button>
+            </li>
+            <li
+              class="blog text-center m-peersview-x-1"
+              *ngIf="blog">
+              <button class="btn-peersview-transparent btn-lg btn-block" >BLOG</button>
+            </li>
+            <li
+              class="press text-center m-peersview-x-1"
+              *ngIf="press">
+              <button class="btn-peersview-transparent btn-lg btn-block">PRESS</button>
+            </li>
+            <li
+              class="sign-up text-center m-peersview-x-1"
+              *ngIf="signUp">
+              <button
+                class="btn-peersview-transparent btn-lg btn-block"
+                [routerLink]="['/sign-up']">SIGN UP</button>
+            </li>
+            <li
+              class="sign-in text-center m-peersview-x-1"
+              *ngIf="signIn">
+              <button
+                class="btn-peersview-secondary btn-lg btn-block sign-in"
+                [routerLink]="['/sign-in']">SIGN IN</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>

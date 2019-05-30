@@ -1,0 +1,29 @@
+<div class="campus-student-group-landing-component">
+  <div class="page-title">
+    <h2 class="text-center m-peersview-y-3">
+      <span>MARKETPLACE</span> 
+      <button
+        class="pull-right btn-peersview-primary btn-peersview-md"
+        [routerLink]="['../item-to-sell']">SELL YOUR ITEM
+      </button>
+    </h2>
+  </div>
+  <div *ngIf="myCampusMarketPlace">
+    <div class="col-md-4 col-sm-6 col-xs-12 market-place-item" *ngFor="let item of myCampusMarketPlace">
+      <div class="box-list">
+        <div class="box-title"><a (click)="onGetItemDetails(item.id)">{{item.title}}</a><span class="pull-right price"> ${{item.price | number}}</span></div>
+        <div *ngIf="item.attachments.length > 0"> 
+          <cl-image
+            public-id="{{item.attachments[0].cloudinaryPublicId}}"
+            class="img-responsive"
+            >
+          </cl-image>
+        </div>
+        <img *ngIf="item.attachments.length == '0'" src="/src/assets/images/no_image_available.jpg" alt="">
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!myCampusMarketPlace">
+    <h3 class="text-center">No Items to show</h3>
+  </div>
+</div>

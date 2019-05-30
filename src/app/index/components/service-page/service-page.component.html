@@ -1,0 +1,48 @@
+<div class="index-service-page-component">
+  <div class="container">
+    <div class="col-sm-6 col-md-3">
+      <div class="service-widget ">
+        <h4 class="color-purple">COMMUNITY</h4>
+        <cl-image
+          public-id="servicesCommunity"
+          class="img-responsive">
+        </cl-image>
+          <a (click)="gotoSection('community')" class="link-und">Learn More</a>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <div class="service-widget">
+        <h4 class="color-purple">TRENDING NOW</h4>
+        <cl-image
+          public-id="serviceTrendingNow"
+          class="img-responsive">
+        </cl-image>
+          <a (click)="gotoSection('news')" class="link-und">Learn More</a>
+      </div>
+    </div>
+    <div class="clearfix visible-sm"></div>
+    <div class="col-sm-6 col-md-3">
+      <div class="service-widget ">
+        <h4 class="color-purple">LEISURE</h4>
+        <cl-image
+          public-id="serviceEvents"
+          class="img-responsive">
+        </cl-image>
+          <a (click)="gotoSection('leisure')" class="link-und">Learn More</a>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <div class="service-widget">
+        <h4 class="color-purple">DIGITAL CAMPUS</h4>
+        <cl-image
+          public-id="serviceCampus"
+          class="img-responsive">
+        </cl-image>
+          <a [routerLink]="['/digital-campus']" fragment="benefits" class="link-und">Learn More</a>
+      </div>
+    </div>
+    <div class="sign-up-here">
+      <button [routerLink]="['/sign-up']" class="btn-peersview-primary btn-peersview-lg">SIGN UP HERE</button>
+    </div>
+  </div>
+</div>

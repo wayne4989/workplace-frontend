@@ -1,0 +1,22 @@
+.campus-all-students-component {
+  .header-title {
+    margin: 0;
+    padding: 40px 70px;
+    border-bottom: 0;
+    text-align: center;
+    p {
+      font-family: 'Conv_MavenPro-Bold';
+      font-size: 25px;
+      color: #000000;
+      text-transform: none;
+    }
+  }
+  shared-post-component {
+    padding: 0;
+  }
+  campus-right-sidebar-component {
+    position: sticky;
+    top: 5%;
+    padding-right: 0;
+  }
+}

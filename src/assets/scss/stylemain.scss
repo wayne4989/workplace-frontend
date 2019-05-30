@@ -1,0 +1,225 @@
+.menu_nav.forum-left-menu .fixed-sidebar ul li a .link-text {
+    font-size: 20px;
+}
+.forum-menu-item-caret {
+    display: none;
+}
+.forum-menu-collapse-content.create_private_community {
+    padding: 0 0 0 16px;
+}
+.forum-menu-collapse-content.create_private_community button.forum-menu-collapse-content__button {
+    font-size: 14px;
+}
+.forum-menu-collapse-content.create_private_community .card-body .forum-menu-list a {
+    padding-left: 0;
+}
+.placeholder_text label.img-upload.flat-btn .material-icons {
+    color: #d0d7dd;
+}
+.placeholder_text label.img-upload.flat-btn {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    display: inline-block;
+}
+p.question-title {
+    font-family: 'Conv_MavenPro-Regular';
+}
+
+.nopadding { padding: 0;}
+.img_resposive img {
+    border-radius: 50px;
+    max-width: 44px;
+    vertical-align: top;
+}
+.student_list {
+    margin-bottom: 20px;
+    box-shadow: 0px 3px 1px -1px #ccc;
+    padding: 9px 0;
+    z-index: 99;
+}
+.student_details h3 {
+    font-size: 16px;
+    margin: 0;
+}
+h4.title_list {
+    border-bottom: 1px solid #dbdbdb;
+    margin: 0 0 20px 0;
+    font-family: 'Conv_MavenPro-Bold';
+    color: #333333;
+    font-size: 18px;
+    padding-bottom: 5px;
+    margin-top: 7px;
+}
+.img_resposive span.text_conting {
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+    width: 15px;
+    text-align: center;
+    vertical-align: middle;
+    height: 44px;
+    line-height: 46px;
+}
+.img_resposive {
+    padding: 0;
+    vertical-align: middle;
+}
+/**************************datepicker css**********************/
+
+actions[_ngcontent-c7] input.datepicker-actions__input {
+    border: none;
+    padding: 12px 6px;
+    font-size: 15px !important;
+    background: #f3ebf9 !important;
+    box-shadow: none !important;
+}
+.datepicker-actions__button[_ngcontent-c7] {
+    margin-left: 10px;
+    padding: 0 .77rem;
+    border: none !important;
+    border-radius: .25em;
+    outline: 0;
+    background-color: #f3ebf9 !important;
+    margin-top: 14px !important;
+}
+.datepicker-actions[_ngcontent-c7] {
+    display: flex;
+    background: #f3ebf9 !important;
+    margin: 0 1px !important;
+}
+.datepicker-actions__input[_ngcontent-c7] {
+    font: 1rem/1.5 OpenSans;
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    color: #555 !important;
+    border:none !important;
+    font-size: 14px !important;
+    background-color: #f3ebf9 !important;
+    padding: 15px 15px 0 !important;
+    border:none !important;
+    box-shadow: none !important;
+}
+.actions__button[_ngcontent-c7]:active, .datepicker-actions__button[_ngcontent-c7]:focus {
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+p.about_ur_self {
+    font-size: 14px;
+    text-transform: none;
+    text-align: center;
+    margin: 0;
+}
+
+/*************************media responsive*************************/
+
+@media (max-width: 989px){
+
+.forum-menu-item-caret {
+    display: inline-block;
+}
+.sticky.sticky-width .fixed-sidebar ul li {
+    -webkit-box-flex: auto;
+    -ms-flex: auto;
+    flex: auto;
+    padding: 0;
+}
+.menu_nav.forum-left-menu .fixed-sidebar ul li a .link-text {
+    font-size: 16px;
+}
+
+.forum-tab .page-tab .form-control {
+    width: 98px;
+}
+.student_details {
+    text-align: left;
+    width: auto;
+}
+.img_resposive {
+    padding: 0;
+    vertical-align: middle;
+    text-align: left;
+    width: 80px;
+}
+.sticky.sticky-width.wide.community-menu ul li a {
+    padding: 10px 0;
+}
+.sticky.sticky-width.wide.community-menu .fixed-sidebar {
+    padding: 6px 0px 0 0px;
+}
+}
+@media (max-width: 767px){
+
+
+.top-post .post-footer .dropdown {
+    position: absolute;
+    top: -75px;
+    right: -6px;
+}
+.fixed-header.forum .fixed-sidebar-content .nopadding.student_list {
+    margin-bottom: 20px;
+    box-shadow: 0px 3px 1px -1px #ccc;
+    padding: 9px 0;
+    margin-bottom: 16px !important;
+}
+h4.title_list {
+    text-align: left;
+}
+}
+
+@media (max-width: 414px){
+
+.forum-tab .page-tab ul li a {
+        font-size: 14px;
+        padding-left: 8px;
+        padding-right: 8px;
+        margin: 0;
+    }
+
+    .forum-tab .page-tab ul li {
+        width: 49%;
+    }
+
+
+.sticky.sticky-width .fixed-sidebar ul li {
+    -webkit-box-flex: auto;
+    -ms-flex: auto;
+    flex: auto;
+    padding: 0px 0px;
+    text-align: center;
+}
+
+}
+
+
+.thanks_sign p {
+    font-size: 21px;
+}
+.thanks_sign h1 {
+    font-size: 48px;
+    margin-bottom: 24px;
+}
+.thanks_sign {
+    text-align: center;
+    font-family: serif;
+}
+.thanks_sign p a {
+    color: #dc143c;
+    text-decoration: underline;
+}
+
+
+.policy_term ul {
+    margin: 0px 0px 20px 0px;
+    padding: 0px 0 0 20px;
+}
+.policy_term li {
+        list-style: disc;
+    }
+
+    .policy_term b, .policy_term strong {
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'Conv_MavenPro-Bold';
+}

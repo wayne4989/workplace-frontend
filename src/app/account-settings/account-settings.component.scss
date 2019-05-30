@@ -1,0 +1,95 @@
+@import '../../assets/scss/variables';
+
+.account-settings-component {
+  padding-top: 50px;
+  .page-name-title {
+    font-size: 28px;
+    color: #631990;
+    margin-top: 7rem;
+  }
+  .sidenav-container {
+    padding: 0;
+    border-right: none;
+    min-height: 50px;
+  }
+  .tabs-left {
+    border-bottom: none;
+    display: grid;
+    li {
+      float: left;
+      margin-bottom: 1px;
+      a {
+        padding: 5px 10px;
+        margin-right: 0;
+        display: block;
+        font-size: 15px;
+        color: #631a90;
+        border: none;
+        border-radius: 0px;
+        border-left: 4px solid transparent !important;
+      }
+      .active-menu {
+        color: #fff;
+        background: #ff5a00;
+        border-bottom: 3px solid #000;
+      }
+    }
+  }
+  .active-menu {
+    color: #ffffff;
+    font-weight: bold;
+    background-color: $secondary-color;
+  }
+  .account-settings-component-general-menu,
+  .account-settings-component-password-menu,
+  .account-settings-component-security-menu,
+  .account-settings-component-blocking-menu,
+  .account-settings-component-notifications-menu,
+  .account-settings-component-billing-menu {
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+  }
+  .active-menu i.material-icons, .account-settings-component i.material-icons {
+    display: none;
+  }
+  .tab-title {
+		margin-top: 0;
+    margin-bottom: 10px;
+    padding: 0 0 5px 0;
+    font-size: 14px;
+    font-weight: bold;
+		border-bottom: solid 1px #d8d8d8;
+  }
+  /* Custom, iPhone Retina */
+  @media only screen and (min-width : 320px) {}
+  /* Extra Small Devices, Phones */
+  @media only screen and (min-width : 480px) {}
+  /* Small Devices, Tablets */
+  @media only screen and (min-width : 768px) {
+  }
+  /* Medium Devices, Desktops */
+  @media only screen and (min-width : 992px) {
+    .page-name-title { 
+      margin-top: 2rem;
+    }
+    .sidenav-container {
+      min-height: 350px;
+      border-right: solid 1px #d8d8d8;
+    }
+    .tabs-left { 
+      display: block;
+      li {
+      float: none;
+        .active-menu {
+          color: #000;
+          background: #fff;
+          border-bottom: 3px solid #000 !important;
+          border-left: 4px solid #ff5a00 !important;
+        }
+      }
+    }
+  }
+  /* Large Devices, Wide Screens */
+  @media only screen and (min-width : 1200px) {}
+}

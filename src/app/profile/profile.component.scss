@@ -1,0 +1,139 @@
+/**
+ * Basically Just used position and top
+ * changes for the conmponent selector
+ * css styles; nothing more nothing less
+ */
+.profile-component {
+  profile-left-sidebar-component {
+    position: sticky;
+    top: 0;
+    padding: 0;
+  }
+  profile-right-sidebar-component {
+    position: sticky;
+    top: 0;
+    padding: 0;
+  }
+  profile-content-component {
+    padding: 5px;
+  }
+  .profile-left-sidebar-component {
+    padding-top: 95px;
+    ::-webkit-scrollbar {
+      width: 0px;  /* remove scrollbar space */
+      background: transparent;  /* optional: just make scrollbar invisible */
+    }
+  }
+  .profile-content-component {
+    padding-top: 50px;
+  }
+  .profile-right-sidebar-component {
+    position: sticky;
+    padding-top: 50px;
+  }
+  .mobile-view-for-timeline-and-right-component {
+    ul.mobile-options {
+      display: flex;
+      margin-top: 15px;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      white-space: nowrap;
+      li {
+        padding-bottom: 5px;
+        margin: 0 15px 0 0;
+        a {
+          font-weight: 500;
+          font-size: 14px;
+          color: #9a9a9a;
+        }
+      }
+      .active {
+        border-bottom: 2px solid #631990;
+        a {
+          color: #631990;
+        }
+      }
+    }
+    .mobile-social-media-container {
+      margin-top: 5px;
+      background-color: #ffffff;
+      .shared-social-component {
+        padding-bottom: 0;
+        background-color: transparent;
+        h5 {
+          position: absolute;
+          border-bottom: none;
+          width: auto;
+          display: block;
+          padding: 0;
+          padding-left: 5px;
+          margin-top: 5px;
+          font-size: 17px;
+          .social-icon {
+            margin: -5px 5px 0 19px;
+          }
+        }
+      }
+      .email-site {
+        margin-left: 65px;
+        display: flex;
+        padding: 5px 0;
+        flex-flow: row wrap;
+        justify-content: space-around;
+      }
+    }
+
+    .mobile-layout-content {
+      margin-top: 0;
+      margin-bottom: 15px;
+      profile-content-component {
+        padding: 0;
+      }
+      .profile-content-component {
+        padding-top: 0;
+      }
+      .shared-post-component {
+        .no-post-yet {
+          margin-bottom: 0;
+          padding: 10px 0;
+          margin-top: 0;
+          font-size: 18px;
+          font-family: 'Conv_MavenPro-Bold';
+          background-color: #ffffff;
+          border: 1px solid #dbdbdb;
+        }
+      }
+      .shared-followee-component,
+      .shared-followers-component {
+        h5 {
+          display: none;
+        }
+      }
+      .temporary-containers-for-mobile-tab {
+        border: 1px solid #dbdbdb;
+        background-color: #ffffff;
+        font-family: 'Conv_MavenPro-Bold';
+      }
+    }
+  }
+  // Custom, iPhone Retina
+  @media only screen and (min-width : 320px) {}
+  // extra Small Devices, Phones
+  @media only screen and (min-width : 480px) {
+    ul.mobile-options {
+      flex-flow: row wrap;
+      justify-content: space-around;
+    }
+  }
+  // Small Devices, Tablets
+  @media only screen and (min-width : 768px) {}
+  // Medium Devices, Desktops
+  @media only screen and (min-width : 992px) {
+    .profile-left-sidebar-component {
+      padding-top: 50px;
+    }
+  }
+  // Large Devices, Wide Screens
+  @media only screen and (min-width : 1200px) {}
+}
+

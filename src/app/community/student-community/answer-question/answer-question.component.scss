@@ -1,0 +1,189 @@
+@import '../../../../assets/scss/variables';
+
+answer-question-component {
+
+    .user-img {
+        width: 55px;
+        height: 55px;
+    }
+    .community-header {
+        height: auto;
+        padding-bottom: 15px;
+        background-color: #fff;
+        .user-img {
+            height: 50px;
+            width: 50px;
+        }
+
+        .question-images {
+            display: table;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            .image-outer {
+                display: inline-grid;
+                .image-inner {
+                  margin: 0 0 2px 2px;
+                  border-radius: 3px;
+                  img {
+                    width: 100%;
+                  }
+                }
+            }
+        }
+        .user-info-container {
+            padding: 0 15px;
+            .user-info {
+                margin-left: 5px;
+                span {
+                    display: block;
+                }
+            }
+        }
+        h3 {
+            margin-top: 0px;
+        }
+    }
+
+    .tab-pill {
+        span {
+            display: block;
+            margin: 0;
+            padding: 5px 0;
+            font-family: "Maven Pro", sans-serif;
+            font-weight: bold;
+            color: #323c47;
+            background: transparent;
+            border-bottom: 1px solid #dbdbdb;
+            border-radius: 0;
+        }
+    }
+
+    .answer-question-form, 
+    .answers-list-item {
+        height: auto;
+        padding: 15px;
+        margin-top: 15px;
+        background-color: #fff;
+    }
+    .answer-question-form {
+        .answer-btn[disabled] {
+            cursor: not-allowed;
+            opacity: 0.65;
+        }
+        textarea {
+            width: calc(100% - 70px);
+            padding: 6px 12px;
+        }
+        .user-img {
+            margin-right: 15px;
+        }
+        .answer-btn {
+            margin-top: 10px;
+        }
+    }
+    .answers-list-item {
+        span {
+            display: inline-block;
+        }
+        .answer-date {
+            display: block;
+            text-align: left;
+        }
+        .answer-container {
+            position:relative;
+            padding:1em; 
+            width: calc(100% - 120px);
+            color:#000;
+            border: 1px solid #ddd;
+            border-radius:0.5em;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0.5em;
+                left: -20px;
+                display: block;
+                width: 0;
+                border-width: 1em 3em 0em 0;
+                border-style: solid;
+                border-left: 10px solid transparent;
+                border-right: 10px solid #ddd;
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+            }
+          }
+
+          button.liked {
+            color: #631990;
+          }
+          .options-logo {
+            .like {
+              display: inline-flex;
+              padding: 0;
+            }
+          }
+          .like,
+          .reply,
+          .share {
+            margin: 0;
+            color: $primary-color;
+            cursor: pointer;
+          }
+
+          button.liked {
+            color: #631990;
+          }
+          button.not-yet-liked {
+            color: #bbb;
+          }
+          .options-text {
+            div {
+              padding: 0;
+            }
+          }
+          .post-comments,
+          .post-likes {
+            cursor: pointer;
+          }
+          .like-count{
+            margin-left: 5px;
+            font-size: 20px;
+          }
+    }
+
+}
+
+// extra Small Devices, Phones
+@media only screen and (max-width : 479px) {
+    answer-question-component {
+        .community-header {
+            h3 {
+                font-size: 18px;
+                margin-top: -10px;
+                font-weight: bold;
+            }
+        }
+        .answers-list-item {
+            .answer-container {
+                width: calc(100% - 110px);
+            }
+        }
+        i.material-icons { display: none; }
+    }
+}
+
+// Small Devices, Tablets
+@media only screen and (max-width : 767px) {
+    answer-question-component {
+        .community-header {
+            h3 {
+                font-size: 18px;
+            }
+        }        
+        .answers-list-item {
+            .answer-container {
+                width: calc(100% - 110px);
+            }
+        }   
+    }
+}

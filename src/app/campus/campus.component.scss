@@ -1,0 +1,79 @@
+campus-component {
+	.navbar-default {
+		border-bottom: none;
+	} 
+	.campus-landing-page-component {
+		font-family: "Maven Pro", sans-serif;
+		h1 {
+			font-size: 24px;
+		}
+		h3 {
+			font-size: 18px;
+		}
+	}
+		.btn-peersview-secondary {
+			&:nth-child(2) {
+				margin-top: 10px;
+			}
+		}
+		.post-text-area-wrapper {
+			background-color: #fff;
+		}
+		.timeline-text {
+			margin: 10px 0;
+			padding-left: 0;
+			font-weight: bold;
+			border-bottom: 1px solid #dbdbdb;
+			background: transparent;
+			color: #323c47;
+		}
+		.timeline-text-link-mobile {
+			display: flex;
+			padding: 10px 0;
+			flex-flow: row wrap;
+			justify-content: space-around;
+			font-size: 14px;
+			font-weight: 500;
+			a {
+				color: #000000;
+			}
+			a.active {
+				border-bottom: 1px solid #631990;
+				color: #631990;
+			}
+		}
+		.mobile-contents {
+			announcement-component {
+				.label-heading {
+					display: none;
+				}
+			}
+			shared-peers-you-may-know-component {
+				padding: 0;
+			}
+		}
+		// Custom, iPhone Retina
+		@media only screen and (min-width : 320px) {
+			.timeline-text-link-mobile {
+				font-size: 13px;
+			}
+
+		}
+		// extra Small Devices, Phones
+		@media only screen and (min-width : 480px) {}
+		// Small Devices, Tablets
+		@media only screen and (min-width : 768px) {}
+		// Medium Devices, Desktops
+		@media only screen and (min-width : 992px) {
+			.campus-landing-page-component {
+				h1 {
+					font-size: 36px;
+				}
+				h3 {
+					font-size: 24px;
+				}
+			}
+		}
+		// Large Devices, Wide Screens
+		@media only screen and (min-width : 1200px) {}
+}

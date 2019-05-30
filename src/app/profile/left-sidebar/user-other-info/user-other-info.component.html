@@ -1,0 +1,69 @@
+<div class="profile-left-sidebar-user-other-info-component">
+  <div class="interests text-center hidden-xs">
+    <div class="row">
+
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <i class="material-icons color-purple">local_offer</i>
+      </div>
+      <div class="col-sm-8 col-md-8 col-lg-8">
+        Interests
+      </div>
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <!-- <a class="flat-btn btn edit" (click)="openInterest()"> -->
+          <i
+          class="material-icons color-purple"
+          *ngIf="isUserProfile">create</i>
+        </div>
+      </div>
+    <div class="row">
+      <ul class="interests-data">
+        <li *ngFor="let interest of user?.userInterests">
+          <a>{{interest.interest.name}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="accomplishments text-center hidden-xs">
+    <div class="col-sm-2 col-md-2 col-lg-22">
+      <i class="material-icons color-purple">book</i>
+    </div>
+    <div class="col-sm-8  col-md-8 col-lg-8">
+      Accomplishments
+    </div>
+    <div class="col-sm-2">
+      <!-- <a class="flat-btn btn edit" (click)="openAccomplishments()"> -->
+      <i
+      class="material-icons color-purple"
+      *ngIf="isUserProfile">create</i>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 accomplishments-data">
+        <span class="peersview-secondary-color font-size">{{user?.accomplishments}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="media-pictures text-center hidden-xs">
+    <div class="col-sm-2">
+      <i class="material-icons purple">photo_library</i>
+    </div>
+    <div class="col-sm-10">
+      Media / Pictures
+    </div>
+    <div class="text-right">
+      <a class="btn flat-btn purple">View All</a>
+    </div>
+  </div>
+
+  <div class="collections text-center hidden-xs">
+    <div class="col-sm-2">
+      <i class="material-icons purple">collections</i>
+    </div>
+    <!-- <div id="awards-slider"> -->
+      <!-- <owl-carousel class="owl-theme" [items]="items" [options]="properties">
+        <div class="item"><img src="/assets/images/stars.jpg" alt=""></div>
+        <div class="item"><img src="/assets/images/stars.jpg" alt=""></div>
+        <div class="item"><img src="/assets/images/stars.jpg" alt=""></div>
+        </owl-carousel> -->
+    <!-- </div> -->
+  </div>
+</div>

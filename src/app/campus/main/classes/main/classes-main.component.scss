@@ -1,0 +1,77 @@
+campus-classes-main-component {
+	h4 {
+		display: block;
+		align-items: baseline;
+		font-size: 20px;
+		text-align: center;
+		button {
+			width: 100%;
+			margin-top: 15px;
+			margin-left: auto;
+		}
+		button[disabled] {
+			opacity: .5;
+			cursor: none;
+		}
+	}
+
+	ul {
+		li {
+			position: relative;
+			display: inline-block;
+			width: calc(100% - 25px);
+			margin: 10px;
+			background-color: #ffffff;
+			box-shadow: 0 2px 5px #ccc;
+			border: solid 1px #428bca;
+			border-radius: 10px;
+			vertical-align: top;
+			label {
+				display: block;
+				padding: 20px 50px 20px 20px;
+				margin: 0px;
+				cursor: pointer;
+				text-transform: uppercase;
+				.badgebox {
+				display: none;
+				}
+				.badgebox:checked + .badge {
+					text-indent: 0;
+			
+				}
+				.badgebox + .badge {
+					text-indent: -999999px;
+					width: 27px;
+					position: absolute;
+					right: 20px;
+					background: #428bca;
+					top: 35%;
+			}
+			}
+
+		}
+	}
+		 /* Custom, iPhone Retina */
+		 @media only screen and (min-width : 320px) {}
+		 /* Extra Small Devices, Phones */
+		 @media only screen and (min-width : 480px) {}
+		 /* Small Devices, Tablets */
+		 @media only screen and (min-width : 768px) {
+			 h4 {
+				display: flex;
+				button {
+					width: auto;
+				}
+			 }
+			 ul {
+				 li {
+					width: 30%;
+				 }
+			 }
+		 }
+		 /* Medium Devices, Desktops */
+		 @media only screen and (min-width : 992px) {
+		 }
+		 /* Large Devices, Wide Screens */
+		 @media only screen and (min-width : 1200px) {}
+}

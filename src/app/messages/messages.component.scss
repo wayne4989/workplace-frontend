@@ -1,0 +1,130 @@
+.messages-component {
+  .messages-main-container {
+    margin-top: 50px;
+    .conversation-header {
+      display: inline-flex;
+      margin-top: 15px;
+
+      .co-img {
+        margin-top: 5px;
+        img {
+          border-radius: 50%;
+        }
+      }
+
+      .co-info {
+        padding-left: 20px;
+      }
+    }
+
+    .conversation-body {
+      border: 1px solid #ece;
+      margin-top: 10px;
+      padding: 10px;
+      min-height: 400px;
+
+      .thread-outer {
+        width: 65%;
+        padding: 0;
+
+        .thread-inner {
+          margin-top: 10px;
+          
+          p {
+            margin: 0;
+            padding: 8px;
+            font-size: 1em;
+            border-radius: 15px;
+          }
+        }
+      }
+
+      .response {
+        float: left;
+
+        p {
+          float: left;
+          background-color: #e2e2e2;
+        }
+      }
+
+      .sent {
+        float: right;
+
+        p {
+          float: right;
+          background-color: #dbeeff;
+        }
+      }
+    }
+
+    .conversation-footer {
+      textarea {
+        border: 1px solid #ece;
+        border-right: none;
+        width: 85%;
+        padding: 5px;
+        resize: none;
+      }
+
+      .send-btn-container {
+        display: grid;    
+        float: right;
+        background-color: #fff;
+        border: 1px solid #ece;
+        border-left: none;
+        height: 50px;
+        width: 81px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width : 320px) {
+  .messages-component {
+    .messages-main-container {
+      .conversation-footer {
+        textarea {
+          border: 1px solid #ece;
+          border-right: none;
+          width: 68%;
+          padding: 5px;
+          resize: none;
+        }
+      }
+    }
+  }
+}
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 375px) {
+  .messages-component {
+    .messages-main-container {
+      .conversation-footer {
+        textarea {
+          border: 1px solid #ece;
+          border-right: none;
+          width: 74%;
+          padding: 5px;
+          resize: none;
+        }
+      }
+    }
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  .messages-component {
+    .messages-main-container {
+      .conversation-footer {
+        textarea {
+          border: 1px solid #ece;
+          border-right: none;
+          width: 85%;
+          padding: 5px;
+          resize: none;
+        }
+      }
+    }
+  } 
+}

@@ -1,0 +1,135 @@
+<div class="shared-post-component">
+  <h2 class="no-post-yet text-center" *ngIf="posts.length === 0">
+    {{notPostMessage}}
+  </h2>
+  <div class="post" *ngFor="let post of posts">
+    <div class="row">
+      <report-post-component [post]="post" (onDeletePost)="onDeletePost($event)">
+      </report-post-component>
+      <div class="col-xs-12">
+        <div class="pull-left">
+          <cl-image class="post-image"
+            public-id="{{post.user.socialImage ? (post.user.profilePicture === 'avatar' ? post.user.socialImage: post.user.profilePicture): post.user.profilePicture}}"
+            *ngIf="post?.user?.profilePicture" (click)="onClickUserProfile(post.user);">
+            <cl-transformation width="50" height="50" radius="max" gravity="custom" crop="thumb">
+            </cl-transformation>
+          </cl-image>
+        </div>
+
+        <div class="user-name">
+          <span [ngStyle]="{'display': 'inline-grid'}" (click)="onClickUserProfile(post.user);" class="post-user-name">
+            {{post.user.firstName}} {{post.user.lastName}}
+          </span>
+          <div class="user-school-name">
+            {{post.user.schoolName}}
+          </div>
+          <span class="post-time">
+            {{post.createdAt | date :'short'}}
+          </span>
+        </div>
+      </div>
+      <div class="col-xs-12 profile-stars">
+        <shared-user-rating [userCredits]="post.user && post.user.userCredits && post.user.userCredits[0]">
+        </shared-user-rating>
+      </div>
+      <div class="col-xs-12 post-message">
+        <h4 *ngIf="post.title">{{post.title}}</h4>
+        <p>
+          <span
+            [innerHtml]="post.message ? post.title ? trimStory(post.message, 280): post.message : post.question"></span>
+          <!-- {{post.message ? post.title ? trimStory(post.message, 280): post.message : post.question}} -->
+          <button class="story-read-more-btn btn-peersview-sm" *ngIf="post.title" (click)="onClickCommentDetail(post)">
+            <em>Read more</em>
+          </button>
+        </p>
+      </div>
+      <div class="col-xs-12 poll-options" *ngIf="!!post.question">
+        <ul>
+          <form>
+            <li *ngFor="let option of post.postPollOptions?.fulfillmentValue; let i = index;">
+              <input type="radio" name="pollOption" [value]="option.name"
+                (click)="onPollVote(i, option, post.postPollOptions.fulfillmentValue)"
+                [disabled]="post.isUserAlreadyVoted === 1 || userJustVoted" /> {{option.name}}
+              <div class="poll-percentage">{{option.average}}%</div>
+              <div class="vote-shade-percentage" [ngStyle]="{'width': option.average + '%'}"></div>
+            </li>
+          </form>
+        </ul>
+        <div class="col-xs-12 poll-details">
+          <div class="col-xs-3">
+            {{post.postPollOptions?.fulfillmentValue[0]?.sum}}
+            {{post.postPollOptions?.fulfillmentValue[0]?.sum > 1 ? ' votes': ' vote'}}
+          </div>
+          <div class="col-xs-9">{{post.pollDurationDisplay}}</div>
+        </div>
+        <em *ngIf="post.isUserAlreadyVoted === 1" [ngStyle]="{'opacity': '0.5'}">You have already voted in this
+          poll.</em>
+      </div>
+
+      <div class="col-xs-12 post-images">
+        <div class="image-outer" *ngFor="let attachment of post.attachments; let imageIndex = index"
+          [ngClass]="{'single-image': post.attachments.length === 1, 'multiple-image': post.attachments.length > 1}"
+          (click)="onClickPhoto(post.attachments, imageIndex)">
+          <div class="image-inner" *ngIf="attachment.cloudinaryPublicId">
+            <cl-image public-id="{{attachment.cloudinaryPublicId}}">
+              <cl-transformation [attr.height]="post.attachments.length > 1 ? 500 : 250" width="500" crop="fill"
+                radius="3" gravity="face">
+              </cl-transformation>
+            </cl-image>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="post.postShare" class="col-xs-12 p-peersview-x-2 shared-post-container">
+        <div class="shared-post">
+          <div class="pull-left">
+            <cl-image width="40px" class="post-share-user-image"
+              public-id="{{post.postShare.user.socialImage ? (post.postShare.user.profilePicture === 'avatar' ? post.postShare.user.socialImage: post.postShare.user.profilePicture): post.postShare.user.profilePicture}}"
+              *ngIf="post.postShare?.user?.profilePicture" (click)="onClickUserProfile(post.user);">
+            </cl-image>
+          </div>
+
+          <span class="post-user-name">
+            {{post.postShare.user.firstName}} {{post.postShare.user.lastName}}
+          </span>
+          <div class="user-school-name">
+            {{post.postShare.user.schoolName}}
+          </div>
+          <span class="post-time">
+            {{post.postShare.createdAt| date :'short'}}
+          </span>
+          <div class="post-message">
+            <p>{{post.postShare.message}}</p>
+          </div>
+
+          <div class="post-images">
+            <div class="image-outer" *ngFor="let attachment of post.postShare.attachments; let imageIndex = index"
+              [ngClass]="{'single-image': post.postShare.attachments.length === 1, 'multiple-image': post.postShare.attachments.length > 1}"
+              (click)="onClickPhoto(post.postShare.attachments, imageIndex)">
+              <div class="image-inner" *ngIf="attachment.cloudinaryPublicId">
+                <cl-image public-id="{{attachment.cloudinaryPublicId}}">
+                  <cl-transformation [attr.height]="post.postShare.attachments.length > 1 ? 500 : 250" width="500"
+                    crop="fill" radius="3" gravity="face">
+                  </cl-transformation>
+                </cl-image>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12">
+        <shared-post-options-component [post]="post" [likes]="post.likeCount" [ratingCount]="post.roundedRating"
+          [views]="post.pageviewCount" [share]="post.shareCount" [replies]="post.postReplyCount" [route]="route"
+          [user]="user" (loadPost)="loadPost()">
+        </shared-post-options-component>
+      </div>
+    </div>
+  </div>
+  <div class="load-more" *ngIf="posts.length !== 0">
+    <button type="button" class="btn-peersview-secondary btn-block btn-peersview-md" (click)="onLoadMorePost()"
+      [disabled]="isLoadingMorePosts">
+      {{btnLoadMoreText}}
+    </button>
+  </div>
+</div>

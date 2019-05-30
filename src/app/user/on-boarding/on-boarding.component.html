@@ -1,0 +1,53 @@
+<div class="detail-page user-on-boarding-component">
+  <div class="header container">
+    <nav class="navbar">
+      <div>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">
+            <cl-image
+              class="mouse-pointer"
+              public-id="peersviewLogo"
+              [routerLink]="['/']">
+            </cl-image>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="container on-boarding-content-body">
+    <div class="process-header">
+      <h1>Just a few more details</h1>
+    </div>
+    <div class="borad-outer">
+      <div class="on-boarding-progress">
+        <ul>
+          <li [ngClass]="{'active': steps[0] === 'active', 'complete': steps[0] === 'complete'}">
+            <span class="bubble">
+              <i></i>
+            </span>
+          </li>
+          <li [ngClass]="{'active': steps[1] === 'active', 'complete': steps[1] === 'complete'}">
+            <span class="bubble">
+              <i></i>
+            </span>
+          </li>
+          <li [ngClass]="{'active': steps[2] === 'active', 'complete': steps[2] === 'complete'}">
+            <span class="bubble">
+              <i></i>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <main [@routerTransition]="getState(o)">
+      <router-outlet #o="outlet"></router-outlet>
+    </main>
+  </div>
+</div>

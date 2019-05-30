@@ -1,0 +1,87 @@
+.notification-component {
+  padding-top: 110px;
+
+  .users-notification {
+    padding: 0;
+    
+    .flyout-title {
+      padding-left: 8px;
+      font-weight: 700;
+    }
+
+    hr {
+      margin: 5px 0px;
+    }
+
+    .flyout-view {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 5px 0px;
+      text-align: center;
+      background-color: #e2e2e2;
+      border-bottom: 2px solid #631a90;
+
+      a {
+        color: #631a90;
+      }
+    }
+
+    .no-notifications {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .notification-page {
+    .co-info {
+      width: 88%;
+    }
+  }
+
+  /* Custom, iPhone Retina */
+  @media only screen and (min-width : 320px) {    
+    .notification-page {
+      .co-info {
+        width: 71%;
+      }
+    }
+  }
+  @media only screen and (min-width : 375px) {
+    .notification-page {
+      .co-info {
+        width: 75%;
+      }
+    }
+  }
+  @media only screen and (min-width : 414px) {
+    .notification-page {
+      .co-info {
+        width: 77%;
+      }
+    }
+  }
+  /* Extra Small Devices, Phones */
+  @media only screen and (min-width : 480px) {
+    .notification-page {
+      .co-info {
+        width: 75%;
+      }
+    }
+  }
+  /* Small Devices, Tablets */
+  @media only screen and (min-width : 768px) {
+    .notification-page {
+      .co-info {
+        width: 88%;
+      }
+    }
+  }
+  /* Medium Devices, Desktops */
+  @media only screen and (min-width : 992px) {
+    padding-top: 60px;
+    padding-right: 0;
+  }
+  /* Large Devices, Wide Screens */
+  @media only screen and (min-width : 1200px) {}
+}

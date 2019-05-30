@@ -1,0 +1,173 @@
+<div class="left-sidebar-component">
+  <hr>
+
+  <div class="dashboard-section">
+    <div class="sidebar-label">
+      <i class="material-icons">
+        dashboard
+      </i>
+      <h5><a [routerLink]="['dashboard']"> DASHBOARD </a> </h5>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="group-management-section">
+    <div class="sidebar-label"
+      (click)="groupManagementToggle = !groupManagementToggle"
+    >
+      <i class="material-icons">
+        group
+      </i>
+      <h5>
+        GROUP MANAGEMENT 
+      </h5>
+      <i class="material-icons">
+        {{ groupManagementToggle ? 'keyboard_arrow_down': 'keyboard_arrow_up' }}
+      </i>
+    </div>
+    <ul class="group-management-options" *ngIf="groupManagementToggle">
+      <li><a [routerLink]="['registry']">Registry</a></li>
+      <li><a [routerLink]="['suspend-user']">Suspend User</a></li>
+      <li><a [routerLink]="['post-announcement']">Post Announcement</a></li>
+      <li><a [routerLink]="['courses-and-classes']">Course & Classes</a></li>
+    </ul>
+  </div>
+
+  <hr>
+  
+  <div class="course-section">
+    <div class="sidebar-label">
+      <i class="material-icons">
+        search
+      </i>
+      <h5>
+        BROWSE COURSES
+      </h5>
+    </div>
+    <div class="browse-courses input-group mb-3">
+      <input type="text" class="form-control" placeholder="Search" aria-label="Search Course" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button">
+          <i class="material-icons">
+            search
+          </i>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <hr>
+  <div class="sort-by-section">
+    <div class="sidebar-label">
+      <i class="material-icons">
+        sort
+      </i>
+      <h5>
+        Sort By
+      </h5>
+    </div>
+    <div class="sort-by input-group">
+      <input type="text" class="form-control" aria-label="Text input with dropdown button">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+          <i class="material-icons">keyboard_arrow_down</i>
+        </button>
+        <div class="sort-by-dropdown dropdown-menu">
+          <a class="dropdown-item">Action</a>
+          <a class="dropdown-item">Another action</a>
+          <a class="dropdown-item">Something else here</a>
+          <div role="separator" class="dropdown-divider"></div>
+          <a class="dropdown-item">Separated link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="course-section engineering">
+    <div class="sidebar-label">
+      <div class="checkbox">
+        <label><input type="checkbox" value="" (change)="toggle('engineering')">Engineering</label>
+      </div>
+      <i class="material-icons">
+        {{ courseToggle.engineering ? 'keyboard_arrow_down': 'keyboard_arrow_up' }}
+      </i>
+    </div>
+    <div class="sub-course" *ngIf="courseToggle.engineering">
+      <div class="checkbox">
+        <label><input type="checkbox" value="">Mechanical Engineering</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" value="">Electric Engineering</label>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="course-section finance">
+    <div class="sidebar-label">
+      <div class="checkbox">
+        <label><input type="checkbox" value="" (change)="toggle('finance')">Finance</label>
+      </div>
+      <i class="material-icons">
+        {{ courseToggle.finance ? 'keyboard_arrow_down': 'keyboard_arrow_up' }}
+      </i>
+    </div>
+    <div class="sub-course" *ngIf="courseToggle.finance">
+      <div class="checkbox">
+        <label><input type="checkbox" value="">Accounting</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" value="">Commercial</label>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="course-section math">
+    <div class="sidebar-label">
+      <div class="checkbox">
+        <label><input type="checkbox" value="" (change)="toggle('math')">Math</label>
+      </div>
+      <i class="material-icons">
+        {{ courseToggle.math ? 'keyboard_arrow_down': 'keyboard_arrow_up' }}
+      </i>
+    </div>
+    <div class="sub-course" *ngIf="courseToggle.math">
+      <div class="checkbox">
+        <label><input type="checkbox" value="">Algebra</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" value="">Geometry</label>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="course-section geography">
+    <div class="sidebar-label">
+      <div class="checkbox">
+        <label><input type="checkbox" value="" (change)="toggle('geography')">Geography</label>
+      </div>
+      <i class="material-icons">
+        {{ courseToggle.geography ? 'keyboard_arrow_down': 'keyboard_arrow_up' }}
+      </i>
+    </div>
+    <div class="sub-course" *ngIf="courseToggle.geography">
+      <div class="checkbox">
+        <label><input type="checkbox" value="">Human Geography</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" value="">Physical Geography</label>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+</div>

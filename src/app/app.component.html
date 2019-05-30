@@ -1,0 +1,67 @@
+<div id="global-notifications" class="container-fluid" style="position: fixed; z-index: 4; margin: 0 auto 0 auto; width: 100%;">
+  <div *ngFor="let notification of messageNotificationService">
+    <div
+      id="{{notification.id}}"
+      class="notification-container alert alert-dismissible fade"
+      [style.opacity]="1"
+      role="alert" [ngClass]="{
+        'alert-info': notification.isInfo(),
+        'alert-success': notification.isSuccess(),
+        'alert-warning': notification.isWarning(),
+        'alert-danger': notification.isError() || notification.isDenied()
+      }"
+    >
+      {{notification.path}}
+      <button
+        *ngIf="!notification.hasTimeout()"
+        type="button"
+        class="close right"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <p class="icon" ngClass="{{notification.type}}"
+            style="float: left; margin-right: 0.5em; font-size: xx-large; position: relative; top: 0; left: 0;">
+        <span *ngIf="notification.isSuccess()"><i class="material-icons">check</i></span>
+        <span *ngIf="notification.isInfo()"><i class="material-icons">lightbulb_outline</i></span>
+        <span *ngIf="notification.isWarning()"><i class="material-icons">warning</i></span>
+        <span *ngIf="notification.isError()"><i class="material-icons">error</i></span>
+        <span *ngIf="notification.isDenied()"><i class="material-icons">not_interested</i></span>
+      </p>
+
+      <div class="text-container left">
+
+        <p>
+          <span *ngIf="notification.isSuccess()"><b>Success:</b></span>
+          <span *ngIf="notification.isInfo()"><b>Info:</b></span>
+          <span *ngIf="notification.isWarning()"><b>Warning:</b></span>
+          <span *ngIf="notification.isError()"><b>Error:</b></span>
+          <span *ngIf="notification.isDenied()"><b>Denied:</b></span>
+          <span  class="text message">
+            {{notification.text}}
+          </span>
+        </p>
+
+        <p *ngIf="notification.reason">
+          <span class="text reason">{{notification.reason}}</span>
+        </p>
+        <p *ngIf="notification.instructions">
+          <span class="text instructions">{{notification.instructions}}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ngx-spinner
+  bdColor = "rgba(51, 51, 51, 0.8)"
+  size = "default"
+  color = "#631a90"
+  type = "ball-circus"
+></ngx-spinner>
+
+<main [@routerTransition]="getState(o)">
+  <router-outlet #o="outlet"></router-outlet>
+</main>

@@ -1,0 +1,16 @@
+<div class="about-me-modal-modal">
+  <h5 class="modal-heading">About Me</h5>
+  <div class="modal-body ng-scope">
+    <div class="form-group">
+      <textarea
+      class="form-control"
+      rows="5"
+      placeholder="Tell people about yourself..."
+      [(ngModel)]="aboutMe"></textarea>
+    </div>
+  </div>
+  <div class="modal-footer text-center">
+    <button type="button" class="btn-peersview-secondary btn-peersview-sm" (click)="onCancel()">Cancel</button>
+    <button type="button" class="btn-peersview-primary btn-peersview-sm" (click)="onSave();">Save</button>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="shared-create-message-component" add-css [cssToAdd]="'mat-dialog-is-open'" remove-css [cssToRemove]="'mat-dialog-is-open'">
+  <div
+		class="close-col"
+		(click)="onCloseModal()"
+	>
+		<i class="material-icons">
+			close
+		</i>
+	</div>
+  <div class="messages-main-container col-xs-12">
+    <div class="conversation-header">
+    </div>
+    <div class="conversation-body">
+      <input class="form-control" placeholder="Send message to..." [(ngModel)]="keyword" (input)="onChangeSearch()"/>
+      <ul class="list-group text-left result-group" *ngIf="searchResults.length !== 0;">
+        <li class="list-group-item" *ngFor="let item of searchResults;" (click)="onResultSelected(item)">
+          <cl-image
+            public-id="{{item.socialImage ? (item.profilePicture === 'avatar' ? item.socialImage: item.profilePicture): item.profilePicture}}"
+            *ngIf="item?.profilePicture"
+            class="user-img"
+            [ngStyle]="{'border-radius': '50%'}">
+            <cl-transformation width="40" height="40" radius="max" gravity="custom" crop="thumb">
+            </cl-transformation>
+          </cl-image>
+          <div class="co-info">
+            <span class="co-name">{{item.name}}</span> 
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="conversation-recipient">
+      <li class="co-row text-left" *ngIf="selectedRecipient">
+        <a>
+          <cl-image class="co-img" [public-id]="'avatar'">
+            <cl-transformation width="40" height="40" radius="max" gravity="custom" crop="thumb">
+            </cl-transformation>
+          </cl-image>
+          <div class="co-info">
+            <span class="co-name">{{selectedRecipient.name}}</span> 
+          </div>
+        </a>
+      </li>
+    </div>
+    <div class="conversation-footer">
+      <textarea name="" id="" [(ngModel)]="message.detail" placeholder="Type a message..."></textarea>
+      <div class="send-btn-container">
+        <button class="btn btn-peersview-primary" (click)="doSendMessage();">SEND</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="view-post-modal-component">
+  <div class="create-new-forum">
+    <h3 class="modal-heading">View Post</h3>
+    <button class="close" mat-dialog-close>×</button>
+    <div class="modal-divider"></div>
+    <div class="modal-body row">
+      <cl-image
+        public-id="{{post.user.profilePicture}}"
+        *ngIf="post?.user?.profilePicture"
+        radius="max"
+        width="50">
+      </cl-image>
+      <label>{{post.user.firstName | titlecase}} {{post.user.lastName | titlecase}}</label>
+      <div>
+        <small class="post-time">{{post.createdAt | date : 'short'}}</small>
+      </div>
+      <div class="row">
+        <!-- <div class="col-md-4"><img src="/assets/images/post-img3.jpg" alt="" class="img-responsive" /></div> -->
+        <div class="col-md-12">
+          <h4>{{post.title}} </h4>
+          <h2>{{post.message}}</h2>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-peersview-cancel" mat-dialog-close>Close</button>
+    </div>
+  </div>
+</div>

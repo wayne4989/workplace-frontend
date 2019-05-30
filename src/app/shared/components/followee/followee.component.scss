@@ -1,0 +1,80 @@
+@import '../../../../assets/scss/variables';
+
+.shared-followee-component {
+  // padding: 0 10px;
+  border: 1px solid #dbdbdb;
+  background-color: #ffffff;
+  font-family: 'Conv_MavenPro-Bold';
+  .view-all {
+    padding: 15px;
+    font-family: 'Conv_MavenPro-Bold';
+    text-decoration: none;
+    cursor: pointer;
+  }
+  h5 {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    border-bottom: 1px solid #eee;
+  }
+  .followee-label {
+    margin: auto 0;
+  }
+  .social-icon {
+    margin: auto 5px;
+  }
+  .users-list {
+    li {
+      height: 50px;
+      cursor: pointer;
+      img {
+        height: 100%;
+      }
+      cl-image {
+        width: 50px;
+        height: 50px;
+        margin-right: 3px;
+        margin-top: 3px;
+        border-radius: 50%;
+      }
+    }
+  }
+
+   // Custom, iPhone Retina
+  @media only screen and (min-width : 320px) {
+    .users-list {
+      // display: inline-flex;
+      padding: 10px;
+      li {
+        margin-top: 5px;
+      }
+    }
+
+    .follow-user-name {
+      position: relative;
+      left: 10px;
+      display: inline-block;
+      font-weight: bold;
+    }
+  }
+  // extra Small Devices, Phones
+  @media only screen and (min-width : 480px) {}
+  // Small Devices, Tablets
+  @media only screen and (min-width : 768px) {}
+  // Medium Devices, Desktops
+  @media only screen and (min-width : 992px) {
+    .users-list {
+      padding-left: 8px;
+      li {
+        display: inline-block;
+      }
+    }
+
+    .follow-user-name { 
+      display: none;
+    }
+
+  }
+  // Large Devices, Wide Screens
+  @media only screen and (min-width : 1200px) {}
+}

@@ -1,0 +1,56 @@
+community-component {
+	.community-component {
+		padding-top: 103px;
+	} 
+	.community-left-menu {
+		position: fixed;
+		width: 220px;
+		height: calc(100vh - 50px);
+		float: left;
+		background-color: #fff;
+	}
+	.contents {
+		// margin-left: 188px;
+		// float: left;
+		// padding: 0 15px;
+	}
+	// .community-component {
+	// 	position: relative;
+	// 	// padding-top: 50px;
+	// 	padding-top: 112px;
+		// ul {
+		// 	display: flex;
+		// 	flex-flow: row wrap;
+		// 	justify-content: space-around;
+		// 	margin: 0 -15px;
+		// 	li {
+		// 		a {
+		// 			font-weight: 500;
+		// 			font-size: 14px;
+		// 			text-transform: uppercase;
+		// 			color: #9a9a9a;
+		// 		}
+		// 	}
+		// }
+  // }
+  //   // Custom, iPhone Retina
+	// @media only screen and (min-width : 320px) {}
+	// // extra Small Devices, Phones
+	// @media only screen and (min-width : 480px) {
+	
+	// }
+	// // Small Devices, Tablets
+	// @media only screen and (min-width : 768px) {}
+	// // Medium Devices, Desktops
+	@media only screen and (min-width : 992px) {
+		.community-component {
+			padding-top: 50px;
+		}
+		.contents {
+			margin-left: 220px;
+			padding: 0 15px;
+		}
+	}
+	// // Large Devices, Wide Screens
+	// @media only screen and (min-width : 1200px) {}
+}

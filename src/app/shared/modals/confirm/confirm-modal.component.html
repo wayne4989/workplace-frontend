@@ -1,0 +1,20 @@
+<div class="report-post-modal-component">
+  <h3 class="modal-heading text-center">Confirm</h3>
+  <!-- <button class="close" mat-dialog-close>×</button> -->
+  <div class="modal-divider"></div>
+
+  <div class="modal-body">
+    <h3>{{confirmActionData.description}}</h3>
+  </div>
+  <div class="modal-footer">
+    <button
+    type="button"
+    class="btn-peersview-primary btn-peersview-md"
+    (click)="isOk()">Yes</button>
+    &nbsp;
+    <button
+    type="button"
+    class="btn-peersview-secondary btn-peersview-md"
+    mat-dialog-close>Cancel</button>
+  </div>
+</div>

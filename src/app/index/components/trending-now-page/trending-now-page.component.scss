@@ -1,0 +1,43 @@
+.index-trending-now-page-component {
+  padding: 30px 0;
+  border-bottom: 1px solid #65298a;
+  h5 {
+    font-size: 18px;
+  }
+  h3 {
+    font-size: 24px;
+  }
+  .innter-container {
+    display: flex;
+    margin: 10px;
+    padding: 15px 20px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    text-align: left;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #b7b7b7;
+    color: #631990
+  }
+  .third-text {
+    margin: 0 20%;
+  }
+  /* Custom, iPhone Retina */
+  @media only screen and (min-width : 320px) {}
+  /* Extra Small Devices, Phones */
+  @media only screen and (min-width : 480px) {}
+  /* Small Devices, Tablets */
+  @media only screen and (min-width : 768px) {
+    h1 {
+      font-size: 65px;
+    }
+    .innter-container {
+      height: 105px;
+    }
+  }
+  /* Medium Devices, Desktops */
+  @media only screen and (min-width : 992px) {}
+  /* Large Devices, Wide Screens */
+  @media only screen and (min-width : 1200px) {}
+}

@@ -1,0 +1,30 @@
+community-right-menu-component {
+	.widget-title {
+		margin: 20px 0 10px 0;
+		padding-bottom: 5px;
+		font-size: 13px;
+		font-size: 16px;
+		font-weight: 600;
+	}
+	.question-item {
+		padding: 10px 15px;
+		margin-bottom: 10px;
+		background-color: #fff;
+		border-bottom: 1px solid #dbdbdb;
+		border-radius: 5px;
+	}
+		.question-asked-label {
+			margin: 10px 0;
+	}
+	.write-answer {
+		margin-bottom: 10px;
+		background: white;
+    color: #631990;
+		border: 1px solid #631990;
+		i {
+			vertical-align: bottom;
+			font-size: 18px;
+		}
+	}
+
+}

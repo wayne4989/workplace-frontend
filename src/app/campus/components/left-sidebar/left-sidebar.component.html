@@ -1,0 +1,77 @@
+<div class="campus-left-sidebar-component">
+  <div class="wrapper">
+    <div class="header">
+      <cl-image
+        class="mouse-pointer"
+        public-id="peersviewBrand"
+        height="60px"
+      >
+      </cl-image>
+      <h4>Peersview Campus</h4>
+    </div>
+    <ul class="menu-contents">
+      <li [routerLinkActive]="'active'">
+        <a [routerLink]="['/home']">
+          <i class="material-icons">home</i>
+          <span class="text">Home</span>
+        </a>
+      </li>
+      <li [routerLinkActive]="'active'">
+        <a [routerLink]="['all-students']">
+          <i class="material-icons">person_pin</i>
+          <span class="text">All Students</span>
+        </a>
+      </li>
+      <li [routerLinkActive]="'active'">
+        <a [routerLink]="['freshers-feed']">
+         <i class="material-icons">school</i>
+         <span class="text">Freshers Channel</span>
+       </a>
+      </li>
+      <li [routerLinkActive]="'active'">
+        <a [routerLink]="['course-feed']">
+         <i class="material-icons">account_balance</i>
+         <span class="text">Course feed</span>
+        </a>
+      </li>
+      <li [routerLinkActive]="'active'">
+        <a>
+          <i class="material-icons">book</i>
+          <span class="text"> <span [routerLink]="['classes']"> Classes</span>
+            <i 
+              class="material-icons pull-right" 
+              style="color: #808080;"
+              (click)="isDropdowmClassesIsOpen = !isDropdowmClassesIsOpen"
+              >keyboard_arrow_down</i>
+          </span>
+        </a>
+        <div class="dropdown-list-item" *ngIf="isDropdowmClassesIsOpen">
+          <a 
+            *ngFor="let item of campusClassList"
+            (click)="onSelectClass(item.id)"
+            [ngClass]="{active: selectedClassId === item.id}"
+            >{{item.name}}</a>
+        </div>
+      </li>
+      <li [routerLinkActive]="'active'">
+        <a [routerLink]="['student-group']">
+           <i class="material-icons">people</i>
+           <span class="text">Student group</span>
+         </a>
+      </li>
+      <li [routerLinkActive]="'active'">
+        <a [routerLink]="['marketplace']">
+          <i class="material-icons">add_shopping_cart</i>
+          <span class="text">Market Place</span>
+        </a>
+      </li>
+      <li [routerLinkActive]="'active'">
+        <a [routerLink]="['mentoring']">
+          <i class="material-icons">work</i>
+          <span class="text">Mentoring</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!--left sidebar-->
+</div>

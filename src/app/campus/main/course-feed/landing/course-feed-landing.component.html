@@ -1,0 +1,50 @@
+<div class="campus-classes-landing-component">
+  <h2 class="text-center peersview-primary-color m-peersview-yb-2">Join Your Course</h2>
+  
+  <div class="tab-content m-peersview-yt-2 row m-peersview-0">
+    <a 
+      class="course-category-by-letter pull-left text-center"
+      (click)="onSelectedLetter('All')"
+      [ngClass]="{active: selectedLetter === 'All'}"
+      >All
+    </a>
+    <a 
+      class="course-category-by-letter pull-left text-center" 
+      (click)="onSelectedLetter(item)"
+      [ngClass]="{active: selectedLetter === item}"
+      *ngFor="let item of alphabets">{{item}}</a>
+    </div>
+    
+    <div class="row m-peersview-yt-1 m-peersview-0">
+      <div *ngIf="!onFilter">
+        <div
+          class="col-md-4 col-xs-12 col-sm-6 box-content"
+          *ngFor="let item of campusCourseList"
+          >
+          <div class="box-list" >
+            <div class="m-peersview-yb-2 box-title">
+              <a (click)="onClickNavigate(item.id)">{{item.course.name}}</a>
+            </div>
+            <img src="/src/assets/images/courses/course-biology.jpg" class="img-responsive" alt="">
+            <p>{{item.course.description }}</p>
+          </div>
+        </div>
+      </div>
+      <!-- Display class by first letter -->
+      <div *ngIf="onFilter">
+        <div
+          class="col-md-4 col-xs-12 col-sm-6 box-content"
+          *ngFor="let item of filterResults"
+          >
+          <div class="box-list" >
+            <div class="m-peersview-yb-2 box-title">
+              <a (click)="onClickNavigate(item.id)">{{item.course.name}}</a>
+            </div>
+            <img src="/src/assets/images/courses/course-biology.jpg" class="img-responsive" alt="">
+            <p>{{item.course.description }}</p>
+          </div>
+        </div>
+        <h3 class="text-center" *ngIf="filterResults.length == 0">No Courses available.</h3>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,157 @@
+<div class="student-community-component">
+	<div class="community-header">
+
+		<ul class="text-center">
+			<li>
+				<a data-toggle="tab">
+					<span>Course</span>
+					<select class="form-control course" placeholder = "Select Course">
+						<option value="0" disabled>Course</option>
+						<option *ngFor="let course of courses" [value]="course.id">
+							{{course.name}}
+						</option>
+					</select>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="community-ask-question-wrapper hidden-xs hidden-sm">
+		<div class="question-widget">
+			<h4 class="question-title text-center">Ask a question?</h4>
+			<div class="question-input">
+				<span class="by-user-img text-center">
+					<cl-image
+						public-id="{{user.socialImage ? (user.profilePicture === 'avatar' ? user.socialImage: user.profilePicture): user.profilePicture}}"
+						*ngIf="user?.profilePicture"
+						class="user-img"
+						[ngStyle]="{'border-radius': '50%'}"
+						(click)="onOpenShowImageDialogComponent(user)">
+						<cl-transformation width="120" height="120" radius="max" gravity="custom" crop="thumb">
+						</cl-transformation>
+					</cl-image>
+					<p class="hidden-xs hidden-sm" *ngIf="user">{{user.firstName | titlecase}} {{user.lastName | titlecase}}</p>
+				</span>
+				<div class="by-user-text">
+					<i class="input-caret grey-caret"></i>
+					<div class="question-input-container">
+						<textarea type="text" class="form-control" placeholder="What’s your question?"></textarea>
+						<i class="material-icons">link</i>
+					</div>
+					<a class="btn-peersview-primary">Post</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-xs-12 student-community-feed">
+		<div class="row">
+			<div class="col-md-8 p-peersview-0">
+				<div class="student-community-topics">
+					<b>LATEST DISCUSSIONS</b>
+				</div>
+				<div class="forum-item">
+					<div class="forum-header">
+						<img src="/src/assets/images/courses/course-accounting.jpg" alt="">
+						<h4>
+							What are the advantages of using Angular.js framework? <br>
+							<button class="btn-peersview-primary btn-md"> 
+								<i class="material-icons">create</i>
+								ANSWER
+							</button>
+						</h4>
+					</div>
+					<div class="forum-answers row m-peersview-0">
+						<div class="col-md-6 answer-item">
+							<div class="pull-left">
+								<cl-image
+									width="40px"
+									class="post-share-user-image"
+									public-id="avatar"
+									>
+								</cl-image>
+							</div>
+							
+							<span><b>Maria Angela Magtoto</b></span>
+							<span>City College of Angeles</span>
+							<span>10/2/18, 8:45 PM</span>
+							<div>
+								It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
+								The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.,
+							</div>
+						</div>
+						<div class="col-md-6 answer-item">
+							<div class="pull-left">
+								<cl-image
+									width="40px"
+									class="post-share-user-image"
+									public-id="avatar"
+									>
+								</cl-image>
+							</div>
+							<span><b>Maria Angela Magtoto</b></span>
+							<span>City College of Angeles</span>
+							<span>10/2/18, 8:45 PM</span>
+							<div class="">
+								It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
+								The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.,
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="forum-item">
+						<div class="forum-header">
+							<img src="/src/assets/images/courses/course-accounting.jpg" alt="">
+							<h4>Why use Node.js?<br>
+								<button class="btn-peersview-primary btn-md"> 
+									<i class="material-icons">create</i>
+									ANSWER
+								</button>
+							</h4>
+						</div>
+				
+						<div class="forum-answers row m-peersview-0">
+							<div class="col-md-6 answer-item">
+								<div class="pull-left">
+									<cl-image
+										width="40px"
+										class="post-share-user-image"
+										public-id="avatar"
+										>
+									</cl-image>
+								</div>
+								
+								<span><b>Maria Angela Magtoto</b></span>
+								<span>City College of Angeles</span>
+								<span>10/2/18, 8:45 PM</span>
+								<div>
+									It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
+									The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.,
+								</div>
+							</div>
+							<div class="col-md-6 answer-item">
+								<div class="pull-left">
+									<cl-image
+										width="40px"
+										class="post-share-user-image"
+										public-id="avatar"
+										>
+									</cl-image>
+								</div>
+								<span><b>Maria Angela Magtoto</b></span>
+								<span>City College of Angeles</span>
+								<span>10/2/18, 8:45 PM</span>
+								<div class="">
+									It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
+									The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.,
+								</div>
+							</div>
+						</div>
+					</div>
+			</div>
+			<div class="col-md-4">
+				<community-right-menu-component></community-right-menu-component>
+			</div>
+		</div>
+	</div>
+</div>

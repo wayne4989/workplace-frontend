@@ -1,0 +1,37 @@
+<div class="advance-find-post-component">
+  <!-- <div class="row">
+    <div class="col-md-8">
+      <div class="form-group">
+        <label>Question</label>
+        <input type="text" class="form-control" />
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label></label>
+        <button
+          class="btn-peersview-secondary btn-peersview-md">
+            Search
+        </button>
+      </div>
+    </div>
+  </div> -->
+  <div class="row">
+    <div class="col-md-8">
+      <div class="form-group">
+        <label>Keyword</label>
+        <input type="text" class="form-control" [(ngModel)]="keyword"/>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label></label>
+        <button
+          class="btn-peersview-secondary btn-peersview-md"
+          (click)="onSearchPosts()">
+            Search
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

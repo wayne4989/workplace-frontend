@@ -1,0 +1,107 @@
+@import 'src/assets/scss/variables';
+@import 'src/assets/scss/mixins';
+
+.index-first-page-component {
+  height: 100%;
+  background: url('https://res.cloudinary.com/peersview-com/image/upload/v1518882672/indexFirstPageBg.jpg') no-repeat;
+  background-size: cover;
+  border-bottom: 1px solid #65298a;
+  .container {
+    height: 100%;
+  }
+  .navbar {
+    padding-top: 20px;
+    z-index: 1;
+    .icon-bar {
+      background: #ffffff;
+    }
+  }
+  .banner-title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    .tagline {
+      // margin-bottom: 50px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      font-size: 25px;
+    }
+    h3 {
+      margin-top: 0;
+      // font-size: 28px;
+      font-size: 16px;
+      font-weight: $font-weight-regular;
+      letter-spacing: 3px
+    }
+    .learn-more {
+      display: inline-block;
+      margin-top: 40px;
+      // padding: 10px 40px;
+      padding: 5px 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      background-color: rgba(15, 13, 13, 0.5);
+      border: solid 1px #7b7371;
+      border-radius: 30px;
+      // font-size: 16px;
+      font-size: 14px;
+      color: #fff;
+    }
+    button {
+      border-radius: 5px;
+    }
+  }
+
+  // Custom, iPhone Retina
+  @media only screen and (min-width : 320px) {
+    .banner-title {
+      top: 62%;
+    }
+  }
+  // iPhone 6, 6s, 7, 8 and X
+  @media only screen and (min-width : 375px) {
+    .banner-title {
+      top: 55%;
+    }
+  } 
+  // iPhone 6+, 6s+, 7+, 8+
+  @media only screen and (min-width : 414px) {
+    .banner-title {
+      top: 51%;
+    }
+  }
+  // Small Devices, Tablets
+  @media only screen and (min-width : 768px) {
+    .index-first-page-component { 
+      border-bottom: none !important;
+    }
+
+    .btn-peersview-primary {
+      @include btn-lg;
+    }
+    .banner-title {
+      .tagline {
+        margin-bottom: 50px;
+      }
+      h1 {
+        font-size: 55px;
+      }
+      h3 {
+        padding: 10px 40px;
+        font-size: 28px;
+      }
+      .learn-more {
+        padding: 10px 40px;
+        font-size: 16px;
+      }
+    }
+  }
+  // Medium Devices, Desktops
+  @media only screen and (min-width : 992px) {}
+  // Large Devices, Wide Screens
+  @media only screen and (min-width : 1200px) {}
+}

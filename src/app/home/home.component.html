@@ -1,0 +1,41 @@
+<shared-navbar-component [active]="'home'"></shared-navbar-component>
+<div class="home-component container">
+  <home-left-sidebar-component
+    class="col-lg-3 col-md-3 hidden-xs hidden-sm"
+    [user]="user">
+  </home-left-sidebar-component>
+  <div class="col-lg-9 col-md-9 row center-section">
+    <div class="col-xs-12 shared-post-textarea">
+      <shared-post-textarea-component class="col-md-8 col-lg-8 col-xs-12" [askAQuestionMenu]=false></shared-post-textarea-component>
+    </div>
+    <div class="post-row row">
+      <div class="news-post col-md-7 col-lg-7 col-xs-12">
+        <!--<div class="tab-pill"><span>Top Stories</span></div>
+        <perfect-scrollbar class="posts-preview" [ngClass]="{'_opened': showmore}">
+          <ul class="home-stories-list">
+            <li *ngFor="let story of newstories; let i=index;" [ngStyle]="{ 'display': i<3 || showmore ?'':'none'}">
+              <a [attr.href]="story.Url" target="_blank">{{story.Title}}</a>
+              <span class="pull-right home-stories-list__right-info">
+                <a [attr.href]="story.Url" target="_blank" class="news-ref">{{story.source}}</a>{{story.Date | date}}
+                <a [attr.href]="story.Root_Url" target="_blank">{{story.Root_name}}</a>
+              </span>
+            </li>
+          </ul>
+        </perfect-scrollbar>
+
+        <div class="news-post-footer view-more-news text-right">
+          <i mdTooltip="Reload News List" (click)="reloadnews()" class="material-icons autorenew-icon">autorenew</i>
+          <a (click)="moreNews($event)"><span class="peersview-primary-color">View More</span></a>
+        </div>-->
+        <div>
+          <div class="tab-pill"><span>TIMELINE</span></div>
+        </div>
+        <!-- <a class="see-new-posts"><span class="peersview-primary-color">See 5 new posts</span></a> -->
+        <div id="posts-container">
+          <shared-post-component [posts]="posts" [user]="user" (loadRecord)="loadRecord()"></shared-post-component>
+        </div>
+      </div>
+      <home-right-sidebar-component class="col-xs-5 hidden-xs hidden-sm"></home-right-sidebar-component>
+    </div>
+  </div>
+</div>

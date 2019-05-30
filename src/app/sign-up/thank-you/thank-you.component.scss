@@ -1,0 +1,18 @@
+.sign-up-thank-you-component {
+  background: url(https://res.cloudinary.com/peersview-com/image/upload/v1518100226/pageBg.jpg) no-repeat;
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+  .container {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    color: #f5f5f5;
+  }
+}

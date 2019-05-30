@@ -1,0 +1,18 @@
+shared-user-rating {
+  span.stars,
+  span.stars span {
+    display: block;
+    width: 70px;
+    height: 16px;
+    background: url(http://res.cloudinary.com/peersview-com/image/upload/stars) 0 -22px repeat-x;
+  }
+  
+  span.stars {
+    margin: auto;
+  }
+  
+  span.stars span {
+    margin: initial;
+    background-position: 0 0;
+  }
+}

@@ -1,0 +1,69 @@
+campus-student-group-landing-component {
+	.page-title {
+		padding: 40px 70px;
+    margin: 0;
+		border-bottom: 0;
+		p {
+			color: #000000;
+			text-transform: none;
+			font-size: 25px;
+		}
+	}
+	.group-container {
+		.nav-tabs {
+			li {
+				a {
+					background: transparent;
+    			padding: 10px 30px 10px;
+    			color: #323c47;
+    			font-family: 'Conv_MavenPro-Bold';
+    			border: 0;
+					border-bottom: 3px solid transparent;
+					&:focus, &:hover {
+						background: transparent;
+						outline: none;
+						border: 0;
+					}
+				}
+			}
+			.active {
+				a {
+					color: #000;
+					border-bottom: 3px solid #000 !important;
+				}
+			}
+		}
+		.deals-wrapper {
+			width: calc(100% + 30px);
+    	margin-left: -30px;
+    	padding-left: 25px;
+    	padding-top: 30px;
+			padding-bottom: 30px;
+	
+			.deals-item {
+				position: relative;
+				padding: 30px;
+				margin-top: 20px;
+				min-height: 152px;
+				width: 100%;
+				background-color: #fff;
+				border-radius: 3px;
+				h4 {
+					margin-top: 0;
+					font-weight: bold;
+					font-size: 17px;
+					color: #585e66;
+				}
+				p {
+					max-height: 45px;
+					font-size: 16px;
+					color: #989898;
+					overflow: hidden;
+				}
+				&:hover {
+					background-color: darken($color: #fff, $amount: 2%);
+				}
+			}
+		}
+	}
+}

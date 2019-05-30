@@ -1,0 +1,26 @@
+.peers-list-component {
+	margin-top: 103px;
+	.sec-heading {
+		margin-bottom: 20px;
+	}
+	.top-info {
+		margin-bottom: 10px;
+	}
+   .user-avatar {
+		height: 100px;
+    width: 100px;
+    border-radius: 50%;
+	 }
+	/* Custom, iPhone Retina */
+	@media only screen and (min-width : 320px) {}
+	/* Extra Small Devices, Phones */
+	@media only screen and (min-width : 480px) {}
+	/* Small Devices, Tablets */
+	@media only screen and (min-width : 768px) {}
+	/* Medium Devices, Desktops */
+	@media only screen and (min-width : 992px) {
+		margin-top: 49px;
+	}
+	/* Large Devices, Wide Screens */
+	@media only screen and (min-width : 1200px) {} 
+}

@@ -1,0 +1,13 @@
+@import '../../../../assets/scss/variables';
+
+.shared-stars-component {
+  color: $primary-color;
+  .star {
+    margin: 0;
+    font-size: 18px;
+    letter-spacing: -3px;
+  }
+  .yellow-fill {
+    color: orange;
+  }
+}

@@ -1,0 +1,50 @@
+/*fonts css*/
+@font-face {
+  font-family: 'ProximaNovaAltBold';
+  src: url('/src/assets/fonts/Mark Simonson - Proxima Nova Alt Bold_0.eot');
+  src: url('/src/assets/fonts/Mark Simonson - Proxima Nova Alt Bold_0.woff') format('woff'),
+       url('/src/assets/fonts/Mark Simonson - Proxima Nova Alt Bold_0.ttf') format('truetype'),
+       url('/src/assets/fonts/Mark Simonson - Proxima Nova Alt Bold_0.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ProximaNovaAltRegular';
+  src: url('/src/assets/fonts/Mark Simonson - Proxima Nova Alt Regular_0.eot');
+  src: url('/src/assets/fonts/Mark Simonson - Proxima Nova Alt Regular_0.woff') format('woff'),
+       url('/src/assets/fonts/Mark Simonson - Proxima Nova Alt Regular_0.ttf') format('truetype'),
+       url('/src/assets/fonts/Mark Simonson - Proxima Nova Alt Regular_0.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ProximaNovaAltLight';
+  src: url('/src/assets/fonts/Mark Simonson - Proxima Nova Alt Light_0.eot');
+  src: url('/src/assets/fonts/Mark Simonson - Proxima Nova Alt Light_0.woff') format('woff'),
+       url('/src/assets/fonts/Mark Simonson - Proxima Nova Alt Light_0.ttf') format('truetype'),
+       url('/src/assets/fonts/Mark Simonson - Proxima Nova Alt Light_0.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Conv_MavenPro-Regular';
+  src: url('/assets/fonts/MavenPro-Regular.eot');
+  src: local('?'), url('/src/assets/fonts/MavenPro-Regular.woff') format('woff'),
+       url('/src/assets/fonts/MavenPro-Regular.ttf') format('truetype'),
+       url('/src/assets/fonts/MavenPro-Regular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Conv_MavenPro-Bold';
+  src: url('/assets/fonts/MavenPro-Bold.eot');
+  src: local('?'), url('/src/assets/fonts/MavenPro-Bold.woff') format('woff'),
+       url('/src/assets/fonts/MavenPro-Bold.ttf') format('truetype'),
+       url('/src/assets/fonts/MavenPro-Bold.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

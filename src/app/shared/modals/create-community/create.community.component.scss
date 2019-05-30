@@ -1,0 +1,93 @@
+create-community-modal-component {
+	.modal-close {
+		position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background: transparent;
+    padding: 0;
+    border: 0;
+    -webkit-appearance: none;
+		cursor: pointer;
+		i {
+      font-size: 25px;
+      margin: 3px 0px;
+    }
+    &:focus {
+      outline: none;
+    }
+	}
+	.modal-heading {
+    margin-bottom: 10px;
+		border-bottom: 1px solid #e5e5e5;
+  }
+  .modal-body {
+    .add-people-container {
+      margin-top: 40px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    span {
+      margin-left: 3px;
+      vertical-align: super;
+    }
+    .add-names {
+      position: relative;
+      margin-top: 15px;
+      button {
+        background: transparent;
+        border: none;
+        position: absolute;
+        top: 3px;
+        right: 5px;
+        font-size: 26px;
+        cursor: pointer;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  
+  .result-group {
+    li {
+      padding: 3px;
+    }
+    
+    li:hover {
+      background-color: #ece;
+      cursor: pointer;
+    }
+  }
+
+  .co-img {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin-left: 3px;
+    
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+    }
+  }
+
+  .co-info {
+    display: inline-flex;
+    margin-left: 10px;
+  }
+
+  .selected-users-list {
+    margin-top: 10px;
+  }
+
+  .clear-item {
+    cursor: pointer;
+  }
+
+  .hidden {
+    display: none;
+  }
+}

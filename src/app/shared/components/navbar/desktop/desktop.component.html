@@ -1,0 +1,136 @@
+<div class="navbar-desktop-component">
+  <nav class="navbar navbar-default navbar-fixed-top peersiew-navbar">
+    <div class="container">
+      <div class="nav-left">
+        <cl-image
+          alt="peersview"
+          class="brand-image"
+          public-id="logo"
+          width="75"
+          [routerLink]="['/home']">
+        </cl-image>
+
+        <li class="home" [routerLink]="['/home']" [routerLinkActive]="'page-active'">
+          <div class="nav-link">
+            <i class="material-icons">home</i>
+            <div>Home</div>
+          </div>
+        </li>
+
+        <li class="community" [routerLink]="['/community/student-community']" [routerLinkActive]="'page-active'">
+          <div class="nav-link">
+            <i class="material-icons">forum</i>
+            <div>Community</div>
+          </div>
+        </li>
+
+        <li class="campus" [routerLink]="['/campus']" [routerLinkActive]="'page-active'">
+          <div class="nav-link">
+            <i class="material-icons">group</i>
+            <div>Campus</div>
+          </div>
+        </li>
+
+        <li class="leisure" [routerLink]="['/leisure']" [routerLinkActive]="'page-active'">
+          <i class="material-icons">card_giftcard</i>
+          Leisure
+        </li>
+      </div>
+
+      <div class="nav-right">
+        <div class="dropdown search menu">
+          <a data-toggle="dropdown" id="users-search">
+          <i class="material-icons search-icon">search</i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right users-search" aria-labelledby="users-search">
+            <div class="input-search">
+              <input type="text" class="form-control" [(ngModel)]='keyword' placeholder="Type search text here...">
+              <button class="btn btn-primary btn-xs" [routerLink]="['/advance-search']" [queryParams]="{k: keyword, a: true}">
+              <i class="material-icons search-icon" >search</i>
+              </button>
+            </div>
+            <div class="clear"></div>
+            <a [routerLink]="['/advance-search']" class="advance-search-link col-xs-12 text-center">Advanced Search</a>
+          </div>
+        </div>
+        <div class="dropdown message menu">
+          <a data-toggle="dropdown" id="users-message">
+          <i class="material-icons notification-icon"  matBadge="{{unReadMessageCount}}" matBadgeColor="warn">mail_outline</i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right users-message" aria-labelledby="users-message">
+            <div class="flyout-title">Messages
+              <a (click)="onNewMessageClick();" class="ext-action">New Message</a>
+            </div>
+            <hr>
+            <shared-conversation-list-component></shared-conversation-list-component>
+          </div>
+        </div>
+        <div class="dropdown notification menu">
+          <a data-toggle="dropdown" id="users-notification">
+            <i class="material-icons notification-icon" matBadge="{{unReadNotificationCount}}" matBadgeColor="warn">notifications_none</i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right users-notification" aria-labelledby="users-notification">
+            <div class="flyout-title">NOTIFICATIONS</div>
+            <hr>
+            <!-- <ul class="notification-list">
+              <li class="co-row">
+                <div class="co-img"><img src="https://lh5.googleusercontent.com/-MUoRMJwmCEc/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7oeEoFO5rXLQURJkIM-4pYNT7rQDQ/s96-c/photo.jpg"></div>
+                <div class="co-info">
+                  <span class="co-name">Notification message here.</span>
+                  <br/>
+                  <span class="co-time">Some time ago</span>
+                </div>
+              </li>
+              <li class="co-row">
+                <div class="co-img"><img src="http://res.cloudinary.com/peersview-com/image/upload/r_max/avatar"></div>
+                <div class="co-info">
+                  <span class="co-name">Notification message here. This is a sample notification.</span>
+                  <br/>
+                  <span class="co-time">Some time ago</span>
+                </div>
+              </li>
+              <li class="co-row">
+                <div class="co-img"><img src="http://res.cloudinary.com/peersview-com/image/upload/r_max/avatar"></div>
+                <div class="co-info">
+                  <span class="co-name">Notification message here. This is a sample notification with long text.</span> 
+                  <br/>
+                  <span class="co-time">Some time ago</span>
+                </div>
+              </li>
+            </ul> -->
+            <notification-list-component></notification-list-component>
+
+            <!-- <div class="no-notifications">No notifications yet.</div> -->
+            <div class="flyout-view"><a [routerLink]="['/notification']">View All</a></div>
+          </div>
+        </div>
+        <div class="dropdown users-menu">
+          <a data-toggle="dropdown" id="users-menu">
+            <span class="welcome-user">
+              Welcome
+              <span class="user-name"> {{user?.firstName}}</span>
+            </span>
+            <cl-image
+              public-id="{{user.socialImage ? (user.profilePicture === 'avatar' ? user.socialImage: user.profilePicture): user.profilePicture}}"
+              width="22" 
+              height="22"
+              *ngIf="user?.profilePicture"
+              [ngStyle]="{'border-radius': '50%'}"
+            >
+              <cl-transformation width="22" height="22" radius="max" gravity="custom" crop="thumb">
+              </cl-transformation>
+            </cl-image>
+            <i class="material-icons">keyboard_arrow_down</i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-right users-dropdown" aria-labelledby="users-menu">
+            <span class="icon-arrow-up"></span>
+            <li><a [routerLink]="['/profile']">My Profile</a></li>
+            <li><a [routerLink]="['/account-settings/general']">Account Setting</a></li>
+            <li><a href="/support" target="_blank">Peersview Support</a></li>
+            <li><a (click)="onSignOut();">Log-Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

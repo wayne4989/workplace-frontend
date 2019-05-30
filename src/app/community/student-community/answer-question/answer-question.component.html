@@ -1,0 +1,133 @@
+<div class="answer-question-component" *ngIf="communityPost">
+	<div class="row m-peersview-0 col-md-8 p-persview-0 p-peersview-0">
+    <button class="btn-peersivew-transparent like" (click)="goToBack()">
+      <i class="material-icons" >keyboard_backspace</i>
+    </button>
+		<div class="community-header">
+			<div class="col-xs-12 question-images text-center" *ngIf="communityPost">
+				<div 
+					class="image-outer"
+					*ngFor="let attachment of communityPost.attachments; let i = index">
+					<div 
+						class="image-inner"
+						*ngIf="attachment.cloudinaryPublicId">
+							<cl-image
+								public-id="{{attachment.cloudinaryPublicId}}"
+								>
+								<cl-transformation
+									[attr.height]="communityPost.attachments.length > 1 ? 500 : 250"
+									width="500"
+									crop="fill"
+									radius="3"
+									gravity="face"
+								>
+							</cl-transformation>
+						</cl-image>
+					</div>
+				</div>
+			</div>
+			<h3 class="text-center">{{communityPost.message}}</h3>
+        <report-post-community-component
+          [post]="communityPost"
+          [user]="user"
+          (onDeletePost)="onDeletePost($event)">
+        </report-post-community-component>
+		</div>
+		<!-- Answer form -->
+		<div class="answer-question-form row m-peersview-0">
+			<cl-image
+				public-id="{{user.socialImage ? (user.profilePicture === 'avatar' ? user.socialImage: user.profilePicture): communityPost.user.profilePicture}}"
+				*ngIf="user?.profilePicture"
+				class="user-img pull-left"
+				[ngStyle]="{'border-radius': '50%'}">
+				<cl-transformation width="55" height="55" radius="max" gravity="custom" crop="thumb">
+				</cl-transformation>
+			</cl-image>
+			<form
+				#answerQuestion="ngForm" 
+				class="answer-form"
+				(ngSubmit)="onSubmit(answerQuestion.valid);"
+				>
+				<textarea
+					required
+					[(ngModel)]="communityAnswer.comment" 
+					name="reply-text"
+					rows="3"></textarea>
+				<button 
+					[disabled]="!answerQuestion.valid || isUserAnsweringQuestion"
+					class="btn-peersview-primary btn-sm pull-right answer-btn"
+					type="submit">ANSWER</button>
+			</form>
+		</div>
+
+    <div class="tab-pill answer-question-component row m-peersview-0">
+      <span>LATEST REPLIES</span>
+    </div>
+
+		<div 
+			class="no-answers-container"
+			*ngIf="communityPost.reply.length == 0">
+			<h1 class="text-center">No Answers yet.</h1>
+		</div>
+
+		<div 
+			class="row m-peersview-0" 
+			*ngFor="let reply of communityPost.reply">
+			<div class="answers-list-item" *ngIf="!reply.quoteReplyId && !reply.tagUserId">
+				<span class="text-center">
+					<cl-image
+						public-id="{{reply.user.socialImage ? (reply.user.profilePicture === 'avatar' ? reply.user.socialImage: reply.user.profilePicture): reply.user.profilePicture}}"
+						*ngIf="reply.user?.profilePicture"
+						class="user-img"
+						[ngStyle]="{'border-radius': '50%'}">
+						<cl-transformation width="55" height="55" radius="max" gravity="custom" crop="thumb">
+						</cl-transformation>
+					</cl-image>
+					<p class="text-left m-peersview-0">{{reply.user.firstName | titlecase}} {{reply.user.lastName | titlecase}}</p>
+					<span>{{reply.user.institutionName}}</span>
+					<span class="answer-date">{{reply.updatedAt | date :'short'}}</span>
+				</span>
+				<div class="answer-container pull-right">
+					{{reply.comment}}
+				</div>
+        <div class="options-text row" [ngStyle]="{'width': '100%'}">
+          <div class="col-xs-6 text-center post-likes">
+            <span *ngIf="reply.replyLike  && reply.replyLike[0] && reply.replyLike[0].replyCount > 0">{{reply.replyLike[0].replyCount}}</span>
+            <span>{{reply.replyLike  && reply.replyLike[0] && reply.replyLike[0].replyCount >= 2 ? ' Likes' : ' Like'}}</span>
+          </div>
+          <div class="col-xs-3 text-center post-comments"><span>Reply</span></div>
+          <div class="col-xs-4 text-center"></div>
+        </div>
+        <hr class="m-peersview-y-1 post-options-hr">
+        <div class="options-logo row" [ngStyle]="{'width': '100%'}">
+          <div class="col-xs-6 p-peersview-0 text-center">
+            <button
+              class="btn-peersivew-transparent like"
+              [ngClass]="reply.replyLike[0] &&  reply.replyLike[0].replyCount > 0 ? 'liked' : 'not-yet-liked'"
+              (click)="onClickReplyLike(reply)">
+              <i class="material-icons" >thumb_up</i>
+            </button>
+          </div>
+          <div class="col-xs-3 text-center">
+            <button
+              class="btn-peersivew-transparent reply"
+              (click)="onClickCommentDetail(reply);">
+              <i class="material-icons">reply</i>
+            </button>
+          </div>
+          <div class="col-xs-3 text-center">
+            <report-post-community-component
+              [post]="reply"
+              [user]="user"
+              (onDeletePost)="onDeletePostReply($event)">
+            </report-post-community-component>
+          </div>
+        </div>
+      </div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<community-right-menu-component></community-right-menu-component>
+	</div>
+
+</div>

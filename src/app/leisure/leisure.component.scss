@@ -1,0 +1,27 @@
+.leisure-component {
+  height: 100%;
+  background: url(https://res.cloudinary.com/peersview-com/image/upload/v1518100226/pageBg.jpg) no-repeat;
+  background-size: cover;
+  .social-events-label {
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    margin-right: -50%;
+    color: #fff;
+    transform: translate(-50%, -50%);
+    .small-device {
+      font-size: 20px;
+    }
+  }
+  .coming-soon-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+    transform: translate(-50%, -50%);
+  }
+}
+

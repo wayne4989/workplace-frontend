@@ -1,0 +1,100 @@
+<div class="profile-left-sidebar-user-info-component">
+  <div class="user text-center">
+    <cl-image
+      public-id="{{user.socialImage ? (user.profilePicture === 'avatar' ? user.socialImage: user.profilePicture): user.profilePicture}}"
+      *ngIf="user?.profilePicture"
+      [ngStyle]="{'border-radius': '50%'}"
+      (click)="onOpenShowImageDialogComponent(user)">
+      <cl-transformation width="120" height="120" radius="max" gravity="custom" crop="thumb">
+      </cl-transformation>
+    </cl-image>
+    <input type="button" 
+      *ngIf="!isUserProfile" 
+      value="Follow" 
+      class="hidden-md hidden-lg btn btn-white follow-btn"/>
+    <h4>{{user?.firstName}} {{user?.lastName}}</h4>
+    <shared-user-rating [userCredits]="user.userCredits[0]"></shared-user-rating>
+    <div
+      routerLink="/account-settings/general" 
+      class="edit-profile" 
+      *ngIf="isUserProfile">
+      Edit Profile
+      <i class="material-icons color-purple">create</i>
+    </div>
+    <div *ngIf="!isUserProfile">
+      <a
+        class="peersview-primary-color m-peersview-xr-2"
+         (click)="onOpenMessageDiaglogComponent()">
+        <i class="material-icons">comment</i>
+        Message
+      </a>
+      <a
+        class="peersview-primary-color"
+        (click)="onOpenPostToDiaglogComponent()">
+        <i class="material-icons">border_color</i>
+        Post To
+      </a>
+    </div>
+  </div>
+  <div class="about-me text-center">
+    <div class="col-xs-2">
+      <a data-toggle="tooltip" title="Bio">
+        <i class="material-icons peersview-primary-color">info</i>
+      </a>
+    </div>
+    <div class="col-xs-8">
+      <span *ngIf="isUserProfile">
+        {{user?.aboutMe || 'Tell us about yourself'}}
+      </span>
+      <span *ngIf="!isUserProfile">
+        {{user?.aboutMe || 'No Details to Show'}}
+      </span>
+    </div>
+    <div
+    class="col-xs-2"
+    (click)="onOpenAboutMeDialog()"
+    *ngIf="isUserProfile">
+      <i class="material-icons peersview-primary-color">create</i>
+    </div>
+  </div>
+  <div class="company text-center">
+    <div class="col-xs-2">
+      <a data-toggle="tooltip" title="Institution">
+        <i class="material-icons peersview-primary-color">person</i>
+      </a>
+    </div>
+    <div  class="col-xs-10">
+      {{user?.userType?.name}} | {{user?.company || user?.schoolName}}
+    </div>
+  </div>
+  <div class="institution text-center">
+    <div class="col-xs-2">
+      <a data-toggle="tooltip" title="Status & Location">
+        <i class="material-icons peersview-primary-color">account_balance</i>
+      </a>
+    </div>
+    <div  class="col-xs-10">
+      {{user?.city}}
+    </div>
+  </div>
+  <div class="course text-center">
+    <div class="col-xs-2">
+      <a data-toggle="tooltip" title="Court/Expertise">
+        <i class="material-icons peersview-primary-color">school</i>
+      </a>
+    </div>
+    <div  class="col-xs-10">
+      <span *ngFor="let item of user?.userCourses">
+        {{item.course.name}}
+      </span>
+    </div>
+  </div>
+  <div class="birth-date text-center">
+    <div class="col-xs-2">
+      <i class="material-icons peersview-primary-color">today</i>
+    </div>
+    <div class="col-xs-10">
+      {{user?.birthDate | date :'longDate'}}
+    </div>
+  </div>
+</div>

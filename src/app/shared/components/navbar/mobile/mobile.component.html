@@ -1,0 +1,88 @@
+<div class="navbar-mobile-component">
+  <nav class="navbar navbar-default navbar-fixed-top peersiew-navbar">
+    <div class="container">
+      <div class="nav-left">
+        <cl-image
+          alt="peersview"
+          class="brand-image"
+          public-id="logo"
+          width="75"
+          [routerLink]="['/home']">
+        </cl-image>
+      </div>
+      <div class="nav-right">
+        <span class="dropdown">
+          <a data-toggle="dropdown" id="users-search">
+            <i class="material-icons search-icon" >search</i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right users-search" aria-labelledby="users-search">
+            <div class="input-search">
+              <input type="text" class="form-control" placeholder="Type search text here...">
+              <button class="btn btn-primary btn-xs">
+              <i class="material-icons search-icon" >search</i>
+              </button>
+            </div>
+            <div class="clear"></div>
+            <a [routerLink]="['/advance-search']" class="advance-search-link">Advanced Search</a>
+          </div>
+        </span>
+        <i class="material-icons notification-icon" [routerLink]="['/notification']" matBadge="{{unReadNotificationCount}}" matBadgeColor="warn">notifications_none</i>
+        <i class="material-icons notification-icon" [routerLink]="['/messages']" matBadge="{{unReadMessageCount}}" matBadgeColor="warn">mail_outline</i>
+        <span class="dropdown users-menu">
+           <a id="users-menu" data-toggle="dropdown">
+            <cl-image
+              width="22" 
+              height="22"
+              public-id="{{user.socialImage ? (user.profilePicture === 'avatar' ? user.socialImage: user.profilePicture): user.profilePicture}}"
+              *ngIf="user?.profilePicture"
+              [ngStyle]="{'border-radius': '50%'}"
+            >
+              <cl-transformation width="22" height="22" radius="max" gravity="custom" crop="thumb">
+              </cl-transformation>
+            </cl-image>
+            <i _ngcontent-c9="" class="material-icons key_arrow">keyboard_arrow_down</i>
+           </a>
+           <ul class="dropdown-menu dropdown-menu-right users-dropdown" aria-labelledby="users-menu">
+              <span class="icon-arrow-up"></span>
+              <li><a routerLink="/profile">My Profile</a></li>
+              <li><a routerLink="/account-settings/general">Account Setting</a></li>
+              <li><a routerLink="/support" target="_blank">Peersview Support</a></li>
+              <li><a (click)="onSignOut()">Log-Out</a></li>
+           </ul>
+        </span>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-menu">
+    <div class="col-xs-3 p-peersview-0 text-center home">
+      <a
+      [routerLink]="['/home']"
+      [routerLinkActive]="'page-active'">
+        <i class="material-icons">home</i>
+        <span>Home</span>
+      </a>
+    </div>
+    <div class="col-xs-3 p-peersview-0 text-center community">
+      <a  [routerLink]="['/community/student-community']" [routerLinkActive]="'page-active'">
+        <i class="material-icons nav-menu-community">forum</i>
+        <span class="nav-menu-community">Community</span>
+      </a>
+    </div>
+    <div class="col-xs-3 p-peersview-0 text-center campus">
+      <a 
+        [routerLinkActive]="'page-active'"
+        [routerLink]="['/campus']">
+        <i class="material-icons">group</i>
+        <span>Campus</span>
+      </a>
+    </div>
+    <div class="col-xs-3 p-peersview-0 text-center campus">
+      <a 
+        [routerLinkActive]="'page-active'"
+        [routerLink]="['/leisure']">
+        <i class="material-icons">card_giftcard</i>
+        <span>Leisure</span>
+      </a>
+    </div>
+  </div>
+</div>

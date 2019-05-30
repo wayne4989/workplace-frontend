@@ -1,0 +1,88 @@
+@import 'src/assets/scss/variables';
+
+.digital-campus-instructors-component {
+  background-color: $primary-color-dark;
+  .inline-widget .inline-widget-header {
+    display: flex;
+    align-items: center;
+    .material-icons {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+  }
+  .inline-content {
+    overflow: hidden;
+    max-height: 0;
+    li {
+      margin: 6px;
+      list-style-type: disc;
+    }
+  }
+  .bubble {
+    margin: 10px 0 20px 0;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #bababa;
+    border-radius: 7px;
+    box-shadow: 0 0 5px #b7b7b7;
+  }
+  .instructors-header h2, .instructors-header h4 {
+    color: #ffffff;
+  }
+  .instructors-how-it-works-container {
+    margin-bottom: 15%;
+  }
+  .instructors-how-it-works-flow {
+    font-size: 15px;
+    text-align: center;
+    border: none;
+    border-radius: 2px;
+    color: #555;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.36);
+    &:after {
+      position: absolute;
+      content: '';
+      left: 45%;
+      top: 110%;
+      width: 30px;
+      height: 34px;
+      background-image: url('https://res.cloudinary.com/peersview-com/image/upload/v1519848975/downArrow.png');
+      background-repeat: no-repeat;
+    }
+  }
+  .instructors-how-it-works-flow.last-child {
+    &:after {
+      background-image: unset;
+    }
+  }
+
+  // Custom, iPhone Retina
+  @media only screen and (min-width : 320px) {}
+  // extra Small Devices, Phones
+  @media only screen and (min-width : 480px) {}
+  // Small Devices, Tablets
+  @media only screen and (min-width : 768px) {
+    .instructors-how-it-works-container {
+      margin-bottom: 6%;
+    }
+    .instructors-how-it-works-flow {
+      padding: 20px;
+    }
+  }
+  // Medium Devices, Desktops
+  @media only screen and (min-width : 992px) {
+    .instructors-how-it-works-container {
+      margin-bottom: 0;
+    }
+    .instructors-how-it-works-flow {
+      padding: 5px;
+      &:after {
+        top: 35%;
+        left: 110%;
+        transform: rotate(-90deg);
+      }
+    }
+  }
+  // Large Devices, Wide Screens
+  @media only screen and (min-width : 1200px) {}
+}

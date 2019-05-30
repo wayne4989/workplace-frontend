@@ -1,0 +1,19 @@
+@import 'src/assets/scss/variables';
+
+.digital-campus-network-administrators-component {
+  background-color: $primary-color-dark;
+  .bubble {
+    margin: 10px 0 20px 0;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #bababa;
+    border-radius: 7px;
+    box-shadow: 0 0 5px #b7b7b7;
+  }
+  ul li {
+    list-style: disc;
+  }
+  .network-administrators-header h2, .network-administrators-header h4 {
+    color: #ffffff;
+  }
+}

@@ -1,0 +1,13 @@
+<div class="report-post-reply-component">
+  <div class="dropdown">
+    <button
+    class="flat-btn purple pull-right dropdown-toggle"
+    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="material-icons">more_vert</i>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-right">
+      <li><a (click)="openReportModal()">Report Post Reply</a></li>
+      <li *ngIf="reply.user.id === user.id"><a (click)="onOpenConfirmModal()">Delete Post Reply</a></li>
+    </ul>
+  </div>
+</div>

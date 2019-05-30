@@ -1,0 +1,42 @@
+<div class="shared-upload-image-component">
+  <div class="file-drop-container" ng2FileDrop [uploader]="uploader" (fileOver)="onFileOverBase($event)" [ngClass]="{'nv-file-over': hasBaseDropZoneOver}">
+    <form>
+      <input class="upload-file" id="uploadImage" accept="image/*" ng2FileSelect #fileInput type="file" style="display:none;" multiple [uploader]="uploader" (change)="fileInput.value=''" accept="image/gif, image/jpeg, image/png" />
+    </form>
+    <div 
+      class="file-drop-or-select"
+      *ngIf="uploadOptions.event === 'postPost'"
+    >
+      Add images by dropping them here... <br />
+      <em> Maximum of 4 images only. </em>
+    </div>
+    <div 
+      class="file-drop-or-select"
+      *ngIf="uploadOptions.event === 'changeProfilePic'"
+    >
+      {{imagesToUpload.length === 1 ? 'Remove the attached photo first by tapping it, before selecting again if you wish to replace it.' : 'Pick photo ...' }}<br />
+    </div>
+    <div class="img-to-upload-list" *ngIf="imagesToUpload">
+      <div class="img-crop" *ngFor="let imageUrl of imagesToUpload; let i = index;">
+        <div class="remove-img" (click)="onRemoveFromQueue(i)"><i class="material-icons">close</i></div>
+        <img class="{{'img-' + queuedImageOrientation[i]}}" [src]="imageUrl">
+      </div>
+      <label 
+        for="uploadImage" 
+        class="img-crop img-crop-add-photo"
+        [ngClass]="{'change-profile-pic': uploadOptions.event === 'changeProfilePic'}"
+        *ngIf="uploadOptions.queueLimit !== imagesToUpload.length"
+      >
+        <i class="material-icons">add_circle_outline</i>
+      </label>
+    </div>
+    <!-- *ngIf="uploadInProgress" -->
+    <div class="file" *ngIf="isUploadStarted">
+      <div class="upload-status" *ngIf="!isUploadComplete">
+        <div>Uploading...</div>
+        <mat-progress-bar mode="buffer"></mat-progress-bar>
+      </div>
+      <div class="upload-complete" *ngIf="isUploadComplete">Upload Complete!</div>
+    </div>
+  </div>
+</div>

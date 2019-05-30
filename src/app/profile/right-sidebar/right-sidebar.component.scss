@@ -1,0 +1,23 @@
+.profile-right-sidebar-component {
+  .follow-btn-and-options {
+    display: inline-flex;
+    .follow-btn {
+      width: 120px;
+      margin: 10px 0;
+    }
+    i {
+      margin-top: 13px;
+    }
+  }
+
+  .shared-social-component {
+    margin-top: 20px;
+  }
+  .shared-followers-component {
+    margin-top: 20px;
+  }
+  .followed-btn {
+    background-color: #631990;
+    color: #fff;
+  }
+}

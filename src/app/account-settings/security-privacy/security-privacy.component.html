@@ -1,0 +1,41 @@
+<div class="account-settings-security-privacy-component">
+  <div class="tab-title">SECURITY AND PRIVACY</div>
+  <div class="row p-peersview-y-1 m-peersview-0">
+    <div class="p-peersview-0 col-sm-3">
+      <label class="setting-lbl">Protect my posts:</label>
+    </div>
+    <div class="col-sm-9">
+      <input type="checkbox" [(ngModel)]="user.protectPost"/>
+    </div>
+  </div>
+
+  <div class="row p-peersview-y-1 m-peersview-0">
+    <div class="p-peersview-0 col-sm-3">
+      <label class="setting-lbl">Direct Messages:</label>
+    </div>
+    <div class="col-sm-9">
+      <input type="checkbox" [(ngModel)]="user.profilePrivacy"/>
+      Receive Direct Messages from anyone
+      <div class="note-text">If selected, you will be able to receive messages from any Peersview user even if you do not follow them.</div>
+    </div>
+  </div>
+
+  <div class="row p-peersview-y-1 m-peersview-0">
+    <div class="p-peersview-0 col-sm-3">
+      <label>Who can View my Profile:</label>
+    </div>
+    <div class="col-sm-7">
+      <select class="form-control" [(ngModel)]="user.userPrivacyId">
+        <option value="1">Everyone</option>
+        <option value="2">People I Follow</option>
+        <option value="3">My Followers</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row p-peersview-y-1 text-right m-peersview-0">
+    <button
+      class="btn-peersview-primary btn-peersview-md"
+      (click)="onUpdateSecurity();">Update</button>
+  </div>
+</div>

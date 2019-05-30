@@ -1,0 +1,46 @@
+<div class="mentoring-component">
+	<div class="row">
+		<div class="header-content">
+			<h2 class="peersview-primary-color m-peersview-yt-3 m-peersview-yb-2">
+				<span>MENTORING</span>
+				<div class="become-mentor-btn-container">
+					<div class="become-a-mentor-label text-center">Become a Mentor</div>
+					<button class="btn-peersview-primary add-mentor" (click)="onBecomeAMentor()">
+						<i class="material-icons">add</i>
+					</button>
+				</div>
+			</h2>
+		</div>
+	</div>
+
+	<div class="mentoring-body">
+		<div class="row m-peersview-yb-2">
+			<div class="col-xs-12">
+				<h3 class="mentors-label text-center">Mentors</h3>
+			</div>
+		</div>
+		
+		<div class="mentors-list row m-peersview-0">
+			<div 
+				class="col-xs-12 col-sm-12 col-md-4" 
+				*ngFor="let item of mentors" >
+				<div 
+					class="mentor-item"
+					(click)="onClickMentorName(item)"
+					>
+					<p>{{item.firstName}} {{ item.lastName}}</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 m-peersview-yt-3">
+			<input
+				type="email"
+				class="form-control mentor-search"
+				placeholder="Search for more Mentors through a topic..."
+				autocomplete="email"
+				name="email"
+				required
+				>
+		</div>
+	</div>
+</div>

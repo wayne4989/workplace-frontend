@@ -1,0 +1,43 @@
+<div class="shared-post-reply-comment-component">
+  <div class="col-xs-12 " >
+      <div class="reply-container">
+        <div class="form-group">
+          <div class="input-group">
+            <input required [(ngModel)]="postReply.comment" type="text" class="form-control" required>
+            <span class="input-group-btn">
+              <button
+                  class="btn btn-peersview-primary"
+                  type="button" (click)="onPostReplyComment()"
+                  [disabled]="isUserCurrentlyCommenting">Reply</button>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="post.postReply">
+        <div *ngFor="let item of post.postReply.slice().reverse()">
+          <ul style="display: flex;" *ngIf="item.quoteReplyId && reply.id === item.quoteReplyId">
+            <cl-image
+              public-id="{{item.user.socialImage ? (item.user.profilePicture === 'avatar' ? item.user.socialImage: item.user.profilePicture): item.user.profilePicture}}"
+              *ngIf="item.user?.profilePicture"
+              class="user-img"
+              [ngStyle]="{'border-radius': '50%'}">
+              <cl-transformation width="55" height="55" radius="max" gravity="custom" crop="thumb">
+              </cl-transformation>
+            </cl-image>
+            <li class="comment-container">
+              <span>
+                <span>
+                  <b>{{item.user.firstName | titlecase}} {{item.user.lastName | titlecase}}</b>
+                </span> {{item.comment}}
+              </span>
+              <div class="post-time"> <small>{{item.createdAt | date : 'short'}}</small></div>
+              <report-post-reply-component
+                [reply]="item"
+                (onDeletePostReply)="onDeletePostReply($event)">
+              </report-post-reply-component>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </div>
+</div>

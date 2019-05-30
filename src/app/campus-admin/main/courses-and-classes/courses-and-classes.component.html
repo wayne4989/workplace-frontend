@@ -1,0 +1,153 @@
+<div class="campus-admin-courses-and-classes-component">
+  <div class="course-classes-inner-container col-xs-12">
+    <h4 class="text-center courses-classes-title">A1015 Business Accounting</h4>
+    <hr>
+    <div class="courses-and-classes-container">
+      <div class="row">
+        <div class="col-xs-4 title">
+          <h4>Course Name</h4>
+          <i class="material-icons create-icon">create</i>
+        </div>
+        <div class="col-xs-4 title">
+          <h4>Course ID</h4>
+          <i class="material-icons create-icon">create</i>
+        </div>
+        <div class="col-xs-4 text-right">
+          <h5>
+            <i class="material-icons create-icon">create</i>
+            <i class="material-icons delete-icon">delete</i>
+          </h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="dropdown-menu classes-dropdown">
+          <h6 class="dropdown-header" (click)="toggleClasses = !toggleClasses">
+            <i class="material-icons">class</i>
+            Classes (2)
+            <i class="material-icons" *ngIf="toggleClasses">keyboard_arrow_up</i>
+            <i class="material-icons" *ngIf="!toggleClasses">keyboard_arrow_down</i>
+          </h6>
+          <div class="dropdown-item row" *ngIf="toggleClasses">
+            <div class="col-xs-3 title">
+              Class Name 1
+              <i class="material-icons create-icon">create</i>
+            </div>
+            <div class="col-xs-3 title">
+              <i class="material-icons create-icon">group</i>
+              <small>23 People</small>
+            </div>
+            <div class="col-xs-6 text-right title">
+              <i class="material-icons create-icon">trash</i>
+            </div>
+            <hr>
+          </div>
+          <div class="dropdown-item row" *ngIf="toggleClasses">
+            <div class="col-xs-3 title">
+              Class Name 1 <i class="material-icons create-icon">create</i>
+            </div>
+            <div class="col-xs-3 title">
+              <i class="material-icons create-icon">group</i>
+              <small>23 People</small>
+            </div>
+            <div class="col-xs-6 text-right title">
+              <i class="material-icons create-icon">trash</i>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="dropdown-menu classes-dropdown">
+          <div class="col-xs-3">
+            <input type="text" class="form-control">
+          </div>
+          <div class="col-xs-3">
+            <input type="text" class="form-control">
+          </div>
+          <div class="col-xs-6">
+            <button class="btn btn-lg pull-right">Add Class</button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <hr>
+        <div class="col-xs-4 title">
+          <h4>Course Name </h4>
+          <i class="material-icons create-icon">create</i>
+        </div>
+        <div class="col-xs-4 title">
+          <h4>Course ID </h4>
+          <i class="material-icons create-icon">create</i>
+        </div>
+        <div class="col-xs-4 text-right">
+          <h5>
+            <i class="material-icons create-icon">create</i>
+            <i class="material-icons delete-icon">delete</i>
+          </h5>
+        </div>
+      </div>
+      <div class="col-xs-12 dropdown-group">
+        <hr>
+        <div class="col-xs-3 courses-classes-dropdown">
+          <label>How many courses?</label>
+          <div class="btn-group dropdown btn-block">
+            <button type="button" class="btn btn-secondary btn-label">
+              Select
+            </button>
+            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false" [ngStyle]="{'padding': '1.5px'}">
+              <i class="material-icons">keyboard_arrow_down</i>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-3 courses-classes-dropdown">
+          <label>How many classes per course?</label>
+          <div class="btn-group dropdown btn-block">
+            <button type="button" class="btn btn-secondary btn-label">
+              Select
+            </button>
+            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false" [ngStyle]="{'padding': '1.5px'}">
+              <i class="material-icons">keyboard_arrow_down</i>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-3 courses-classes-dropdown faculty-dd">
+          <label>Choose faculty</label>
+          <div class="btn-group dropdown">
+            <button type="button" class="btn btn-secondary btn-label">
+              Select
+            </button>
+            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false" [ngStyle]="{'padding': '1.5px'}">
+              <i class="material-icons">keyboard_arrow_down</i>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-3 add-course-btn">
+          <button class="btn btn-block btn-lg btn-peersview-primary">Add Course(s)</button>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+  </div>
+
+
+</div>

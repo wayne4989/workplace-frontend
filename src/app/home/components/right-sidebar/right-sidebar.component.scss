@@ -1,0 +1,83 @@
+.home-right-sidebar-component {
+	background: white;
+	padding: 0px 15px 15px;
+  .widget-title {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin: 7px 0 20px 0;
+    font-size: 18px;
+    font-family: "Maven Pro", sans-serif;
+		color: #333333;
+		font-weight: bold;
+    border-bottom: none;
+  }
+  .invite-form {
+    padding: 15px;
+    background: #ffffff;
+    border: solid 1px #d8d8d8;
+		border-radius: 3px;
+		.form-group {
+			margin-bottom: 10px;
+		}
+    label {
+			padding: 5px 0 10px 0;
+			font-size: 15px;
+			font-family: 'Conv_MavenPro-Bold';
+			color: #989898;
+		}
+		.sidebar-input {
+			height: 45px;
+			border-color: #cccccc !important;
+  	  box-shadow: none;
+		}
+		.btn-white {
+			padding: 6px 25px;
+			min-width: auto;
+		}
+		.or-text {
+			position: relative;
+			padding: 15px 0;
+			margin: 10px 0;
+			text-align: center;
+			.line {
+				position: absolute;
+				top: 24px;
+				height: 1px;
+				width: 100%;
+				background-color: #d8d8d8;
+			}
+			span {
+				position: relative;
+  	  	padding: 0 10px;
+  	  	margin: -15px 0 0 0;
+  	  	display: inline-block;
+  	  	font-size: 16px;
+	    	color: #989898;
+				background: #ffffff;
+			}
+		}
+		.email-site {
+			a {
+				display: inline-block;
+				padding-top: 8px;
+				margin: 0 3px;
+				height: 40px;
+				width: 40px;
+				color: #fff;
+				border-radius: 50px;
+			}
+			.email-fb {
+				background: darkblue;
+			}
+			.email-twitter {
+				background: #59e6ff;
+			}
+			.email-gmail {
+				background: #ff6d4a;
+			}
+		}
+  }
+  .shared-peers-you-may-know-component {
+	margin-top: 15px;
+  }
+}

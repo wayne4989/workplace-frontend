@@ -1,0 +1,30 @@
+<div class="profile-right-sidebar-component">
+  <div 
+    class="follow-btn-and-options" 
+    *ngIf="user"
+  >
+    <input 
+      type="button" 
+      class="hidden-xs hidden-sm btn btn-white follow-btn"
+      [value]="followed ? 'Followed': 'Follow'" 
+      [ngClass]="{'followed-btn' : followed}"
+      (click)="onClickFollowButton()"
+    />
+    <div class="dropdown" style="margin-left: auto">
+      <button
+        class="flat-btn purple pull-right dropdown-toggle"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-right">
+        <li><a>Block User</a></li>
+        <li><a>Report User</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <shared-followee-component></shared-followee-component>
+  <shared-social-component></shared-social-component>
+  <shared-followers-component></shared-followers-component>
+  <shared-sidebar-footer-component></shared-sidebar-footer-component>
+</div>

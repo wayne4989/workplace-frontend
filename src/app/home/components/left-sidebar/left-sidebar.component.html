@@ -1,0 +1,56 @@
+<!-- <div class="col-md-2 fixed-sidebar-wrapper home-sidebar home-left-sidebar-component hidden-xs "> -->
+<div class="home-left-sidebar-component">
+  <div stickyWidget class="sticky-width wide home-sidebar">
+    <div class="fixed-sidebar">
+      <div class="widget profile-widget">
+        <div class="top-info">
+          <a class="user-img">
+            <cl-image
+              public-id="{{user.socialImage ? (user.profilePicture === 'avatar' ? user.socialImage: user.profilePicture): user.profilePicture}}"
+              *ngIf="user?.profilePicture" (click)="openAvatar()"
+            >
+              <cl-transformation width="130" height="130" radius="max" gravity="custom" crop="thumb">
+              </cl-transformation>
+            </cl-image>
+          </a>
+          <h3 class="user-name" *ngIf="user">
+            <a (click)="onClickUserProfile()">
+              <span class="user-name"> {{user.firstName}} {{user.lastName}}</span>
+            </a>
+          </h3>
+          <shared-user-rating [userCredits]=" user && user.userCredits && user.userCredits[0]"></shared-user-rating>
+          <div class="post-share ">
+            <span class="stars" *ngIf="starsPercentage">
+              <span [style.width]="starsPercentage"></span>
+            </span>
+          </div>
+        </div>
+        <div class="follow-box">
+          <a routerLink="/followers-following">
+            <i class="material-icons">reply</i>
+            <p>Following</p>
+            <span>{{following}}</span>
+          </a>
+          <a routerLink="/followers-following">
+            <i class="material-icons">person</i>
+            <p>Followers</p>
+            <span>{{followers}}</span>
+          </a>
+        </div>
+      </div>
+      <div class="widget quick-feed">
+        <h3 class="text-center">
+          <div><span>5</span> things to do</div>
+          <div>in <span>15</span> minutes</div>
+        </h3>
+        <ul class="list">
+          <li><a>Invite your peers</a></li>
+          <li><a (click)="onClickUserProfile()">Complete your profile</a></li>
+          <li><a routerLink="/peers/list">Follow a few Peers</a></li>
+          <li><a routerLink="/community/student-community">Checkout the Community</a></li>
+          <li><a routerLink="/campus">Join your school's Campus</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

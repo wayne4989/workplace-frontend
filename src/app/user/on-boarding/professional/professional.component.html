@@ -1,0 +1,78 @@
+<div class="user-on-boarding-professional-component">
+  <div class="status-selection">
+    <h3>Status: Ex-Student</h3>
+  </div>
+  <div class="professional-body-content">
+    <div class="col-md-6 professional-expertise">
+      <h3 class="peersview-primary-color-light">Your Area of Expertise:</h3>
+      <div class="col-sm-12 interest-input-search">
+        <div class="col-sm-12 m-peersview-yb-1">
+          <select class="form-control" name="courseId" required (change)="onChangeCourse($event.target.value)">
+            <option value="0">Course</option>
+            <option *ngFor="let course of courses" [value]="course.id">
+              {{course.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="professional-course-added">
+        <ul class="added-tags-list">
+          <li *ngFor="let course of courseAdded">
+            <span>{{course.name}}</span>
+            <a (click)="removeCourseAdded(course)" class="delete-tag" title="Delete"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6 professional-additional-information">
+      <div class="professional-additional-information-content">
+        <div class="row">
+          <h3 class="peersview-primary-color text-center">Ex-Student Information</h3>
+        </div>
+        <div class="row m-peersview-yb-2">
+          <div class="col-sm-12">
+            <label class="peersview-primary-color">Current City</label>
+            <input
+              type="text"
+              class="form-control"
+              name="currentCity"
+              [(ngModel)]="user.city"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <label class="peersview-primary-color">Current Company</label>
+            <input
+              type="text"
+              class="form-control"
+              name="currentCompany"
+              [(ngModel)]="user.company"/>
+          </div>
+          <div class="col-sm-6">
+            <label class="peersview-primary-color">Date of Birth</label>
+            <mat-form-field [ngStyle]="{'width': '100%'}">
+              <input
+                matInput
+                [matDatepicker]="picker"
+                name="dateOfBirth"
+                placeholder="Date of birth"
+                name="birthDate"
+                required
+                [(ngModel)]="user.birthDate">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 m-peersview-y-2 text-right">
+    <input
+      class="btn-peersview-secondary btn-peersview-lg"
+      value="Continue"
+      type="button"
+      (click)="onSubmit();">
+  </div>
+</div>

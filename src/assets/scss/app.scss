@@ -1,0 +1,625 @@
+@import './variables';
+@import './mixins';
+
+/**
+ * This would be our global css
+ */
+// general
+html,
+body,
+button,
+input,
+div,
+textarea {
+  font-family: $font-family-primary;
+}
+p {
+  font-family: $font-family-secondary;
+  font-size: 1.7rem;
+}
+html,
+body {
+  height: 100%;
+  background: #f4f4f4;
+}
+ul,
+li,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  @include anchor();
+  // text-decoration: none;
+  // &:hover {
+  //   text-decoration: none;
+  // }
+}
+input {
+  border-radius: 0;
+  &:focus {
+    border-color: unset;
+    box-shadow: none;
+  }
+}
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  outline: unset;
+}
+.form-control {
+  border-radius: 0;
+  min-height: 38px;
+  color: $primary-color-light;
+  &::placeholder {
+    color: $primary-color-light;
+  }
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: none;
+  }
+}
+
+// override angular material
+.mat-form-field-label,
+.mat-focused .mat-form-field-label,
+.mat-datepicker-toggle-active,
+.mat-form-field-infix  {
+  color: $primary-color-light;
+}
+.mat-form-field-underline {
+  background-color: $primary-color;
+}
+.cdk-overlay-pane.mat-datepicker-popup {
+  position: absolute;
+  top: 50%;
+  right: auto !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  bottom: unset !important;
+}
+
+// classes
+.font-family-primary {
+  font-family: $font-family-primary
+}
+.mouse-pointer {
+  cursor: pointer;
+}
+
+//colors
+.peersview-primary-color {
+  color: $primary-color;
+}
+.peersview-primary-color-light {
+  color: $primary-color-light;
+}
+.peersview-primary-color-dark {
+  color: $primary-color-dark;
+}
+.peersview-secondary-color {
+  color: $secondary-color;
+}
+.peersview-secondary-light {
+  color: $secondary-color-light;
+}
+.peersview-secondary-color-dark {
+  color: $secondary-color-dark;
+}
+
+//bg-colors
+.peersview-primary-bg-color {
+  background: $primary-color;
+}
+.peersview-primary-bg-color-light {
+  background: $primary-color-light;
+}
+.peersview-primary-bg-color-dark {
+  background: $primary-color-dark;
+}
+
+// button
+.btn-peersview-primary {
+  @include btn-peersview-primary($primary-color, 1px solid #ffffff);
+}
+.btn-peersview-secondary {
+  @include btn-peersview-secondary($secondary-color);
+}
+.btn-peersview-transparent {
+  @include btn-peersview-transparent();
+}
+.btn-peersview-cancel {
+  @include btn-peersview-cancel($gray);
+}
+.btn-peersview-xl {
+  @include btn-xl;
+}
+.btn-peersview-lg {
+  @include btn-lg;
+}
+.btn-peersview-md {
+  @include btn-md;
+}
+.btn-peersview-sm {
+  @include btn-sm;
+}
+.btn-peersview-xs {
+  @include btn-xs;
+}
+.btn-peersivew-transparent {
+  @include btn-transparent;
+}
+.btn-white {
+  @include btn-white;
+}
+.flat-btn {
+  @include flat-btn;
+}
+// padding
+.p-peersview-0 {
+  @include padding-0;
+}
+.p-peersview-1 {
+  @include padding-1;
+}
+.p-peersview-2 {
+  @include padding-2;
+}
+.p-peersview-3 {
+  @include padding-3;
+}
+.p-peersview-4 {
+  @include padding-4;
+}
+.p-peersview-5 {
+  @include padding-5;
+}
+.p-peersview-y-0 {
+  @include padding-y-1;
+}
+.p-peersview-y-1 {
+  @include padding-y-1;
+}
+.p-peersview-y-2 {
+  @include padding-y-2;
+}
+.p-peersview-y-3 {
+  @include padding-y-3;
+}
+.p-peersview-y-4 {
+  @include padding-y-4;
+}
+.p-peersview-y-5 {
+  @include padding-y-5;
+}
+.p-peersview-yb-0 {
+  @include padding-yb-1;
+}
+.p-peersview-yb-1 {
+  @include padding-yb-1;
+}
+.p-peersview-yb-2 {
+  @include padding-yb-2;
+}
+.p-peersview-yb-3 {
+  @include padding-yb-3;
+}
+.p-peersview-yb-4 {
+  @include padding-yb-4;
+}
+.p-peersview-yb-5 {
+  @include padding-yb-5;
+}
+.p-peersview-x-0 {
+  @include padding-x-0;
+}
+.p-peersview-x-1 {
+  @include padding-x-1;
+}
+.p-peersview-x-2 {
+  @include padding-x-2;
+}
+.p-peersview-x-3 {
+  @include padding-x-3;
+}
+.p-peersview-x-4 {
+  @include padding-x-4;
+}
+.p-peersview-x-5 {
+  @include padding-x-5;
+}
+
+// margin
+.m-peersview-0 {
+  @include margin-0;
+}
+.m-peersview-1 {
+  @include margin-1;
+}
+.m-peersview-2{
+  @include margin-2;
+}
+.m-peersview-3 {
+  @include margin-3;
+}
+.m-peersview-4 {
+  @include margin-4;
+}
+.m-peersview-5 {
+  @include margin-5;
+}
+.m-peersview-y-0 {
+  @include margin-y-0;
+}
+.m-peersview-y-1 {
+  @include margin-y-1;
+}
+.m-peersview-y-2 {
+  @include margin-y-2;
+}
+.m-peersview-y-3 {
+  @include margin-y-3;
+}
+.m-peersview-y-4 {
+  @include margin-y-4;
+}
+.m-peersview-y-5 {
+  @include margin-y-5;
+}
+.m-peersview-yt-0 {
+  @include margin-yt-0;
+}
+.m-peersview-yt-1 {
+  @include margin-yt-1;
+}
+.m-peersview-yt-2 {
+  @include margin-yt-2;
+}
+.m-peersview-yt-3 {
+  @include margin-yt-3;
+}
+.m-peersview-yt-4 {
+  @include margin-yt-4;
+}
+.m-peersview-yt-5 {
+  @include margin-yt-5;
+}
+.m-peersview-yb-0 {
+  @include margin-yb-0;
+}
+.m-peersview-yb-1 {
+  @include margin-yb-1;
+}
+.m-peersview-yb-2 {
+  @include margin-yb-2;
+}
+.m-peersview-yb-3 {
+  @include margin-yb-3;
+}
+.m-peersview-yb-4 {
+  @include margin-yb-4;
+}
+.m-peersview-yb-5 {
+  @include margin-yb-5;
+}
+.m-peersview-x-0 {
+  @include margin-x-0;
+}
+.m-peersview-x-1 {
+  @include margin-x-1;
+}
+.m-peersview-x-2 {
+  @include margin-x-2;
+}
+.m-peersview-x-3 {
+  @include margin-x-3;
+}
+.m-peersview-x-4 {
+  @include margin-x-4;
+}
+.m-peersview-x-5 {
+  @include margin-x-5;
+}
+.m-peersview-xr-0 {
+  @include margin-xr-0;
+}
+.m-peersview-xr-1 {
+  @include margin-xr-1;
+}
+.m-peersview-xr-2 {
+  @include margin-xr-2;
+}
+.m-peersview-xr-3 {
+  @include margin-xr-3;
+}
+.m-peersview-xr-4 {
+  @include margin-xr-4;
+}
+.m-peersview-xr-5 {
+  @include margin-xr-5;
+}
+// font weight
+.peersview-font-weight-light {
+  font-weight: $font-weight-light;
+}
+.peersview-font-weigth-regular {
+  font-weight: $font-weight-regular;
+}
+.peersview-font-weigth-bold {
+  font-weight: $font-weight-bold;
+}
+
+/**
+ * Animation which includes
+ * Shared directives
+ */
+ // general use of the child components
+.toggled {
+  animation-name: slidedown;
+  animation-timing-function: ease-in;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  padding: 5px 10px;
+}
+
+.slideUp {
+  animation-name: slideup;
+  animation-timing-function: ease-out;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+@keyframes slidedown {
+  0% {max-height: 0;}
+  99% {max-height: 200px;}
+  100% {max-height: 4000px;}
+}
+@keyframes slideup {
+  0% {
+    max-height: 200px;
+    padding: 5px 10px;
+  }
+  99% {
+    max-height: 0;
+    padding: 5px 10px;
+  }
+  100% {
+    max-height: 0;
+    padding: 0;
+  }
+}
+
+.post-time {
+  font-size: 12px;
+  color: #989898;
+  margin: 0;
+}
+
+.sticky-navbar-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+// Angular Material Dialog modals
+
+.cdk-overlay-container {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+
+  .cdk-overlay-backdrop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.288);
+    pointer-events: auto;
+    transition: opacity 0.4s cubic-bezier(.25,.8,.25,1);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-transition: opacity 0.4s cubic-bezier(.25,.8,.25,1);
+  }
+
+  .cdk-overlay-pane {
+    // width: 100vh;
+    // max-width: 100vh !important;
+
+    .mat-dialog-container {
+      position: relative;
+      top: 110px;
+      height: auto;
+      max-height: 80%;
+      margin: auto;
+      background-color: #fff;
+      //
+      // button.close {
+      //   position: absolute;
+      //   top: 0;
+      //   right: 15px;
+      //   outline: none;
+      //   font-size: 27px;
+      //   font-weight: bold;
+      // }
+    }
+  }
+
+  /* Image Preview Modal */
+  .image-preview-modal {
+    .mat-dialog-container{
+      top: 0px;
+      margin: 0;
+      max-height: 100%;
+      padding: 0px;
+    }
+  }
+
+  .image-preview-modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  /*Become a Mentor Modal*/
+  .become-a-mentor-modal {
+    width: 450px;
+    .mat-dialog-container {
+      height: 70%;
+      top: 12% !important;
+    }
+  } 
+  .mentor-details-modal {
+    width: 450px;
+    .mat-dialog-container {
+      top: auto;
+      height: fit-content;
+    }
+  }
+  .ask-a-question-modal {
+    width: 450px;
+    .mat-dialog-container {
+      top: auto;
+      height: fit-content;
+    }
+  }
+  .ask-a-question-modal {
+    width: 450px;
+    .mat-dialog-container {
+      top: auto;
+      height: fit-content;
+    }
+  }
+  /* Cancel Saving Ad*/
+  .cancel-saving-ad-modal,
+  .report-post-modal {
+    .mat-dialog-container {
+      top: 0;
+      width: auto;
+    }
+  } 
+  .create-community-modal {
+    width: 450px;
+    .mat-dialog-container {
+      padding: 0 10px !important;
+      height: fit-content;
+    }
+  }
+  /* Share Post Modal */
+  /* Post Like Detail Modal */
+  /* Post Comment Detail Modal */
+  .share-post-modal,
+  .post-comment-detail-modal, 
+  .post-like-detail-modal,
+  .become-a-mentor-modal,
+  .create-community-modal {
+    .mat-dialog-container{
+      top: 20px;
+      margin: 0;
+      max-height: 94%;
+      padding: 0px;
+    }
+  }
+}
+// Remove outline on button active 
+button {
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+// When a Modal is opened, disable page scrolling
+.mat-dialog-is-open {
+  overflow-y: hidden;
+}
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+  .cdk-overlay-pane {
+    width: 100vw;
+    max-width: 100vw !important;
+    height: 100vh;
+  }
+
+  .cdk-overlay-container.image-preview-modal {
+    height: 100vh;
+    max-height: 100vh;
+    width: 100vw;
+    max-width: 100vw;
+  }
+  
+  .cdk-overlay-pane.share-post-modal,
+  .cdk-overlay-pane.post-comment-detail-modal,
+  .cdk-overlay-pane.post-like-detail-modal {
+    min-height: 80vh;
+    max-height: 85vh;
+    width: 90%;
+  }
+}
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {}
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  // .mat-dialog-container {
+  //   width: 500px !important;
+  // }
+  .image-preview-modal {
+    .mat-dialog-container{
+      width: 750px;
+      max-width: 750px;
+      margin: auto !important;
+      padding: 5px !important;
+    }
+  }
+  .cdk-overlay-pane.share-post-modal,
+  .cdk-overlay-pane.post-comment-detail-modal,
+  .cdk-overlay-pane.post-like-detail-modal {
+    min-height: 60vh;
+    max-height: 85vh;
+    width: 90%;
+  }
+}
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  .cdk-overlay-pane {
+    width: 80vw;
+    max-width: 80vw !important;
+  }
+  .image-preview-modal {
+    .mat-dialog-container{
+      width: 1000px;
+      max-width: 1000px;
+      margin: auto !important;
+      padding: 5px !important;
+    }
+  }
+
+  .cdk-overlay-pane.share-post-modal,
+  .cdk-overlay-pane.post-comment-detail-modal,
+  .cdk-overlay-pane.post-like-detail-modal {
+    min-height: 75vh;
+    max-height: 80vh;
+    width: 80%;
+  }
+}
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+  .image-preview-modal {
+    .mat-dialog-container{
+      width: 1200px;
+      max-width: 1200px;
+      margin: auto !important;
+      padding: 5px !important;
+    }
+  }
+
+  .cdk-overlay-pane.share-post-modal,
+  .cdk-overlay-pane.post-comment-detail-modal,
+  .cdk-overlay-pane.post-like-detail-modal {
+    min-height: 85vh;
+    max-height: 95vh;
+    width: 50%;
+  }
+}

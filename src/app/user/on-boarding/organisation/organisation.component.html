@@ -1,0 +1,56 @@
+<div class="user-on-boarding-student-component m-peersview-yt-4">
+  <div class="col-md-6 col-md-offset-3 text-center">
+    <form
+      class="form-horizontal"
+      #onboardingOrganisationDetails="ngForm"
+      (ngSubmit)="onSubmit(onboardingOrganisationDetails.valid);">
+      <h3 class="peersview-primary-color-light">
+        Status:
+        <span class="peersview-primary-color">Endorsed Account</span>
+      </h3>
+      <div class="col-sm-12 m-peersview-yb-1">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Name of Institution"
+          autocomplete="institutionName"
+          name="institutionName"
+          required
+          [(ngModel)]="user.institutionName">
+      </div>
+      <div class="col-sm-12 m-peersview-yb-1">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Current City"
+          autocomplete="currentCity"
+          name="currentCity"
+          required
+          [(ngModel)]="user.city">
+      </div>
+      <div class="col-sm-12 m-peersview-yb-1">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Year of Incorporation"
+          autocomplete="yearOfIncorporation"
+          name="yearOfIncorporation"
+          required
+          [(ngModel)]="user.yearOfIncorporation">
+      </div>
+      <div class="col-sm-12 m-peersview-yb-1">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Website"
+          autocomplete="website"
+          name="website"
+          required
+          [(ngModel)]="user.website">
+      </div>
+      <div class="col-sm-12  m-peersview-yb-2">
+        <button type="submit" class="btn-peersview-secondary btn-peersview-md btn-block">Continue</button>
+      </div>
+    </form>
+  </div>
+</div>

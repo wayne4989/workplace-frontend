@@ -1,0 +1,158 @@
+.shared-share-post-modal-component {
+  height: 95%;
+  .create-new-forum {
+    height: 100%;
+  }
+  .share-message-input {
+    border: 0 none;
+    padding: 0px;
+    resize: none;
+    box-shadow: none;
+  }
+  .modal-heading {
+    text-align: center;
+    color: #631990;
+    margin: 8px;
+  }
+  .modal-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background: transparent;
+    padding: 0;
+    border: 0;
+    -webkit-appearance: none;
+    cursor: pointer;
+    i {
+      font-size: 25px;
+      margin: 3px 0px;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  .modal-divider {
+    border-top: 1px solid #e5e5e5;
+  }
+  .modal-body {
+    height: 80%;
+  }
+  .modal-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+  .post-share-block {
+    height: 85%;
+    border: solid 1px #d8d8d8;
+    overflow-y: auto;
+  }
+  .post-share-user {
+    margin-top: 10px;
+  }
+  .user-name {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    margin-left: 10px;
+    .post-user-name {
+      margin-right: 5px;
+    }
+  }
+  .user-school-name,
+  .post-time {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    font-family: "Maven Pro", sans-serif;
+    color: #989898;
+  }
+  .post-message {
+    p {
+      margin: 5px;
+      font-size: 1.5rem;
+      white-space: pre-line;
+
+      .story-read-more-btn {
+        border: none;
+        background-color: transparent;
+        color: #d56900;
+        padding: 0;
+      }
+    }
+  }
+  .poll-options {
+    ul {
+      width: 98%;
+      margin-left: 2px;
+      background-color: #fcfcfc;
+      li {
+        padding: 3px;
+        border-bottom: 1px solid #ddd;
+        input {
+          margin-left: 10px;
+        }
+
+        .vote-shade-percentage {
+          width: 0%;
+          height: 20px;
+          margin-top: -20px;
+          background-color: #ccafde;
+          border-radius: 5px;
+        }
+      }
+      .poll-percentage {
+        float: right;
+      }
+    }
+  }
+  .poll-details {
+    width: 98%;
+    padding: 5px 0;
+    border-left: 3px solid #ddd;
+    margin-left: 2px;
+    background-color: #fcfcfc;
+
+    div {
+      padding: 0 3px;
+      text-indent: 8px;
+    }
+  }
+  .post-images{
+    display: table;
+    width: 100%;
+    .image-outer {
+      display: inline-grid;
+      .image-inner {
+        margin: 0 0 2px 2px;
+        // border: 2px solid #d0d0d0;
+        border-radius: 3px;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .single-image {
+      width: 100%;
+    }
+    .multiple-image{
+      width: 50%;
+    }
+  }
+  // Custom, iPhone Retina
+  @media only screen and (min-width : 320px) {}
+  // extra Small Devices, Phones
+  @media only screen and (min-width : 480px) {}
+  // Small Devices, Tablets
+  @media only screen and (min-width : 768px) {
+    .modal-body {
+      height: 90%;
+    }
+  }
+  // Medium Devices, Desktops
+  @media only screen and (min-width : 992px) {}
+  // Large Devices, Wide Screens
+  @media only screen and (min-width : 1200px) {}
+}

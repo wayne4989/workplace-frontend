@@ -1,0 +1,32 @@
+<div class="index-sticky-navbar-component">
+  <div class="sticky-navbar">
+    <div class="container">
+      <div class="nav-left">
+        <cl-image
+          alt="peersview"
+          public-id="indexCommunityLogo"
+          width="30"
+          [routerLink]="['']">
+        </cl-image>
+        <ul class="sticky-menu">
+          <li class="community">
+            <a>COMMUNITY</a>
+          </li>
+          <li class="leisure">
+            <a>DIGITAL CAMPUS</a>
+          </li>
+          <li class="trending-now">
+            <a>TRENDING NOW</a>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-right">
+        <ul>
+          <li>
+            <button class="btn-peersview-primary btn-peersview-sm" [routerLink]="['/sign-up']">SIGN UP</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

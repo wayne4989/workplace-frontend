@@ -1,0 +1,8 @@
+account-settings-notifications-component {
+	.row {
+		border-bottom: solid 1px #d8d8d8;
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+}

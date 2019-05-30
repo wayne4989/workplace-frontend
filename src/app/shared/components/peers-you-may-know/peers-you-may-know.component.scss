@@ -1,0 +1,75 @@
+.shared-peers-you-may-know-component {
+  padding: 15px;
+  border-radius: 3px;
+  background: #ffffff;
+  border: solid 1px #d8d8d8;
+  font-size: 14px;
+  .peers-you-may-know-header {
+    margin-bottom: 10px;
+    border-bottom: solid 1px #d8d8d8;
+    span {
+      &:first-child {
+        font-weight: bold;
+      }
+    }
+    font-weight: 500;
+    a {
+      float: right;
+    }
+  }
+  .view-all {
+    margin-bottom: 15px;
+  }
+  .peer-item {
+    position: relative;
+    margin: 0;
+    padding: 5px 0;
+    border-bottom: solid 1px #d8d8d8;
+    border-bottom: solid 1px #d8d8d8;
+    .peer-list-img {
+      position: absolute;
+    }
+    .peer-name {
+      margin-left: 45px;
+      margin-top: 5px;
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 0;
+      color: #323c47;
+      text-transform: capitalize;
+    }
+    span {
+      display: flex;
+      margin-top: 5px;
+      padding-left: 45px;
+      font-size: 14px;
+      color: #323c47;
+      i {
+        margin-right: 2px;
+        font-size: 20px;
+        color: #631990;
+      }
+    }
+    .user-course-container {
+      padding-left: 0;
+      margin: 0;
+    }
+  }
+  .add-peer-btn {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    color: #631990;
+    i {
+      font-size: 20px;
+    }
+  }
+  .delete-peer-btn {
+    position: absolute;
+    top: 30px;
+    right: -3px;
+    i {
+      font-size: 20px;
+    }
+  }
+}

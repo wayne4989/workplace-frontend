@@ -1,0 +1,103 @@
+<div class="campus-student-item-to-sell">
+	<h2 class="text-center m-peersview-y-3">SUBMIT YOUR AD</h2>
+	<form #marketPlaceItemToSellDetails="ngForm" (ngSubmit)="onSubmit(marketPlaceItemToSellDetails.valid);">
+		<div class="col-md-6 form-group-container">
+			<div class="form-group">
+				<label>Ad Title</label>
+				<input
+				name="title"
+					[(ngModel)]="campusMarketPlace.title"
+					type="text"
+					required
+					class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Ad Price</label>
+				<input
+				name="price"
+					[(ngModel)]="campusMarketPlace.price"
+					type="number"
+					required
+					class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Ad Author</label>
+				<input
+				name="author"
+					[(ngModel)]="campusMarketPlace.author"
+					type="text"
+					required
+					class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Ad Edition</label>
+				<input
+				name="edition"
+					[(ngModel)]="campusMarketPlace.edition"
+					type="text"
+					required
+					class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Ad Description</label>
+				<textarea
+				name="description"
+					[(ngModel)]="campusMarketPlace.description"
+					class="form-control description"
+					required
+					rows="7"
+					></textarea>
+				<span class="terms">4000 characters left</span> </div>
+		</div>
+		<div class="col-md-6 form-group-container">
+			<div class="form-group">
+				<label>Ad Location</label>
+				<input
+					name="location"
+						[(ngModel)]="campusMarketPlace.location"
+						type="text"
+						required
+						class="form-control">
+				</div>
+			<div class="form-group">
+				<label>Upload Photos</label>
+				<shared-upload-image-component
+					[uploadOptions]="{'queueLimit': 4, 'event': 'postAdMarketPlace'}" (uploadComplete)="onUploadComplete($event)"
+					(imageIsSelected)="onImageIsSelected($event)">
+				</shared-upload-image-component>
+			</div>
+			<div class="form-group">
+				<label>Email Address</label>
+				<input
+						name="email"
+						[(ngModel)]="campusMarketPlace.email"
+						type="email"
+						required
+						email
+						class="form-control">
+				</div>
+			<div class="form-group">
+				<label>Phone Number</label>
+				<input
+						name="phone"
+						[(ngModel)]="campusMarketPlace.phone"
+						type="number"
+						required
+						class="form-control">
+				</div>
+			<div class="form-group">
+				<button
+						[disabled]="!marketPlaceItemToSellDetails.valid || !isBtnCreateAdDisabled"
+					  type="submit"
+					  class="btn btn-peersview-secondary"
+						>Post My Ad
+					</button>&nbsp;
+				<button
+					  type="button"
+						class="btn btn-peersview-cancel"
+						(click)="onShowCancelMessage()">Cancel
+					</button>
+			</div>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,95 @@
+<div class="campus-student-group-create-group-component">
+  <h2 class="page-title text-center m-peersview-yb-2 peersview-primary-color">Create Study Group</h2>
+  <div class="row">
+    <div class="col-md-7">
+      <div class="form-group">
+        <label>Enter Group Name</label>
+        <input
+          type="text"
+          name="group-name"
+          class="form-control" placeholder="Group Name"
+          [(ngModel)]="campusStudentGroup.name"
+        >
+      </div>
+      <div class="form-group">
+        <label>Enter Description</label>
+        <textarea
+          class="form-control"
+          placeholder="Description: this would appear on the group page" rows="6"
+          [(ngModel)]="campusStudentGroup.description"
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label>Enter Group Admin Email</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Admin Email Address"
+          [(ngModel)]="campusStudentGroup.adminEmail"
+        >
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Upload Group Image</label>
+        <div>
+          <button
+          (click)="isToogleUploadComponentVisible = !isToogleUploadComponentVisible"
+          class="btn-peersview-primary btn-peersview-sm"
+          >{{isToogleUploadComponentVisible ? 'Cancel' : 'Select Image'}} </button>
+        </div>
+        <shared-upload-image-component
+        *ngIf="isToogleUploadComponentVisible"
+        [uploadOptions]="{'queueLimit': 1, 'event': 'uploadGroupImage'}"
+        (uploadComplete)="onUploadComplete($event)"
+      ></shared-upload-image-component>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label>Privacy:</label>
+        <div class="checkbox">
+          <label>
+            <input
+              type="radio"
+              name="privacy"
+              checked
+              (click)="campusStudentGroup.campusPrivacyId = 1"
+            >
+            Public: Visible to everyone
+          </label>
+          <span class="note-text">(Note - Public group is subject to confirmation by Admin)</span></div>
+        <div class="checkbox">
+          <label>
+            <input
+              type="radio"
+              name="privacy"
+              (click)="campusStudentGroup.campusPrivacyId = 2"
+            >
+            Private: User must request to join group
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input
+              type="radio"
+              name="privacy"
+              (click)="campusStudentGroup.campusPrivacyId = 3"
+            >
+            Secret: User must receive invite before they can join.
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <button
+          [disabled]="isCreateGroupButtonClicked"
+          type="button"
+          class="btn btn-peersview-secondary"
+          (click)="onCreateGroup()">Create</button>
+        <button
+          type="button"
+          class="btn btn-peersview-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

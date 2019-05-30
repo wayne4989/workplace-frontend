@@ -1,0 +1,73 @@
+$iconArrowRight: url('https://res.cloudinary.com/peersview-com/image/upload/v1518100570/iconArrowRight.png');
+@import '../../../../assets/scss/variables';
+
+.shared-post-options-component {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  .star {
+    margin: 0;
+    font-size: 18px;
+    letter-spacing: -3px;
+  }
+  .yellow-fill {
+    color: orange;
+  }
+  .like,
+  .reply,
+  .share {
+    margin: 0;
+    color: $primary-color;
+    cursor: pointer;
+  }
+
+  button.liked {
+    color: #631990;
+  }
+  button.not-yet-liked {
+    color: #bbb;
+  }
+  .options-text {
+    div {
+      padding: 0;
+    }
+  }
+  .options-logo {
+    .like {
+      display: inline-flex;
+      padding: 0;
+    }
+  }
+
+  .post-comments,
+  .post-likes {
+    cursor: pointer;
+  }
+  .post-options-hr {
+    width: 100%;
+  }
+  shared-stars-component {
+    margin-top: 5px;
+  }
+  .colon-separator {
+    margin: 0 3px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  // Custom, iPhone Retina
+  @media only screen and (min-width : 320px) {}
+  // extra Small Devices, Phones
+  @media only screen and (min-width : 480px) {}
+  // Small Devices, Tablets
+  @media only screen and (min-width : 768px) {
+    .options-text {
+      div {
+        display: unset;
+      }
+    }
+  }
+  // Medium Devices, Desktops
+  @media only screen and (min-width : 992px) {}
+  // Large Devices, Wide Screens
+  @media only screen and (min-width : 1200px) {}
+}

@@ -1,0 +1,202 @@
+<div class="account-settings-general-component">
+  <div class="tab-title">GENERAL</div>
+  <ul class="account-list">
+    <li>
+      <label class="setting-label">Change Image:</label>
+      <span class="setting-value"><input class="change-image" type="file"/></span>
+    </li>
+    <li>
+      <label class="setting-label">Name:</label>
+      <span class="setting-value" 
+        *ngIf="name.status === 'Edit'">John Smith</span>
+      <span class="edit-field" 
+        *ngIf="name.status === 'Save'">
+        <input type="text" value="John" class="input-setting">
+        <input type="text" value="Smith" class="input-setting">
+      </span>
+      <a class="setting-edit mouse-pointer" 
+        *ngIf="name.status === 'Edit'" 
+        (click)="onEditOrSave(name)">Edit</a>
+    </li>
+    <li>
+      <label class="setting-label">Primary Email:</label>
+      <span class="setting-value"
+      *ngIf="email.status === 'Edit'">john@gmail.com</span>
+      <span class="edit-field"
+        *ngIf="email.status === 'Save'"><input type="text" value="john@gmail.com" class="input-setting"></span>
+      <a class="setting-edit mouse-pointer"
+        *ngIf="email.status === 'Edit'" 
+        (click)="onEditOrSave(email)">Edit</a>
+    </li>
+    <li>
+      <label class="setting-label">Language:</label>
+      <span class="setting-value" *ngIf="languages.status === 'Edit'">English</span>
+      <span class="edit-field">
+        <select class="input-setting" *ngIf="languages.status === 'Save'" (change)="onChangeLanguage($event.target.value)">
+          <option selected>Select Language</option>
+          <option *ngFor="let language of languagesData" [value]="language.value">{{language.value}}</option>
+        </select>
+      </span>
+      <a class="setting-edit mouse-pointer"
+        *ngIf="languages.status === 'Edit'" 
+        (click)="onEditOrSave(languages)">Edit</a>
+    </li>
+    <li class="date-of-birth-container">
+      <label class="setting-label">Date of Birth:</label>
+      <span class="setting-value" *ngIf="dateOfBirth.status === 'Edit'" >02/07/1985</span>
+      <span class="edit-field">
+        <!-- <input type="text" value="john@gmail.com" class="input-setting" *ngIf="dateOfBirth.status === 'Save'"> -->
+        <mat-form-field *ngIf="dateOfBirth.status === 'Save'">
+            <input
+              matInput
+              placeholder="Date of birth"
+              [matDatepicker]="picker"
+              name="dateOfBirth"
+              name="birthDate"
+              required
+              >
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+      </span>
+      <a class="setting-edit mouse-pointer"
+        *ngIf="dateOfBirth.status === 'Edit'" 
+        (click)="onEditOrSave(dateOfBirth)">Edit</a>
+    </li>
+  </ul>
+  <li class="setting-action m-peersview-yt-2 text-center" id="general-action" style="display: list-item;">
+    <label class="setting-lbl">&nbsp;</label>
+    <span class="setting-value">
+      <input type="button" ng-click="vm.cancelEdit()" value="Save Changes" class="btn btn-sm btn-peersview-primary">
+      &nbsp;&nbsp;
+      <input type="button" ng-click="vm.cancelEdit()" value="Cancel" class="btn btn-white btn-sm">
+      </span>
+  </li>
+  <!-- <div class="row p-peersview-y-1">
+    <div class="col-xs-12 col-md-2">
+      <label>Change Image:</label>
+    </div>
+    <div class="col-xs-12 col-md-10">
+      <input class="change-image" type="file"/>
+    </div>
+  </div> -->
+
+  <!-- <div class="row p-peersview-y-1">
+    <div class="col-xs-12 col-md-2">
+      <label>Name:</label>
+    </div>
+    <div class="col-xs-12 col-md-8"> -->
+      <!-- <span *ngIf="name.status === 'Edit'">{{user.firstName}} {{user.lastName}}</span> -->
+      <!-- <span *ngIf="name.status === 'Save'">
+        <div class="col-sm-6">
+          <input
+            type="text"
+            placeholder="First Name"
+            class="form-control"
+            [(ngModel)]="name.firstName"
+            />
+        </div>
+        <div class="col-sm-6">
+          <input
+            type="text"
+            placeholder="Last Name"
+            class="form-control"
+            [(ngModel)]="name.lastName"/>
+        </div>
+      </span>
+    </div>
+    <div class="col-xs-12 col-md-2 edit-or-save">
+      <a
+        class="btn-peersview-primary btn-peersview-sm"
+        (click)="onEditOrSave(name)"
+        *ngIf="name.status === 'Save'">Cancel</a>
+      <a
+        class="btn-peersview-primary btn-peersview-sm"
+        (click)="onEditOrSave(name);name.firstName=user.firstName;name.lastName=user.lastName">{{name.status === 'Save' ? 'Save': 'Edit'}}</a>
+    </div>
+  </div> -->
+
+  <!-- <div class="row p-peersview-y-1">
+    <div class="col-xs-12 col-md-2">
+      <label>Primary Email:</label>
+    </div>
+    <div class="col-xs-12 col-md-8">
+      <span *ngIf="email.status === 'Edit'">{{user?.email}}</span>
+      <span *ngIf="email.status === 'Save'">
+        <input
+          type="text"
+          placeholder="Email"
+          class="form-control"
+          [(ngModel)]="email.value"/>
+      </span>
+    </div>
+    <div class="col-xs-12 col-md-2 edit-or-save">
+      <a
+        class="btn-peersview-primary btn-peersview-sm"
+        (click)="onEditOrSave(email)"
+        *ngIf="email.status === 'Save'">Cancel</a>
+      <a
+        class="btn-peersview-primary btn-peersview-sm"
+        (click)="onEditOrSave(email);email.value=user.email">{{email.status === 'Save' ? 'Save': 'Edit'}}</a>
+    </div>
+  </div> -->
+
+  <!-- <div class="row p-peersview-y-1">
+    <div class="col-xs-12 col-md-2">
+      <label>Language:</label>
+    </div>
+    <div class="col-xs-12 col-md-8">
+      <span *ngIf="languages.status === 'Edit'">{{user?.language}}</span>
+      <span *ngIf="languages.status === 'Save'">
+        <select class="form-control" (change)="onChangeLanguage($event.target.value)">
+          <option selected>Select Language</option>
+          <option *ngFor="let language of languagesData" [value]="language.value">{{language.value}}</option>
+        </select>
+      </span>
+    </div>
+    <div class="col-xs-12 col-md-2 edit-or-save">
+      <a
+        class="btn-peersview-primary btn-peersview-sm"
+        (click)="onEditOrSave(languages)"
+        *ngIf="languages.status === 'Save'">Cancel</a>
+      <a
+        class="btn-peersview-primary btn-peersview-sm"
+        (click)="onEditOrSave(languages);languages.value=user.language">{{languages.status === 'Save' ? 'Save': 'Edit'}}</a>
+    </div>
+  </div>
+
+  <div class="row p-peersview-y-1">
+    <div class="col-xs-12 col-md-2">
+      <label>Date of Birth:</label>
+    </div>
+    <div class="col-xs-12 col-md-8">
+      <span *ngIf="dateOfBirth.status === 'Edit'">{{user?.birthDate | localDate}}</span>
+      <span *ngIf="dateOfBirth.status === 'Save'">
+        <mat-form-field>
+          <input matInput mdInput [(ngModel)]="user.birthDate" [matDatepicker]="picker" placeholder="Choose a date">
+          <mat-datepicker-toggle mdSuffix [for]="picker"></mat-datepicker-toggle>
+        </mat-form-field>
+        <mat-datepicker #picker></mat-datepicker>
+      </span>
+    </div>
+    <div class="col-xs-12 col-md-2 edit-or-save">
+      <a
+        class="btn-peersview-primary btn-peersview-sm"
+        (click)="onEditOrSave(dateOfBirth)"
+        *ngIf="dateOfBirth.status === 'Save'">Cancel</a>
+      <a
+        class="btn-peersview-primary btn-peersview-sm"
+        (click)="onEditOrSave(dateOfBirth)">{{dateOfBirth.status === 'Save' ? 'Save': 'Edit'}}</a>
+    </div>
+  </div> -->
+
+  <!-- <label class="setting-lbl">Date of Birth</label>
+  <span class="setting-value">{{ user.birthDate | date}}</span>
+  <div class="edit-field" style="display:none;">
+    <mat-form-field>
+      <input matInput mdInput [(ngModel)]="user.dateOfBirth" [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle mdSuffix [for]="picker"></mat-datepicker-toggle>
+    </mat-form-field>
+    <mat-datepicker #picker></mat-datepicker>
+  </div> -->
+</div>

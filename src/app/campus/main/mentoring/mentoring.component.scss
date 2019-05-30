@@ -1,0 +1,84 @@
+campus-mentoring-component {
+	.header-content {
+    margin: auto;
+		float: none;
+		text-align: center;
+	}
+	h2 {
+		display: block;
+		span {
+			margin: auto;
+			margin-right: 0;
+		}
+	}
+  .mentors-label {
+		margin-top: 6px;
+	}
+	.become-mentor-btn-container {
+		display: inline-flex;
+		margin-left: auto;
+		.add-mentor {
+			height: 42px;
+			width: 42px;
+			margin: auto;
+			margin-left: 8px;
+			border-radius: 50%;
+			i {
+				margin-top: 4px;
+				font-size: 31px;
+			}
+		}
+	}
+	.become-a-mentor-label {
+		padding: 10px 20px;
+		width: fit-content;
+		font-size: 16px;
+		background: #631990;
+    font-weight: 500;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+	}
+	.mentor-item {
+    margin-bottom: 10px;
+    height: 80px;
+    width: 100%;
+		background-color: #fff;
+    border-radius: 3px;
+		text-align: center;
+		cursor: pointer;
+		p {
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			position: absolute;
+		}
+	}
+	.mentor-search {
+		background-color: #c7bcbc30;
+	}
+
+	 /* Custom, iPhone Retina */
+	 @media only screen and (min-width : 320px) {}
+  /* Extra Small Devices, Phones */
+  @media only screen and (min-width : 480px) {
+		.header-content {
+			float: right;
+		}
+		h2 {
+			display: flex;
+			span {
+				margin-right: 120px;
+			}
+		}
+		.become-mentor-btn-container {
+			display: flex;
+		}
+  }
+  /* Small Devices, Tablets */
+  @media only screen and (min-width : 768px) {}
+  /* Medium Devices, Desktops */
+  @media only screen and (min-width : 992px) {
+  }
+  /* Large Devices, Wide Screens */
+  @media only screen and (min-width : 1200px) {}
+}

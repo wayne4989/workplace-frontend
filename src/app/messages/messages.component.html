@@ -1,0 +1,31 @@
+<shared-navbar-component></shared-navbar-component>
+<div class="messages-component container">
+  <messages-left-sidebar-component class="col-lg-3"></messages-left-sidebar-component>
+  <div class="messages-main-container col-lg-6" *ngIf="conversation && conversation[0]">
+    <div class="conversation-header">
+      <cl-image class="co-img" [public-id]="conversation[0].to.socialImage ? conversation[0].to.socialImage : 'avatar'">
+        <cl-transformation width="80" height="80" radius="max" gravity="custom" crop="thumb">
+        </cl-transformation>
+      </cl-image>
+      <div class="co-info">
+        <span class="co-name"><h2>{{ conversation[0].to.name }}</h2></span>
+        <span class="co-location"><h5>Student | {{ conversation[0].to.city }}</h5></span>
+      </div>
+    </div>
+    <div class="conversation-body">
+      <div class="thread-outer col-xs-12" 
+          *ngFor="let message of conversation;" 
+          [ngClass]="{'sent': message.fromId === user.id, 'response': message.fromId !== user.id}">
+        <div class="thread-inner">
+          <p>{{ message.detail }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="conversation-footer">
+      <textarea name="" id="" [(ngModel)]="message.detail" placeholder="Type a message..."></textarea>
+      <div class="send-btn-container">
+        <button class="btn btn-peersview-primary" (click)="doSendMessage();">SEND</button>
+      </div>
+    </div>
+  </div>
+</div>

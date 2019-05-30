@@ -1,0 +1,35 @@
+<div class="row user-on-boarding-select-status-component">
+  <div class="col-md-12">
+    <h2 class="peersview-primary-color">Select your Status</h2>
+  </div>
+  <div class="col-md-4 m-peersview-yb-1 mouse-pointer" [routerLink]="['student']">
+    <span class="select-status-student text-center">Student</span>
+    <cl-image
+      class="mouse-pointerv select-status-center"
+      public-id="onBoardingStudent">
+    </cl-image>
+  </div>
+  <div class="col-md-4 m-peersview-yb-1 mouse-pointer" [routerLink]="['professional']">
+    <span class="select-status-ex-student text-center">
+      Ex-Student
+      <hr>
+      Academics
+    </span>
+    <cl-image
+      class="mouse-pointerv select-status-center"
+      public-id="onBoardingExStudent">
+    </cl-image>
+  </div>
+  <div class="col-md-4 m-peersview-yb-1 mouse-pointer" [routerLink]="['organisation']">
+    <span class="select-status-institution text-center">
+      Academic Institution
+      <hr>
+      Business Organisation
+    </span>
+    <cl-image
+      class="mouse-pointerv select-status-center"
+      public-id="onBoardingOrganisation">
+    </cl-image>
+  </div>
+</div>
+

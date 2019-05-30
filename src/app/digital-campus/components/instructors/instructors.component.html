@@ -1,0 +1,103 @@
+<div class="digital-campus-instructors-component">
+  <div class="container">
+    <div class="instructors-header text-center">
+      <h2 class="p-peersview-yb-1">ACADEMICS & INSTRUCTORS</h2>
+      <h4>
+        Transform your classroom into an online community of learners.
+        Take advantage of our simple tools designed to help you create engaging
+        learning experiences.
+      </h4>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="inline-widget bubble">
+          <div class="inline-widget-header">
+            <i
+              class="material-icons peersview-primary-color"
+              slideToggle [class]="'collaborations'">add
+            </i>
+            <h4 class="peersview-primary-color-light">Student Assessment tool & Peer Review</h4>
+          </div>
+          <div class="inline-content collaborations">
+            <ul>
+              <li>Instructors can encourage students to test each other with formal questions as a simple way to motivate learning and collaboration between learners.</li>
+              <li>Instructors can also participate by adding some assignment questions for their students. You can use this to track your student’s learning in real-time.</li>
+              <li>
+                We advise instructors to either split the topics covered within the course between students or distribute it in groups.
+                These courses should inspire intelligent discussion, allowing students to pose questions about their assigned topics.
+              </li>
+              <li>
+                We recommend that instructors allocate a small percentage of course marks for participation.
+                This motivates students to contribute quality answers to the questions posted.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="inline-widget bubble">
+          <div class="inline-widget-header">
+            <i
+              class="material-icons peersview-primary-color"
+              slideToggle [class]="'students'">add
+            </i>
+            <h4 class="peersview-primary-color-light">Identify gaps in Learning Outcomes </h4>
+          </div>
+          <div class="inline-content students">
+            <ul>
+              <li>
+                Instructors can use students’ answers to identify and address common misunderstanding.
+                It can be used to reveal further insight into the students’ perception of topics covered.
+              </li>
+              <li>
+                Instructors can get a sense of which topics students are more confident with and which topics students are not engaged with.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="inline-widget bubble">
+          <h4 class="peersview-primary-color-light">
+            Student interaction is critical for academic success. The Peersview campus encourages dynamic online discussions between students.
+          </h4>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="inline-widget text-center">
+          <div class="col-md-12 bubble">
+            <h3>
+              How it works
+            </h3>
+            <div class="col-md-3 instructors-how-it-works-container">
+              <div class="col-md-10 instructors-how-it-works-flow text-left">
+                Students & Instructors post questions on various topics.
+              </div>
+            </div>
+            <div class="col-md-3 instructors-how-it-works-container">
+              <div class="col-md-10 instructors-how-it-works-flow text-left" [ngStyle]="{'background-color': '#9bbb59', 'color': '#ffffff'}">
+                Students rate each question according to its difficulty and answer the questions.
+              </div>
+            </div>
+            <div class="col-md-3 instructors-how-it-works-container">
+              <div class="col-md-10 instructors-how-it-works-flow text-left"  [ngStyle]="{'background-color': '#4f81bd', 'color': '#ffffff'}">
+                Instructors are updated with the questions student rate as the most difficult.
+              </div>
+            </div>
+            <div class="col-md-3 instructors-how-it-works-container">
+              <div class="col-md-10 instructors-how-it-works-flow text-left last-child" [ngStyle]="{'background-color': '#c0504d', 'color': '#ffffff'}">
+                Instructors provide feedback to the difficult questions.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center p-peersview-y-4">
+      <button
+        class="btn-peersview-secondary btn-peersview-lg"
+        [routerLink]="['/sign-in']">Sign Up Today
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+<div class="campus-admin-dashboard">
+  <div class="dashboard-inner-container col-xs-12">
+    <div class="search-container">
+      <div class="dashboard-search-title">
+        <div class="col-xs-12">
+          <i class="material-icons">
+            search
+          </i>
+          &nbsp; Monitor Keyword
+        </div>
+      </div>
+      <div class="dashboard-search-bar">
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+          <input class="search-bar form-control" placeholder="Search for..." type="text" ng-reflect-class-base="form-control">
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-right">
+          <button class="btn btn-default search-btn" type="button">SEARCH KEYWORD</button>
+        </div>
+      </div>
+      <div class="dashboard-overview-bar">
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+          <h3><span>54</span> posts are using this keyword</h3>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-right">
+          <button class="btn btn-default flat-btn view-post-btn" type="button">
+            <i class="material-icons">
+              voicemail
+            </i>
+            &nbsp; View Post
+          </button>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="dashboard-keyword-container">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 keyword-box">
+          <div class="col-xs-12 title keyword-grid">
+            KEYWORDS
+          </div>
+          <div class="col-xs-6 text-center keyword-grid keywords">
+            <h2>4</h2>
+            <label>Keywords</label>
+          </div>
+          <div class="col-xs-6 text-center keyword-grid used-in-posts">
+            <h2>178</h2>
+            <label>Used in Posts</label>
+          </div>
+          <div class="col-xs-12 keyword-grid graph-container">
+            <canvas #doughnutChart>{{ doughnutData }}</canvas>
+          </div>
+          <div class="col-xs-12 keyword-percentage">
+            <div class="col-xs-6 keyword-grid" *ngFor="let item of chartData;">
+              <span class="badge" [ngStyle]="{'background-color': item.background}">{{ item.percentage }}%</span> {{ item.label }}
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 keyword-content">
+          <nav class="nav">
+            <a class="nav-link active" data-toggle="tab">REPORTED CONTENT</a>
+            <a class="nav-link" data-toggle="tab">SPAM</a>
+          </nav>
+
+          <div class="tab-content">
+            <div class="col-xs-12 reported-tab-content tab-pane active" id="oni">
+              <span>The are <b>56</b> reported posts.</span>
+              <div class="col-xs-12 text-right sorting-report input-group-append">
+                <button class="btn flat-btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Date Ascending <i class="material-icons">keyboard_arrow_down</i>
+                </button>
+                <div class="sorting-dropdown dropdown-menu">
+                  <a class="dropdown-item">Date Ascending</a>
+                  <a class="dropdown-item">Date Descending</a>
+                </div>
+              </div>
+
+              <div class="posts-wrapper">
+                <div class="top-post post-reply">
+                  <div class="row">
+                    <div class="col-md-2 forum-user-details text-right">
+                      <cl-image class="post-image" public-id="avatar">
+                        <cl-transformation width="50" height="50" radius="max" gravity="custom" crop="thumb">
+                        </cl-transformation>
+                      </cl-image>
+                    </div>
+                    <div class="col-md-10 top-user-left">
+                      <div class="top-user">
+                        <div class="forum-post">
+                          <i class="input-caret grey-caret"></i>
+                          <h4>Bredley One <span>10 minutes ago</span></h4>
+                          <p>I loved watching this video. I am a visual learner and seeing such good teaching in
+                            practice was very helpful for me. I do like the idea of getting students to challenge each
+                            others thinking. I am going...</p>
+                        </div>
+                        <div class="post-share">
+                          <ul>
+                            <li class="pull-right"><i class="material-icons">bookmark_border</i><i [ngStyle]="{'margin-top': '4px'}">46</i></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="twi">
+              <span>Notice the gap between the content and tab after applying a background color</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

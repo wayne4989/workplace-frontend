@@ -1,0 +1,35 @@
+class-post-component {
+	.nav-tabs {
+		li {
+			a {
+				background: transparent;
+				padding-left: 0;
+				color: #323c47;
+				font-family: 'Conv_MavenPro-Bold';
+				border: 0;
+				border-bottom: 3px solid transparent;
+				&:focus, 
+				&:hover {
+					background: transparent;
+					outline: none;
+					border: 0;
+				}
+			}
+		}
+		.active {
+			a {
+				color: #000;
+				background: transparent;
+				border-bottom: 3px solid #000 !important;
+    		border: 0;
+				&:focus, 
+				&:hover {
+					color: #000;
+					background: transparent;
+					outline: none;
+					border: 0;
+				}
+			}
+		}
+	}
+}

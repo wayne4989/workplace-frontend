@@ -1,0 +1,77 @@
+.campus-admin-registry-component {
+  .registry-inner-container {
+    position: absolute;
+    margin-top: 25px;
+    padding: 10px 5px;
+
+    .registry-title {
+      margin: 0 0 20px 0;
+      font-weight: 600;
+    }
+  }
+
+  .registry-graphs {
+    .graph-container {
+      padding: 0;
+    }
+
+    .students, .academics {
+      background-color: #fff;
+      border-radius: 3px;
+
+      h5 {
+        margin-top: 20px;
+        font-weight: 600;
+      }
+    }
+    .students-graph, .academics-graph {
+      height: 280px;
+    }
+  }
+
+  .registry-list {
+    margin-top: 15%;
+    .students-list, 
+    .academics-list {
+      padding: 0;
+
+      .student-image {
+        img {
+          border-radius: 50%;
+        }
+      }
+
+      .user-name {
+        margin: 5px;
+
+        .student-name {
+          display: inline-grid;
+          font-weight: 500;
+        }
+
+        .student-name,
+        .student-location {
+          margin-left: 10px;
+        }
+      }
+    }
+    
+    .students-list-label, .academics-list-label {
+      margin-top: 20px;
+
+      .list-title h5 {
+        font-weight: 600;
+      }
+    }
+
+    .registry-button-student, .registry-button-academic {
+      margin-top: 15px;
+      padding: 0;
+      
+      button {
+        border-radius: 3px;
+        white-space: inherit;
+      }
+    }
+  }
+}

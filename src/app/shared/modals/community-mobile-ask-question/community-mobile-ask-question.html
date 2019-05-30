@@ -1,0 +1,40 @@
+<div class="community-mobile-ask-question-page">
+	<button class="modal-close" mat-dialog-close>
+			<i class="material-icons"> clear </i>
+		</button>  
+	<div class="question-widget">
+		<h3 class="question-title text-center">Ask a question?</h3>
+		<div class="question-input text-center">
+				<span class="by-user-img text-center">
+					<cl-image
+						public-id="{{user.socialImage ? (user.profilePicture === 'avatar' ? user.socialImage: user.profilePicture): user.profilePicture}}"
+						*ngIf="user?.profilePicture"
+						class="user-img"
+						[ngStyle]="{'border-radius': '50%'}"
+						(click)="onOpenShowImageDialogComponent(user)">
+						<cl-transformation width="120" height="120" radius="max" gravity="custom" crop="thumb">
+						</cl-transformation>
+					</cl-image>
+					<p>{{user.firstName | titlecase}} {{user.lastName | titlecase}}</p>
+				</span>
+				<div class="by-user-text">
+					<i class="input-caret grey-caret"></i>
+					<div class="question-input-container">
+						<textarea [(ngModel)]="communityPost.message" rows="3" type="text" class="form-control" placeholder="What’s your question?"></textarea>
+						<i (click)="isToggleUploadComponentVisible = !isToggleUploadComponentVisible" class="material-icons">link</i>
+					</div>
+					<shared-upload-image-component	
+						*ngIf="isToggleUploadComponentVisible"
+						[uploadOptions]="{'queueLimit': 4, 'event': 'askQuestion'}" (uploadComplete)="onUploadComplete($event)"
+						(imageIsSelected)="onImageIsSelected($event)">
+					</shared-upload-image-component>
+					<br>
+					<div>
+						<a 
+						(click)="onAskQuestion()"
+						class="btn-peersview-primary">Post</a>
+					</div>
+				</div>
+			</div>
+	</div>
+</div>

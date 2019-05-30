@@ -1,0 +1,56 @@
+.index-footer-component {
+  background: #340551;
+  padding: 50px 0 40px 0;
+  .copyright {
+    color: #ffffff;
+    img {
+      margin-bottom: 10px;
+    }
+  }
+  .company, .support, .campus {
+    span {
+      font-size: 16px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    ul {
+      margin-top: 10px;
+      li {
+        padding: 5px 0;
+      }
+    }
+    ul li a {
+      color: #ffffff;
+    }
+  }
+  .connect-with-us {
+    span {
+      font-size: 16px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+  }
+  .social-list1 {
+    margin-top: 10px;
+    a {
+      width: 38px;
+      height: 38px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 8px;
+      background: url('https://res.cloudinary.com/peersview-com/image/upload/v1519014300/indexSocialIcons.png') no-repeat 0 0;
+    }
+    a.facebook {
+      background-position: 0 0;
+    }
+    a.twitter {
+      background-position: -53px 0;
+    }
+    a.instagram {
+      background-position: -106px 0
+    }
+    a.linkedIn {
+      background-position: -159px 0;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+.messages-left-sidebar-component {
+  .messages-left-main-container {
+    height: 100vh;
+    margin-top: 60px; 
+    border-right: 1px solid #e4e3e3; 
+
+    .title {
+      margin: 0 3px;
+      h5,
+      div {
+        padding: 0;
+      }
+
+      h5 {
+        font-weight: 500;
+      }
+
+      .new-message-btn {
+        i {
+          float: right;
+          border: 1px solid #631a90;
+          border-radius: 3px;
+          margin-top: 5px;
+          color: #631a90;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+  .messages-left-sidebar-component {
+    .messages-left-main-container {
+      height: 35vh;
+      margin-top: 90px;
+    }
+  }
+}
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+  .messages-left-sidebar-component {
+    .messages-left-main-container {
+      height: 35vh;
+      margin-top: 90px;
+    }
+  }
+}
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .messages-left-sidebar-component {
+    .messages-left-main-container {
+      height: 35vh;
+      margin-top: 90px;
+    }
+  }
+}

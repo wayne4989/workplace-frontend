@@ -1,0 +1,29 @@
+<div class="report-post-modal-component">
+  <h3 class="modal-heading">Report Post</h3>
+  <button class="close" mat-dialog-close>×</button>
+  <div class="modal-divider"></div>
+
+  <div class="modal-body">
+    <div class="radio">
+      <div class="radio">
+        <label><input type="radio" name="report" (change)="selectReason('not-interested')">I am not interested in this Post</label>
+      </div>
+      <div class="radio">
+        <label><input type="radio" name="report" (change)="selectReason('harmful')">This Post is abusive and harmful</label>
+      </div>
+      <div class="radio">
+        <label><input type="radio" name="report" (change)="selectReason('spam')">This Post is posting Spam</label>
+      </div>
+      <div class="radio">
+        <label><input type="radio" name="report" (change)="selectReason('others')">Others (please specify)</label>
+      </div>
+      <div *ngIf="!isVisible">
+        <textarea (keyup)="reportCustomReason($event)" [(ngModel)]="report.reason" class="form-control" name="name" rows="3"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-peersview-cancel" mat-dialog-close>Cancel</button>
+    <button type="button" (click)="submitReport()" class="btn btn-peersview-secondary" [disabled]="isDisabled">Submit</button>
+  </div>
+</div>

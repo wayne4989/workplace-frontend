@@ -1,0 +1,68 @@
+<div class="campus-marketplace-item-details-component" *ngIf="myCampusMarketPlaceItem">
+	<h2 class="text-center m-peersview-y-3 peersview-primary-color">{{myCampusMarketPlaceItem.title}}</h2>
+	<p>
+		<span>
+			<i class="material-icons">location_on</i>
+			{{myCampusMarketPlaceItem.location}}
+		</span>
+		<span>
+			<i class="material-icons">access_time</i>
+			Added on {{myCampusMarketPlaceItem.createdAt | date:'medium'}}
+		</span>
+	</p>
+	<div class="col-md-8 item-detail">
+		<div class="p-peersview-yb-2">
+			<div 
+				class="slideshow-container"
+				*ngIf="myCampusMarketPlaceItem.attachments.length > 0"
+				>
+				<div *ngFor="let item of myCampusMarketPlaceItem.attachments" class="item-slide">
+					<cl-image
+					class="img-responsive"
+						public-id="{{item.cloudinaryPublicId}}"
+						width="100%">
+					</cl-image>
+				</div>						
+				<button class="prev btn-peersivew-transparent" (click)="plusSlides(-1)">&#10094;</button>
+				<button class="next btn-peersivew-transparent" (click)="plusSlides(1)">&#10095;</button>
+			</div>
+			<ul class="item-details-list">
+				<li>
+					<label>Author</label>
+					{{myCampusMarketPlaceItem.author}}
+				</li>
+				<li>
+					<label>Edition</label>
+					{{myCampusMarketPlaceItem.edition}}
+				</li>
+			</ul>
+			<div class="clear"></div>
+			<p>
+				<label>Description</label>
+				{{myCampusMarketPlaceItem.description}}
+			</p>
+	</div>
+</div>
+
+	<div class="col-md-4 seller-detail">
+		<div class="user-details">
+			<div class="item-price">$ {{myCampusMarketPlaceItem.price}}</div>
+			<div class="user-info">
+				<ul>
+					<li>
+						<label>Seller Info</label>
+						<span>{{myCampusMarketPlaceItem.user.firstName | titlecase}} {{myCampusMarketPlaceItem.user.lastName | titlecase}} </span>
+					</li>
+					<li>
+						<label>Phone Number</label>
+						<span>{{myCampusMarketPlaceItem.phone}}</span>
+					</li>
+					<li>
+						<label>Email Address</label>
+						<span>{{myCampusMarketPlaceItem.email}}</span></li>
+					</ul>
+				</div>
+			</div>
+	</div>
+
+</div>

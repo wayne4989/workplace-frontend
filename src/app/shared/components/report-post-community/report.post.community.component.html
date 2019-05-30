@@ -1,0 +1,13 @@
+<div class="report-post-community-component">
+  <div class="dropdown">
+    <button
+    class="flat-btn purple pull-right dropdown-toggle"
+    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="material-icons">more_vert</i>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-right">
+      <li><a (click)="openReportModal()">Report Post</a></li>
+      <li *ngIf="(post && post.isPostUser) || post.userId === user.id"><a (click)="onOpenConfirmModal()">Delete Post</a></li>
+    </ul>
+  </div>
+</div>

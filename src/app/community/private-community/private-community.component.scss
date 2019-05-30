@@ -1,0 +1,84 @@
+private-community-component {
+  .community-private-component {
+		.btn-create {
+			width: 100%;
+		}
+		.group-container {
+			margin: 15px 0;
+			li {
+				padding: 10px;
+			}
+			li {
+				padding: 15px;
+				font-size: 16px;
+				text-align: center;
+				background-color: #fff;
+				a {
+					color: #4e4e4e;
+				}
+				&:hover {
+					background-color: darken($color: #fff, $amount: 1%);
+				}
+			}
+			.active {
+				background-color: #4e4e4e;
+				a {
+					color: #fff;
+				}
+				&:hover {
+					background-color: darken($color: #4e4e4e, $amount: 5%);
+				}
+			}
+		}
+		button {
+			i {
+				vertical-align: middle;
+			}
+		}
+		.private-community-body {
+			margin: 0 -15px;
+		}
+		.community-item {
+			position: relative;
+	    padding: 30px;
+	    margin-top: 20px;
+	    min-height: 152px;
+			width: 100%;
+			display: flex;
+			align-items: center;
+	    background-color: #fff;
+			border-radius: 3px;
+			button {
+				position: absolute;
+    		top: 5px;
+    		right: 5px;
+				height: 30px;
+				width: 30px;
+    		border-radius: 50%;
+				i {
+					font-size: 24px;
+					margin-left: -3px;
+				}
+			}
+			h4 {
+				width: 100%;
+			}
+		}
+	}
+	/* Custom, iPhone Retina */
+	@media only screen and (min-width : 320px) {}
+	/* Extra Small Devices, Phones */
+	@media only screen and (min-width : 480px) {}
+	/* Small Devices, Tablets */
+	@media only screen and (min-width : 768px) {}
+	/* Medium Devices, Desktops */
+	@media only screen and (min-width : 992px) {
+		.community-private-component {
+			.btn-create {
+				width: auto;
+			}
+		}
+	}
+	/* Large Devices, Wide Screens */
+	@media only screen and (min-width : 1200px) {}
+}

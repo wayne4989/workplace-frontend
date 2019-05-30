@@ -1,0 +1,105 @@
+.campus-admin-courses-and-classes-component {
+  .course-classes-inner-container {
+    position: absolute;
+    // background-color: #fff;
+    margin-top: 25px;
+    padding: 10px 5px;
+
+    .courses-and-classes-container {
+      background-color: #ffffff;
+
+      .row {
+        margin: 0;
+        .title {
+          display: inline-flex;
+        }
+
+        small {
+          text-indent: 5px;
+        }
+      }
+
+      .classes-dropdown {
+        display: inline-block;
+        position: relative;
+        box-shadow: none;
+        width: 100%;
+        border: 0;
+
+        a {
+          display: flex;
+          padding-left: 25px;
+        }
+
+        .class-item {
+          border-bottom: 1px solid #ffeeff; 
+        }
+
+        button {
+          background-color: transparent;
+          color: #451165;
+        }
+      }
+
+      .create-icon,
+      .delete-icon {
+        // position: absolute;
+        margin-left: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        align-self: center;
+      }
+
+      .dropdown-header {
+        display: inline-flex;
+        cursor: pointer;
+        i {
+          align-self: center;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .courses-classes-title {
+      font-weight: 600;
+    }
+
+    .dropdown-group {
+      background-color: #fff;
+      padding-bottom: 10px;
+
+      .courses-classes-dropdown {
+        padding: 0px; 
+
+        button {
+          background-color: #fff;
+          border: 1px solid rgb(231, 231, 231);
+        }
+
+        .dropdown-menu {
+          a {
+            display: block;
+            padding-left: 5px;
+          }
+        }
+      }
+      
+      .faculty-dd {
+        padding-left: 25px;
+      }
+
+      .btn-label {
+        width: 65%;
+        text-align: left;
+      }
+
+      .add-course-btn {
+        padding: 0;
+
+        button {
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+}

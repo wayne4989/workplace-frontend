@@ -1,0 +1,60 @@
+<div class="post-poll-map">
+  <ul class="post-action">
+    <li class="active" *ngIf="post"> <a class="create-post-link" (click)="postLink($event)">Write a Post</a> </li>
+    <li *ngIf="poll"> <a class="create-poll-link" (click)="pollLink($event)">Create Poll</a> </li>
+    <li *ngIf="map"> <a class="brain-link" (click)="brainLink($event)">Brainstorming Map</a> </li>
+    <li *ngIf="story"> <a class="share-story-link" (click)="shareStoryLink($event)">Share a Story</a> </li>
+  </ul>
+
+  <div class="row">
+    <div class="" [ngClass]="{'col-md-12': full, 'col-md-8': !full}">
+      <form class="create-post" *ngIf="post" #addpost="ngForm"(ngSubmit)="createpost()">
+        <div>
+          <textarea [(ngModel)]="newPost.message" class="form-control create-pots-textarea" placeholder="Whats happening?" name="post_title"></textarea>
+          <input class="upload-file" id="uploadImage" type="file" style="display:none;"/>
+          <div class="bottom-block">
+            <label for="uploadImage" class="img-upload flat-btn"> <i class="material-icons">link</i> </label>
+            <input type="submit" class="btn btn-blue btn-sm post-btn" value="ADD POST" [disabled]="_isDisabled">
+          </div>
+        </div>
+      </form>
+
+      <div class="create-poll" *ngIf="poll" style="display:none;">
+        <form #addnewpoll="ngForm" (ngSubmit)="createpoll()">
+          <textarea class="form-control" name="newpoll_name" [(ngModel)]="newPoll.name" placeholder="Ask something..."></textarea>
+          <ul class="poll-option">
+            <li> <input type="text" placeholder="Add an option"/> </li>
+            <li> <input type="text" placeholder="Add an option"/> </li>
+          </ul>
+          <div>
+            <a class="btn-add-new" id="add-poll-opt" (click)="addPoll()">Add New</a> <br/>
+            <p class="text-danger" style="margin-left:11px;" *ngIf="errorMessage">{{this.errorMessage}}</p>
+          </div>
+          <div class="bottom-block">
+            <span class="duration-poll"> Poll Duration(Days):
+              <input name="new_poll_duration" [(ngModel)]="newPoll.timeLimit" type="number">
+            </span>
+            <button class=" btn btn-blue" type="submit">ADD POST</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="brain-map" *ngIf="map" style="display:none;">
+        <p>Topic</p>
+        <div class="post-input">
+          <i class="input-caret grey-caret"></i>
+          <input class="form-control" placeholder="Type a topic"/>
+        </div>
+        <a class=" btn btn-blue">Create Map</a>
+      </div>
+
+      <form class="share-story" *ngIf="story" style="display:none;" #addstoryForm="ngForm" (ngSubmit)="addstory()">
+        <input type="text" class="form-control" placeholder="Title" name="title" [(ngModel)]="newStory.title"/>
+        <textarea id="share-story-textarea" class="textarea" name="message" (onEditorKeyup)="keyupHandlerFunction($event)" [(ngModel)]="newStory.message"></textarea>
+        <input type="file" class="fileToUpload" accept=".txt,.pdf,.doc,.docx,.jpg,.png,.jpeg,.gif"/>
+        <span id="file_text"></span>
+        <button type="button" class="clear_file hidden" (click)="clearFile()"><b>x</b></button>
+      </form>
+    </div>
+  </div>
+</div>

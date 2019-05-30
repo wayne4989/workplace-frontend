@@ -1,0 +1,37 @@
+community-mobile-ask-question-component {
+	.modal-close {
+		position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background: transparent;
+    padding: 0;
+    border: 0;
+    -webkit-appearance: none;
+		cursor: pointer;
+		&:focus {
+			outline: none;
+		}
+	}
+  .user-img {
+		width: 80px;
+		height: 80px;
+		margin-bottom: 10px;
+	}
+	.question-input-container {
+		position: relative;
+		i {
+			position: absolute;
+			bottom: 0;
+			right: 4px;
+			color: #cccccc;
+			cursor: pointer;
+		}
+	}
+	.btn-peersview-primary {
+		padding: 10px 120px;
+	}
+	shared-upload-image-component {
+		text-align: initial;
+	}
+}

@@ -1,0 +1,26 @@
+<div class="advance-find-people-component">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" class="form-control" [(ngModel)]="lastName"/>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Institution</label>
+        <input type="text" class="form-control" [(ngModel)]="campusName"/>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label></label>
+        <button
+          class="btn-peersview-secondary btn-peersview-md"
+          (click)="onSearchUsers()">
+            Search
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

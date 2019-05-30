@@ -1,0 +1,16 @@
+<div class="campus-admin-main-component container">
+  <div class="col-lg-3 col-md-3 hidden-xs hidden-sm left-sidebar">
+    <campus-admin-left-sidebar-component></campus-admin-left-sidebar-component>
+  </div>
+  <!-- <mobile-campus-nav-component class="hidden-md hidden-lg"></mobile-campus-nav-component> -->
+  <div class="col-lg-9 col-md-9 contents">
+    <div class="wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="campus-admin-component">
+  <left-sidebar-component class="col-xs-3"></left-sidebar-component>
+  <campus-admin-contents-component class="col-xs-9" [ngStyle]="{'padding-left': '0'}"></campus-admin-contents-component>
+</div> -->

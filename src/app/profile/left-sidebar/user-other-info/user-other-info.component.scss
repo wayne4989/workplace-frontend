@@ -1,0 +1,35 @@
+.profile-left-sidebar-user-other-info-component {
+  background-color: #ffffff;
+  .interests, .media-pictures, .accomplishments, .collections {
+    min-height: 50px;
+    padding-top: 10px;
+    border-top: 0;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Conv_MavenPro-Bold';
+    color: #333;
+    .row {
+      margin: 0;
+    }
+  }
+  i {
+    color: #631990;
+  }
+  .interests-data {
+    li {
+      margin: 5px;
+      border: 1px solid #631990;
+      border-radius: 20px;
+      padding: 3px;
+    }
+  }
+  .accomplishments-data {
+    font-size: 14px;
+    font-family: 'unset';
+    color: #333333;
+  }
+  .font-size {
+    font-size: 21px;
+  }
+}

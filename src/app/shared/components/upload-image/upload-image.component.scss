@@ -1,0 +1,96 @@
+.shared-upload-image-component {
+  .file-drop-container {
+    padding: 10px;
+    border: 2px dashed #e1c5ef;
+    border-radius: 5px;
+    margin-top: 10px;
+
+    .file-drop-or-select,
+    .upload-status,
+    .upload-complete {
+      margin-left: 4px;
+    }
+
+    .file-drop-or-select em {
+      font-size: 11px;
+    }
+  }
+
+  // img - preview
+  .img-to-upload-list {
+    width: 100%;
+    display: table;
+    margin-top: 10px;
+
+    .img-crop {
+      height: 100px;
+      width: 100px;
+      margin: 0 3px;
+      display: inline-block;
+      overflow: hidden;
+      border: 1px solid #ccc;
+
+      .remove-img {
+        position: relative;
+        float: right;
+        z-index: 1;
+        height: 25px;
+        width: 25px;
+        background-color: #631990;
+        border-bottom-left-radius: 5px;
+        color: #fff;
+        text-align: center;
+        visibility: hidden;
+      }
+
+      img {
+        position: relative;
+        top: 24%;
+        left: 50%;
+        -webkit-transform: translateY(-50%) translateX(-50%);
+      }
+
+      .img-portrait {
+        width: 100%;
+        min-width: 100%;
+      }
+
+      .img-landscape {
+        height: 100%;
+        min-height: 100%;
+      }
+
+      &:hover {
+        .remove-img {
+          visibility: visible;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .img-crop-add-photo {
+      background-color: #f9f2f9;
+      border: 2px dashed #ccc;
+      cursor: pointer;
+
+      i {
+        position: relative;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translateY(-50%) translateX(-50%);
+        font-size: 30px;
+        color: #ccc;
+      }
+    }
+
+    .change-profile-pic {
+      i {
+        position: absolute;
+        top: 52%;
+      }
+    }
+  }
+}

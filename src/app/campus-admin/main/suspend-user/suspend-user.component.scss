@@ -1,0 +1,53 @@
+.campus-admin-suspend-user-component {
+  hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .suspend-user-inner-container {
+    position: absolute;
+    background-color: #fff;
+    margin-top: 25px;
+    padding: 10px 5px;
+
+    .date-button {
+      
+      background-color: transparent; 
+      i {
+        float: right;
+      }
+    }
+
+    .suspend-headers {
+      padding: 0;
+    }
+
+    .suspend-user-form {
+      margin: 0;
+      div {
+        padding: 0;
+      }
+    }
+
+    .search-result-label {
+      padding: 5px;
+    }
+
+    .search-results-container {   
+      line-height: 3;  
+      .suspend-button {
+        i {
+          float: right;
+        }
+      }
+
+      .dropdown-item {
+        display: block;
+        margin-left: 5px;
+      }
+    }
+
+    .search-button {
+      height: 38px;
+    }
+  }
+}

@@ -1,0 +1,122 @@
+.sign-up-component {
+  height: 100%;
+  background: url(https://res.cloudinary.com/peersview-com/image/upload/v1518100226/pageBg.jpg) no-repeat;
+  background-size: cover;
+  .form-control {
+    min-height: 38px;
+    border-radius: 2px;
+    color: #8d36c3;
+    &::placeholder {
+      color: #8d36c3;
+    }
+    &:focus {
+      border-color: unset;
+      box-shadow: none;
+    }
+  }
+  .btn {
+    min-height: 38px;
+    font-size: 18px;
+    border-radius: 2px;
+  }
+  .sign-up-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 340px;
+    transform: translate(-50%, -50%);
+    form {
+      padding: 8px 25px 8px ;
+      background: #f7f7f7;
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+      h2 {
+        margin: 0 0 15px;
+      }
+      .signup-label {
+        padding: 0;
+      }
+      .sign-up-input {
+        padding: 0;
+        margin-bottom: 3px;
+      }
+      .social-btn {
+        .facebook {
+          background: #3b5998;
+          border-color: #172d5e;
+          color: #ffffff;
+        }
+        .linkedIn {
+          background: #0976b4;
+          border-color: #004269;
+          color: #ffffff;
+        }
+        .google {
+          background-color: #d9534f;
+          border-color: #d43f3a;
+          color: #ffffff;
+        }
+      }
+      .form-group {
+        margin-bottom: 0;
+      }
+    }
+    .hint-text {
+      padding-bottom: 15px;
+      font-size: 12px;
+  		text-align: center;
+      color: #ffffff;
+    }
+    .sign-up-now {
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .sign-in {
+      background-color: #8d36c3;
+      font-size: 15px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    .or-seperator {
+      margin: 20px 0 0;
+      text-align: center;
+      border-top: 1px solid #ccc;
+      i {
+        position: relative;
+        top: -11px;
+        padding: 0 10px;
+        background: #f7f7f7;
+        z-index: 1;
+      }
+    }
+	}
+
+
+    // Custom, iPhone Retina
+    @media only screen and (min-width : 320px) {}
+    // extra Small Devices, Phones
+    @media only screen and (min-width : 480px) {
+      .sign-up-form {
+        form {
+          padding: 8px;
+          .sign-up-input {
+            margin-bottom: 8px;
+          }
+          .signup-label {
+            padding: 2rem 0;
+          }
+        }
+      }
+    }
+    // Small Devices, Tablets
+    @media only screen and (min-width : 768px) {
+      .sign-up-form {
+        form {
+          padding: 10px;
+        }
+      }
+    }
+    // Medium Devices, Desktops
+    @media only screen and (min-width : 992px) {}
+    // Large Devices, Wide Screens
+    @media only screen and (min-width : 1200px) {}
+}

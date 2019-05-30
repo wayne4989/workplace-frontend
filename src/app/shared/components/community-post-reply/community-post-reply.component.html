@@ -1,0 +1,43 @@
+<div class="shared-community-post-reply-component">
+  <div class="col-xs-12" >
+    <div class="reply-container">
+      <div class="form-group">
+        <div class="input-group">
+          <input required [(ngModel)]="communityAnswer.comment" type="text" class="form-control" required>
+          <span class="input-group-btn">
+          <button
+            class="btn btn-peersview-primary"
+            [disabled]="isUserCurrentlyCommenting" type="button" (click)="onCommunityPostReply()">Reply</button>
+        </span>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="communityPost">
+      <div *ngFor="let item of communityPost.reply">
+        <ul *ngIf="item.quoteReplyId && item.tagUserId && reply.id === item.quoteReplyId" style="display: flex">
+          <cl-image
+            public-id="{{item.user.socialImage ? (item.user.profilePicture === 'avatar' ? item.user.socialImage: item.user.profilePicture): item.user.profilePicture}}"
+            *ngIf="item.user?.profilePicture"
+            class="user-img"
+            [ngStyle]="{'border-radius': '50%'}">
+            <cl-transformation width="55" height="55" radius="max" gravity="custom" crop="thumb">
+            </cl-transformation>
+          </cl-image>
+          <li class="comment-container">
+            <span>
+              <span>
+                <b>{{item.user.firstName | titlecase}} {{item.user.lastName | titlecase}}</b>
+              </span> {{item.comment}}
+            </span>
+            <div class="post-time"> <small>{{item.createdAt | date : 'short'}}</small></div>
+            <report-post-community-component
+              [post]="item"
+              [user]="user"
+              (onDeletePost)="onDeletePostReply($event)">
+            </report-post-community-component>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

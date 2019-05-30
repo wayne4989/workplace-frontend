@@ -1,0 +1,65 @@
+.mobile-campus-nav-component {
+	.campus-details {
+    padding: 5px;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		background: white;
+    box-shadow: 0px 0px 26px -7px #999;
+		h3 {
+			margin: auto;
+		}
+	}
+	.mobile-nav-links {
+		border-bottom: 1px solid #999999;
+		ul {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-around;
+			margin-top: 10px;
+			li {
+				padding-bottom: 5px;
+				a {
+					font-weight: 500;
+					font-size: 12px;
+					text-transform: uppercase;
+					color: #9a9a9a;
+				}
+			}
+			li.active {
+				border-bottom: 2px solid #9a9a9a;
+				a { color: #631990; }
+			}
+			.mobile-nav-menu {
+				margin-top: -3px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.open {
+				.mobile-nav-dropdown {
+					display: block;
+				}
+			}
+			#mobile-nav-menu {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.mobile-nav-dropdown {
+				z-index: 1;
+				border: transparent;
+				display: none;
+				&:before {
+					content: "";
+					position: absolute;
+					border-bottom: 10px solid white;
+					border-left: 8px solid transparent;
+					border-right: 8px solid transparent;
+					top: -10px;
+					right: 5px;
+				}
+			}
+		}
+	}
+}

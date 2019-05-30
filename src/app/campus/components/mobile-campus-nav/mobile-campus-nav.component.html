@@ -1,0 +1,57 @@
+<div class="mobile-campus-nav-component row">
+	<div class="campus-details">
+			<cl-image
+			class="mouse-pointer"
+			public-id="peersviewBrand"
+			height="56px"
+		  >
+		  </cl-image>
+		<h3 class="text-center">Peersview Campus</h3>
+	</div>
+	
+	<div class="mobile-nav-links">
+		<ul>
+			<li [routerLinkActive]="'active'">
+				<a [routerLink]="['/home']">Home</a>
+			</li>
+			<li [routerLinkActive]="'active'">
+				<a [routerLink]="['all-students']">All Students</a>
+			</li>
+			<li [routerLinkActive]="'active'">
+				<a [routerLink]="['freshers-feed']">Freshers Feed</a>
+			</li>
+			<li class="dropdown mobile-nav-menu">
+				<a data-toggle="dropdown" class="dropdown-toggle" id="mobile-nav-menu">
+					More
+					<i class="material-icons">keyboard_arrow_down</i>
+				</a>
+				<ul class="dropdown-menu dropdown-menu-right mobile-nav-dropdown" aria-labelledby="mobile-nav-menu">
+					<i class="icon-arrow-up"></i>
+					<li><a [routerLink]="['course-feed']">Course Feed</a></li>
+					<li><a [routerLink]="['classes']">Classes</a></li>
+          <li><a [routerLink]="['student-group']">Student Group</a></li>
+          <li><a [routerLink]="['marketplace']">Market Place</a></li>
+          <li><a [routerLink]="['mentoring']">Mentoring</a></li>
+        </ul>
+      </li>
+			<!-- <li [routerLinkActive]="'active'">
+				<a [routerLink]="['course-feed']">Course feed</a>
+			</li>
+			<li>
+				<a href="#communityClassesList">Classes</a>
+			</li>
+			<li>
+				<a href="#studentHome">Student group</a>
+			</li>
+			<li>
+				<a href="#communityGroup">Societies &amp; Clubs</a>
+			</li>
+			<li>
+				<a href="#marketPlace">Market Place</a>
+			</li>
+			<li>
+				<a href="#communityJobCenter">Mentoring</a>
+			</li> -->
+		</ul>
+	</div>
+</div>

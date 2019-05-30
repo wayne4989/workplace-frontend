@@ -1,0 +1,17 @@
+<div class="campus-classes-landing-component">
+  <h4 class="m-peersview-y-3">To Get started you need to Add your Classes 
+    <button 
+      class="pull-right btn-peersview-primary btn-peersview-md"
+      (click)="onClickProceed()"
+      [disabled]="!onProceedButtonIsEnabled"
+      >PROCEED</button>
+  </h4>
+  <ul class="items-list">
+    <li *ngFor="let campusClass of campusClassList; let i = index;">
+      <label for="{{campusClass.id}}">{{campusClass.name}}
+        <input type="checkbox" (change)="onClickAddClass($event)" id="{{campusClass.id}}" class="badgebox">
+        <span class="badge">✓</span>
+      </label>
+    </li>
+  </ul>
+</div>

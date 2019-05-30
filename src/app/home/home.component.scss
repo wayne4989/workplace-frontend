@@ -1,0 +1,124 @@
+/**
+ * Basically Just used position and top
+ * changes for the conmponent selector
+ * css styles; nothing more nothing less
+ */
+.home-component {
+  position: relative;
+  padding-right: 15px;
+  .container-fluid {
+    margin: 0;
+    padding: 0;
+  }
+  .center-section {
+    padding-right: 15px;
+    .top-post {
+      margin: 5px 0;
+      background-color: #ffffff;
+      padding: 20px;
+      font-family: Georgia;
+    }
+    .shared-post-textarea {
+      margin-top: 10px;
+      background-color: #fff;
+    }
+  }
+  .post-row {
+    margin: 0;
+    .news-post {
+      margin: 0 0 20px 0;
+      padding: 0;
+      .tab-pill {
+        margin-bottom: 15px;
+      }
+    }
+  }
+  .tab-pill {
+    span {
+      display: block;
+      margin: 0;
+      padding: 5px 10px;
+      font-family: "Maven Pro", sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #323c47;
+      background: transparent;
+      border-bottom: 1px solid #dbdbdb;
+      border-radius: 0;
+    }
+  }
+  .posts-preview {
+    height: 160px;
+    overflow: auto;
+  }
+  .news-post-footer {
+    justify-content: space-between;
+    padding: 15px;
+    display: flex;
+    background-color: #fff;
+    .autorenew-icon {
+      font-weight: bold;
+    }
+  }
+  home-left-sidebar-component {
+    position: sticky;
+    top: 5%;
+  }
+  home-right-sidebar-component {
+    position: sticky;
+    top: 5%;
+    padding-right: 0;
+  }
+  .shared-peers-you-may-know-component {
+    margin-top: 3px;
+  }
+
+  /* Link Preview */
+
+  .link-preview{
+  .link-area{
+    overflow: hidden;
+    position: relative;
+    margin: 1em 0 1em 0;
+    padding: 10px;
+    border: 1px #999 solid;}
+  .descriptions{
+    overflow: initial;}
+  .og-title{
+    overflow: hidden;
+    font-size: 1.2em;
+    font-weight: bold;}
+  .og-description{
+    font-size: 0.86em;
+    margin-top: 0.2em;}
+  .og-url{
+    overflow: hidden;
+    font-size: 0.7em;
+    font-weight: bold;}
+  .og-image{
+    float:left;
+    margin-right: 10px;}
+    img{
+      max-width: 125px;
+    }
+  }
+
+  /* Custom, iPhone Retina */
+  @media only screen and (min-width : 320px) {
+    padding-top: 112px;
+  }
+  /* Extra Small Devices, Phones */
+  @media only screen and (min-width : 480px) {}
+  /* Small Devices, Tablets */
+  @media only screen and (min-width : 768px) {}
+  /* Medium Devices, Desktops */
+  @media only screen and (min-width : 992px) {
+    padding-top: 50px;
+    padding-right: 0;
+    .center-section { 
+      padding-right: 0;
+    }
+  }
+  /* Large Devices, Wide Screens */
+  @media only screen and (min-width : 1200px) {}
+}

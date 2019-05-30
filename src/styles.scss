@@ -1,0 +1,27 @@
+$bootstrap-sass-asset-helper: true;
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+/*
+@import "../node_modules/owl.carousel/dist/assets/owl.carousel.css";
+@import "../node_modules/perfect-scrollbar/css/perfect-scrollbar.css";
+@import "./assets/scss/owl.carousel";
+*/
+@import "./assets/scss/fonts";
+@import "./assets/scss/app";
+/*
+@import "./assets/scss/stylemain";
+/*
+/**
+ * Below will be use as our media queries
+ * coding style and standards
+ * Custom, iPhone Retina
+ * @media only screen and (min-width : 320px) {}
+ * extra Small Devices, Phones
+ * @media only screen and (min-width : 480px) {}
+ * Small Devices, Tablets
+ * @media only screen and (min-width : 768px) {}
+ * Medium Devices, Desktops
+ * @media only screen and (min-width : 992px) {}
+ * Large Devices, Wide Screens
+ * @media only screen and (min-width : 1200px) {}
+ */

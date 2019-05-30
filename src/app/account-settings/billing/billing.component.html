@@ -1,0 +1,88 @@
+<div class="account-settings-billing-component">
+  <div class="tab-title">BILLING</div>
+  <div class="row p-peersview-y-1 billing-row  m-peersview-0">
+    <div class="p-peersview-0 col-sm-3">
+      <label>Billing Methods:</label>
+    </div>
+    <div class="col-sm-5">
+      <select class="form-control">
+        <option>Paypal</option>
+        <option>Visa</option>
+        <option>Mastercard</option>
+      </select>
+    </div>
+    <div class="col-sm-4 account-settings-billing-add-billing-button text-right">
+      <button
+      class="btn-peersview-primary btn-peersview-sm"
+      (click)="isBillingMethod = true">Add Billing Method</button>
+    </div>
+  </div>
+  <div class="row p-peersview-y-1" *ngIf="isBillingMethod">
+    <div class="account-settings-billing-add-card">
+      <div class="account-settings-billing-add-card-title">Add New Card</div>
+      <div class="p-peersview-2">
+        <div class="row billing-method-row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Name on Card</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Card Number</label>
+              <div class="input-group">
+                <input type="text" class="form-control">
+                <div class="input-group-addon"><i class="icon-lock"></i></div>
+              </div>
+            </div>
+            <div class="form-group row m-peersview-0"> <span class="date-fields">
+              <label>Expiry Date</label>
+              <input type="text" class="form-control col-sm-4" placeholder="MM">
+              <input type="text" class="form-control col-sm-4" placeholder="YY">
+              </span> 
+              <span class="cvv-fields">
+              <label>Security Code</label>
+              <input type="text" class="form-control">
+              </span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Country</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Address</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>City</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Post Code (Optional)</label>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="row form-button text-right">
+          <button
+          class="btn btn-white btn-sm"
+          (click)="isBillingMethod = false">
+            Cancel
+          </button>
+          &nbsp;&nbsp;
+          <button
+          class="btn btn-sm btn-peersview-primary"
+          (click)="onAddCard();">
+            Add Card
+          </button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row p-peersview-y-1 text-right m-peersview-0">
+    <button class="btn-peersview-primary btn-peersview-md">Update</button>
+  </div>
+</div>

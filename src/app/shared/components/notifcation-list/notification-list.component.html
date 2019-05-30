@@ -1,0 +1,292 @@
+<div class="notification-list-component">
+  <ul class="notification-list" *ngFor="let notification of notifications; let i = index">
+
+    <li class="co-row" *ngIf="notification.type === 'newFollower'" (click)="goToUserProfile(notification.subject)">
+      <div class="co-img">
+        <a class="user-img">
+          <cl-image
+            public-id="{{notification.subject.socialImage ? (notification.subject.profilePicture === 'avatar' ? notification.subject.socialImage: notification.subject.profilePicture): notification.subject.profilePicture}}"
+            *ngIf="notification.subject?.profilePicture">
+            <cl-transformation width="130" height="130" radius="max" gravity="custom" crop="thumb">
+            </cl-transformation>
+          </cl-image>
+        </a>
+      </div>
+      <div class="co-info">
+        <span class="co-name"><b class="peersview-primary-color">{{notification.subject.firstName }}&nbsp;{{notification.subject.lastName}}</b> {{notification.message}}</span>
+        <br/>
+      </div>
+      <div class="co-options">
+        <i class="material-icons">more_vert</i>
+        <span class="co-time">{{notification.createdAt | timeAgo }}</span>
+      </div>
+    </li>
+
+    <li class="co-row" *ngIf="notification.type === 'postLike' && notification.post" (click)="goToUserPostLike(notification.post)">
+      <div class="co-img">
+        <a class="user-img">
+          <cl-image
+            public-id="{{notification.subject.socialImage ? (notification.subject.profilePicture === 'avatar' ? notification.subject.socialImage: notification.subject.profilePicture): notification.subject.profilePicture}}"
+            *ngIf="notification.subject?.profilePicture">
+            <cl-transformation width="130" height="130" radius="max" gravity="custom" crop="thumb">
+            </cl-transformation>
+          </cl-image>
+        </a>
+      </div>
+      <div class="co-info">
+        <span class="co-name"><b class="peersview-primary-color">{{notification.subject.firstName }}&nbsp;{{notification.subject.lastName}}</b> {{notification.message}}. "{{notification.post.message}}"</span>
+        <br/>
+      </div>
+      <div class="co-options">
+        <i class="material-icons">more_vert</i>
+        <span class="co-time">{{notification.createdAt | timeAgo }}</span>
+      </div>
+    </li>
+
+    <li class="co-row" *ngIf="notification.type === 'postReply' && notification.post" (click)="goToUserPostReply(notification.post)">
+      <div class="co-img">
+        <a class="user-img">
+          <cl-image
+            public-id="{{notification.subject.socialImage ? (notification.subject.profilePicture === 'avatar' ? notification.subject.socialImage: notification.subject.profilePicture): notification.subject.profilePicture}}"
+            *ngIf="notification.subject?.profilePicture">
+            <cl-transformation width="130" height="130" radius="max" gravity="custom" crop="thumb">
+            </cl-transformation>
+          </cl-image>
+        </a>
+      </div>
+      <div class="co-info">
+        <span class="co-name"><b class="peersview-primary-color">{{notification.subject.firstName }}&nbsp;{{notification.subject.lastName}}</b> {{notification.message}} "{{notification.post.message}}" post.</span>
+        <br/>
+      </div>
+      <div class="co-options">
+        <i class="material-icons">more_vert</i>
+        <span class="co-time">{{notification.createdAt | timeAgo }}</span>
+      </div>
+    </li>
+
+    <li class="co-row" *ngIf="notification.type === 'postShare' && notification.post" (click)="goToUserPostShare(notification.post)">
+      <div class="co-img">
+        <a class="user-img">
+          <cl-image
+            public-id="{{notification.subject.socialImage ? (notification.subject.profilePicture === 'avatar' ? notification.subject.socialImage: notification.subject.profilePicture): notification.subject.profilePicture}}"
+            *ngIf="notification.subject?.profilePicture">
+            <cl-transformation width="130" height="130" radius="max" gravity="custom" crop="thumb">
+            </cl-transformation>
+          </cl-image>
+        </a>
+      </div>
+      <div class="co-info">
+        <span class="co-name"><b class="peersview-primary-color">{{notification.subject.firstName }}&nbsp;{{notification.subject.lastName}}</b> {{notification.message}} "{{notification.post.message}}" post.</span>
+        <br/>
+      </div>
+      <div class="co-options">
+        <i class="material-icons">more_vert</i>
+        <span class="co-time">{{notification.createdAt | timeAgo }}</span>
+      </div>
+    </li>
+
+    <li class="co-row" *ngIf="notification.type === 'communityQuestionFollow' && notification.postv1" (click)="goToCommunityQuestionFollow(notification.postv1)">
+      <div class="co-img">
+        <a class="user-img">
+          <cl-image
+            public-id="{{notification.subject.socialImage ? (notification.subject.profilePicture === 'avatar' ? notification.subject.socialImage: notification.subject.profilePicture): notification.subject.profilePicture}}"
+            *ngIf="notification.subject?.profilePicture">
+            <cl-transformation width="130" height="130" radius="max" gravity="custom" crop="thumb">
+            </cl-transformation>
+          </cl-image>
+        </a>
+      </div>
+      <div class="co-info">
+        <span class="co-name"><b class="peersview-primary-color">{{notification.subject.firstName }}&nbsp;{{notification.subject.lastName}}</b> {{notification.message}} "{{notification.postv1.message}}" in the <b class="peersview-primary-color"> {{notification.course.name}}</b>.</span>
+        <br/>
+      </div>
+      <div class="co-options">
+        <i class="material-icons">more_vert</i>
+        <span class="co-time">{{notification.createdAt | timeAgo }}</span>
+      </div>
+    </li>
+
+    <li class="co-row" *ngIf="notification.type === 'communityQuestionPost' && notification.postv1" (click)="goToCommunityQuestionFollow(notification.postv1)">
+      <div class="co-img">
+        <a class="user-img">
+          <cl-image
+            public-id="{{notification.subject.socialImage ? (notification.subject.profilePicture === 'avatar' ? notification.subject.socialImage: notification.subject.profilePicture): notification.subject.profilePicture}}"
+            *ngIf="notification.subject?.profilePicture">
+            <cl-transformation width="130" height="130" radius="max" gravity="custom" crop="thumb">
+            </cl-transformation>
+          </cl-image>
+        </a>
+      </div>
+      <div class="co-info">
+        <span class="co-name">"{{notification.postv1.message}}" {{notification.message}} <b class="peersview-primary-color"> {{notification.course.name}}</b> community.</span>
+        <br/>
+      </div>
+      <div class="co-options">
+        <i class="material-icons">more_vert</i>
+        <span class="co-time">{{notification.createdAt | timeAgo }}</span>
+      </div>
+    </li>
+
+    <li class="co-row" *ngIf="notification.type === 'communityQuestionReply' && notification.postv1" (click)="goToCommunityQuestionAnswer(notification.postv1)">
+      <div class="co-img">
+        <a class="user-img">
+          <cl-image
+            public-id="{{notification.subject.socialImage ? (notification.subject.profilePicture === 'avatar' ? notification.subject.socialImage: notification.subject.profilePicture): notification.subject.profilePicture}}"
+            *ngIf="notification.subject?.profilePicture">
+            <cl-transformation width="130" height="130" radius="max" gravity="custom" crop="thumb">
+            </cl-transformation>
+          </cl-image>
+        </a>
+      </div>
+      <div class="co-info">
+        <span class="co-name"><b class="peersview-primary-color">{{notification.subject.firstName }}&nbsp;{{notification.subject.lastName}}</b> {{notification.message}} "{{notification.postv1.message}}" in the <b class="peersview-primary-color"> {{notification.course.name}}</b>.</span>
+        <br/>
+      </div>
+      <div class="co-options">
+        <i class="material-icons">more_vert</i>
+        <span class="co-time">{{notification.createdAt | timeAgo }}</span>
+      </div>
+    </li>
+
+  </ul>
+</div>
+
+
+
+
+
+<!--
+<ul class="notification-list">
+  <li class="co-row">
+    <div class="co-img"><img src="https://lh5.googleusercontent.com/-MUoRMJwmCEc/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7oeEoFO5rXLQURJkIM-4pYNT7rQDQ/s96-c/photo.jpg"></div>
+    <div class="co-info">
+      <span class="co-name"><b>Lorence Tolentino</b> viewed your profile.</span>
+      <br/>
+    </div>
+    <div class="co-options">
+      <i class="material-icons">more_vert</i>
+      <span class="co-time">1m</span>
+    </div>
+  </li>
+  <li class="co-row">
+    <div class="co-img"><img src="http://res.cloudinary.com/peersview-com/image/upload/r_max/avatar"></div>
+    <div class="co-info">
+      <span class="co-name"><b>Lorence Tolentino</b> messaged you.</span>
+      <br/>
+    </div>
+    <div class="co-options">
+      <i class="material-icons">more_vert</i>
+      <span class="co-time">1m</span>
+    </div>
+  </li>
+  <li class="co-row">
+    <div class="co-img"><img src="http://res.cloudinary.com/peersview-com/image/upload/r_max/avatar"></div>
+    <div class="co-info">
+      <span class="co-name"><b>Lorence Tolentino</b> replied to you post. "That's great!"</span>
+      <br/>
+    </div>
+    <div class="co-options">
+      <i class="material-icons">more_vert</i>
+      <span class="co-time">1m</span>
+    </div>
+  </li>
+  <li class="co-row">
+    <div class="co-img"><img src="http://res.cloudinary.com/peersview-com/image/upload/r_max/avatar"></div>
+    <div class="co-info">
+      <span class="co-name">You were tagged by <b>Lorence Tolentino</b> in "Guys! This is so cool..."</span>
+      <br/>
+    </div>
+    <div class="co-options">
+      <i class="material-icons">more_vert</i>
+      <span class="co-time">1m</span>
+    </div>
+  </li>
+  <li class="co-row">
+    <div class="co-img"><img src="http://res.cloudinary.com/peersview-com/image/upload/r_max/avatar"></div>
+    <div class="co-info">
+      <span class="co-name"><b>Angela Magtoto</b> followed you.</span>
+      <br/>
+    </div>
+    <div class="co-options">
+      <i class="material-icons">more_vert</i>
+      <span class="co-time">1m</span>
+    </div>
+  </li>
+  <li class="co-row">
+    <div class="co-img"><img src="http://res.cloudinary.com/peersview-com/image/upload/r_max/avatar"></div>
+    <div class="co-info">
+      <span class="co-name"><b>Angela Magtoto</b> and 5 others liked, "I would be nice."</span>
+      <br/>
+    </div>
+    <div class="co-options">
+      <i class="material-icons">more_vert</i>
+      <span class="co-time">1m</span>
+    </div>
+  </li>
+  <li class="co-row">
+    <div class="co-img"><img src="http://res.cloudinary.com/peersview-com/image/upload/r_max/avatar"></div>
+    <div class="co-info">
+      <span class="co-name"><b>Angela Magtoto</b> shared your post, "If you never try then you'll never know."</span>
+      <br/>
+    </div>
+    <div class="co-options">
+      <i class="material-icons">more_vert</i>
+      <span class="co-time">1m</span>
+    </div>
+  </li>
+  <li class="co-row">
+    <div class="co-img"><img src="http://res.cloudinary.com/peersview-com/image/upload/r_max/avatar"></div>
+    <div class="co-info">
+      <span class="co-name"><b>Angela Magtoto</b> replied to <b>Tom Hardy</b>'s post, "We are Venom!"</span>
+      <br/>
+    </div>
+    <div class="co-options">
+      <i class="material-icons">more_vert</i>
+      <span class="co-time">1m</span>
+    </div>
+  </li>
+  <li class="co-row">
+    <div class="co-img"><img src="http://res.cloudinary.com/peersview-com/image/upload/r_max/avatar"></div>
+    <div class="co-info">
+      <span class="co-name"><b>Angela Magtoto</b> sent you an invite to join <b>Community</b></span>
+      <br/>
+    </div>
+    <div class="co-options">
+      <i class="material-icons">more_vert</i>
+      <span class="co-time">1m</span>
+    </div>
+  </li>
+  <li class="co-row">
+    <div class="co-img"><img src="http://res.cloudinary.com/peersview-com/image/upload/r_max/avatar"></div>
+    <div class="co-info">
+      <span class="co-name"><b>Angela Magtoto</b> would like to join <b>Community</b></span>
+      <br/>
+    </div>
+    <div class="co-options">
+      <i class="material-icons">more_vert</i>
+      <span class="co-time">1m</span>
+    </div>
+  </li>
+  <li class="co-row">
+    <div class="co-img"><img src="http://res.cloudinary.com/peersview-com/image/upload/r_max/avatar"></div>
+    <div class="co-info">
+      <span class="co-name"><b>Angela Magtoto</b> sent you an invite to join <b>Student Group</b></span>
+      <br/>
+    </div>
+    <div class="co-options">
+      <i class="material-icons">more_vert</i>
+      <span class="co-time">1m</span>
+    </div>
+  </li>
+  <li class="co-row">
+    <div class="co-img"><img src="http://res.cloudinary.com/peersview-com/image/upload/r_max/avatar"></div>
+    <div class="co-info">
+      <span class="co-name"><b>Angela Magtoto</b> would like to join <b>Student Group</b></span>
+      <br/>
+    </div>
+    <div class="co-options">
+      <i class="material-icons">more_vert</i>
+      <span class="co-time">1m</span>
+    </div>
+  </li>
+</ul>-->

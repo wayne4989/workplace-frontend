@@ -1,0 +1,331 @@
+@import './variables';
+
+@mixin btn-peersview-primary($bg, $border...) {
+  background: $bg;
+  font-weight: 500;
+  color: #ffffff;
+  border: $border;
+  letter-spacing: 1px;
+  border: 0;
+  outline: none;
+  @include border-radius(0);
+  &:hover {
+    background: darken($bg, 5%);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  &:active {
+    background: darken($bg, 10%);
+    color: #ffffff;
+    outline: none;
+  }
+  &:focus {
+    color: #ffffff;
+    outline: none;
+  }
+  &:active {
+    &:focus, &:hover, &:visited {
+      background: darken($bg, 10%);
+      color: #ffffff;
+      outline: none;
+    }
+  }
+}
+
+@mixin btn-peersview-secondary($bg, $border...) {
+  @include btn-peersview-primary($bg, $border...);
+}
+@mixin btn-peersview-cancel($bg, $border...) {
+  @include btn-peersview-primary($bg, $border...);
+}
+@mixin btn-peersview-transparent() {
+  background: none;
+  color: #ffffff;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  &:hover {
+    background: darken($secondary-color, 5%);
+    color: #ffffff;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+  }
+  &:active{
+    background: darken($secondary-color, 10%);
+    color: #ffffff;
+    outline: none;
+  }
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    &:focus, &:hover, &:visited {
+      background: darken($secondary-color, 10%);
+      color: #ffffff;
+      outline: none;
+    }
+  }
+}
+@mixin btn-transparent() {
+  background: none;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+@mixin btn-white() {
+  color: $primary-color;
+  background-color: #ffffff;
+  text-transform: uppercase;
+  border-color: $primary-color;
+}
+@mixin flat-btn() {
+  background-color: transparent;
+  border: none;
+}
+@mixin anchor() {
+  color: $secondary-color;
+  text-decoration: none;
+  &:hover {
+    color: darken($secondary-color, 10%);;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+// buttons
+@mixin btn-xl() {
+  padding: 20px 40px;
+  font-size: $f-large;
+}
+@mixin btn-lg() {
+  padding: 15px 40px;
+  font-size: $f-regular;
+}
+@mixin btn-md() {
+  padding: 10px 20px;
+  font-size: $f-regular;
+}
+@mixin btn-sm() {
+  padding: 5px 10px;
+  font-size: $font-weight-light
+}
+@mixin btn-xs() {
+  padding: 5px 5px;
+  font-size: $font-weight-light;
+}
+
+// paddings
+@mixin padding-0() {
+  padding: 0;
+}
+@mixin padding-1() {
+  padding: $spacers * .25rem;
+}
+@mixin padding-2() {
+  padding: $spacers * .5rem;
+}
+@mixin padding-3() {
+  padding: $spacers;
+}
+@mixin padding-4() {
+  padding: $spacers * 1.5rem;
+}
+@mixin padding-5() {
+  padding: $spacers * 3rem;
+}
+@mixin padding-y-0() {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+@mixin padding-y-1() {
+  padding-top: $spacers * .25rem;
+  padding-bottom: $spacers * .25rem;
+}
+@mixin padding-y-2() {
+  padding-top: $spacers * .5rem;
+  padding-bottom: $spacers * .5rem;
+}
+@mixin padding-y-3() {
+  padding-top: $spacers * 1rem;
+  padding-bottom: $spacers * 1rem;
+}
+@mixin padding-y-4() {
+  padding-top: $spacers * 1.5rem;
+  padding-bottom: $spacers * 1.5rem;
+}
+@mixin padding-y-5() {
+  padding-top: $spacers * 3rem;
+  padding-bottom: $spacers * 3rem;
+}
+@mixin padding-yb-0() {
+  padding-bottom: 0;
+}
+@mixin padding-yb-1() {
+  padding-bottom: $spacers * .25rem;
+}
+@mixin padding-yb-2() {
+  padding-bottom: $spacers * .5rem;
+}
+@mixin padding-yb-3() {
+  padding-bottom: $spacers * 1rem;
+}
+@mixin padding-yb-4() {
+  padding-bottom: $spacers * 1.5rem;
+}
+@mixin padding-yb-5() {
+  padding-bottom: $spacers * 3rem;
+}
+@mixin padding-x-0() {
+  padding-right: 0;
+  padding-left: 0;
+}
+@mixin padding-x-1() {
+  padding-right: $spacers * .25rem;
+  padding-left: $spacers * .25rem;
+}
+@mixin padding-x-2() {
+  padding-right: $spacers * .5rem;
+  padding-left: $spacers * .5rem;
+}
+@mixin padding-x-3() {
+  padding-right: $spacers * 1rem;
+  padding-left: $spacers * 1rem;
+}
+@mixin padding-x-4() {
+  padding-right: $spacers * 1.5rem;
+  padding-left: $spacers * 1.5rem;
+}
+@mixin padding-x-5() {
+  padding-right: $spacers * 3rem;
+  padding-left: $spacers * 3rem;
+}
+
+// margin
+@mixin margin-0() {
+  margin: 0;
+}
+@mixin margin-1() {
+  margin: $spacers * .25rem;
+}
+@mixin margin-2() {
+  margin: $spacers * .5rem;
+}
+@mixin margin-3() {
+  margin: $spacers;
+}
+@mixin margin-4() {
+  margin: $spacers * 1.5rem;
+}
+@mixin margin-5() {
+  margin: $spacers * 3rem;
+}
+@mixin margin-y-0() {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+@mixin margin-y-1() {
+  margin-top: $spacers * .25rem;
+  margin-bottom: $spacers * .25rem;
+}
+@mixin margin-y-2() {
+  margin-top: $spacers * .5rem;
+  margin-bottom: $spacers * .5rem;
+}
+@mixin margin-y-3() {
+  margin-top: $spacers * 1rem;
+  margin-bottom: $spacers * 1rem;
+}
+@mixin margin-y-4() {
+  margin-top: $spacers * 1.5rem;
+  margin-bottom: $spacers * 1.5rem;
+}
+@mixin margin-y-5() {
+  margin-top: $spacers * 3rem;
+  margin-bottom: $spacers * 3rem;
+}
+@mixin margin-yt-0() {
+  margin-top: 0;
+}
+@mixin margin-yt-1() {
+  margin-top: $spacers * .25rem;
+}
+@mixin margin-yt-2() {
+  margin-top: $spacers * .5rem;
+}
+@mixin margin-yt-3() {
+  margin-top: $spacers * 1rem;
+}
+@mixin margin-yt-4() {
+  margin-top: $spacers * 1.5rem;
+}
+@mixin margin-yt-5() {
+  margin-top: $spacers * 3rem;
+}
+@mixin margin-yb-0() {
+  margin-bottom: 0;
+}
+@mixin margin-yb-1() {
+  margin-bottom: $spacers * .25rem;
+}
+@mixin margin-yb-2() {
+  margin-bottom: $spacers * .5rem;
+}
+@mixin margin-yb-3() {
+  margin-bottom: $spacers * 1px;
+}
+@mixin margin-yb-4() {
+  margin-bottom: $spacers * 1.5rem;
+}
+@mixin margin-yb-5() {
+  margin-bottom: $spacers * 3rem;
+}
+@mixin margin-x-0() {
+  margin-right: 0;
+  margin-left: 0;
+}
+@mixin margin-x-1() {
+  margin-right: $spacers * .25rem;
+  margin-left: $spacers * .25rem;
+}
+@mixin margin-x-2() {
+  margin-right: $spacers * .5rem;
+  margin-left: $spacers * .5rem;
+}
+@mixin margin-x-3() {
+  margin-right: $spacers * 1rem;
+  margin-left: $spacers * 1rem;
+}
+@mixin margin-x-4() {
+  margin-right: $spacers * 1.5rem;
+  margin-left: $spacers * 1.5rem;
+}
+@mixin margin-x-5() {
+  margin-right: $spacers * 3rem;
+  margin-left: $spacers * 3rem;
+}
+@mixin margin-xr-0() {
+  margin-right: 0;
+}
+@mixin margin-xr-1() {
+  margin-right: $spacers * .25rem;
+}
+@mixin margin-xr-2() {
+  margin-right: $spacers * .5rem;
+}
+@mixin margin-xr-3() {
+  margin-right: $spacers * 1px;
+}
+@mixin margin-xr-4() {
+  margin-right: $spacers * 1.5rem;
+}
+@mixin margin-xr-5() {
+  margin-right: $spacers * 3rem;
+}

@@ -1,0 +1,35 @@
+<div class="community-tab-menu-component">
+  <ul>
+    <li class="active">
+      <a class="tabChange" data-tab-name="general">General Community</a>
+    </li>
+    <li>
+      <a data-tab-name="course">
+        <span>Course</span>
+        <cl-image
+          public-id="universityWhite"
+          width="20">
+        </cl-image>
+        <select class="form-control designation courses">
+          <option>Course</option>
+          <option *ngFor="let course of courses" value="{{course.id}}">{{course.course}}</option>
+        </select>
+      </a>
+    </li>
+    <li class="pull-right select-degree hidden-sm hidden-xs">
+      <i class="material-icons hidden-xs" style="cursor: pointer" (click)="levelEditMode = !levelEditMode">settings</i>
+      <select class="form-control designation student-level hidden-xs" [disabled]="true">
+        <option *ngFor="let useStudyLevel of useStudyLevels" value="{{useStudyLevel.id}}">{{useStudyLevel.name}}</option>
+      </select>
+      <div class="menu-wrapper visible-xs">
+        <button (click)="mobileMenuOpen = !mobileMenuOpen" class="forum-mobile-menu btn flat-btn">
+        Community <i class="material-icons">keyboard_arrow_down</i>
+        </button>
+        <ul *ngIf="mobileMenuOpen">
+          <li><a routerLink="/forum/home">Community</a> </li>
+          <li><a routerLink="/forum/careers">Careers</a> </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>

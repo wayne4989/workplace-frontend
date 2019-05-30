@@ -1,0 +1,52 @@
+.notification-list-component {
+  height: 87%;
+  overflow-y: auto;
+
+  .notification-list {
+    padding: 3px 5px;
+    .co-row {
+      padding: 10px 0;
+      border-bottom: 1px solid #e2e2e2;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #e2e2e2;
+      }
+    }
+    .co-img {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      vertical-align: middle;
+      margin-left: 5px;
+      
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+      }
+    }
+    .co-info {
+      display: inline-block;
+      vertical-align: middle;
+      width: 75%;
+      margin-left: 10px;
+
+      .co-name {
+        color: #333;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+    .co-options {
+      display: initial;
+      text-align: center;
+      .co-time {
+        float: right;
+        font-size: 12px;
+        color: #999;
+        font-weight: 500;
+      }
+    }
+  }
+}

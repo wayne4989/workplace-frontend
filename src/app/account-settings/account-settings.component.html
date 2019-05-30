@@ -1,0 +1,89 @@
+<shared-navbar-component></shared-navbar-component>
+<div class="account-settings-component container fixed-header">
+  <div class="page-name-title m-peersview-yt-2">Account Setting</div>
+  <div class="row">
+    <div class="col-md-3 col-lg-3 sidenav-container">
+      <ul class="nav nav-tabs tabs-left">
+        <li>
+          <a 
+          [routerLink]="['general']" [routerLinkActive]="'active-menu'"
+            >
+            General
+          </a>
+        </li>
+        <li>
+          <a 
+          [routerLink]="['password']" [routerLinkActive]="'active-menu'"
+          *ngIf="!user?.facebookId || !user?.linkedinId || !user?.googleId"
+            >
+            Password
+          </a>
+        </li>
+        <li>
+          <a
+          [routerLink]="['security-privacy']" [routerLinkActive]="'active-menu'">
+            Security and Privacy
+          </a>
+        </li>
+        <li>
+          <a 
+          [routerLink]="['blocking']" [routerLinkActive]="'active-menu'">
+            Blocking
+          </a>
+        </li>
+        <li>
+          <a 
+          [routerLink]="['notifications']" [routerLinkActive]="'active-menu'">
+            Notifications
+          </a>
+        </li>
+        <li>
+          <a
+          [routerLink]="['billing']" [routerLinkActive]="'active-menu'">
+            Billing
+          </a>
+        </li>
+      </ul>
+      <!-- <div
+      class="account-settings-component-general-menu p-peersview-1 mouse-pointer"
+      [routerLink]="['general']" [routerLinkActive]="'active-menu'">
+        General
+        <i class="material-icons">keyboard_arrow_down</i>
+      </div>
+      <div
+      class="account-settings-component-password-menu p-peersview-1 mouse-pointer"
+      [routerLink]="['password']" [routerLinkActive]="'active-menu'"
+      *ngIf="!user?.facebookId || !user?.linkedinId || !user?.googleId">
+        Password
+        <i class="material-icons">keyboard_arrow_down</i>
+      </div>
+      <div
+      class="account-settings-component-security-menu p-peersview-1 mouse-pointer"
+      [routerLink]="['security-privacy']" [routerLinkActive]="'active-menu'">
+        Security and Privacy
+        <i class="material-icons">keyboard_arrow_down</i>
+      </div>
+      <div
+      class="account-settings-component-blocking-menu p-peersview-1 mouse-pointer"
+      [routerLink]="['blocking']" [routerLinkActive]="'active-menu'">
+        Blocking
+        <i class="material-icons">keyboard_arrow_down</i>
+      </div>
+      <div
+      class="account-settings-component-notifications-menu p-peersview-1 mouse-pointer"
+      [routerLink]="['notifications']" [routerLinkActive]="'active-menu'">
+        Notifications
+        <i class="material-icons">keyboard_arrow_down</i>
+      </div>
+      <div
+      class="account-settings-component-billing-menu p-peersview-1 mouse-pointer"
+      [routerLink]="['billing']" [routerLinkActive]="'active-menu'">
+        Billing
+        <i class="material-icons">keyboard_arrow_down</i>
+      </div> -->
+    </div>
+    <div class="col-md-9 col-lg-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

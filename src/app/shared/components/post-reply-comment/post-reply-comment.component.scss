@@ -1,0 +1,49 @@
+.shared-post-reply-comment-component {
+  .reply-container {
+    .form-group {
+      margin-bottom: 0;
+      .input-group {
+        margin-bottom: 10px;
+        .btn-peersview-primary {
+          height: 38px;
+        }
+      }
+    }
+    .reply-comment-container {
+      display: flex;
+      .post-image {
+        margin-left: 40px;
+        height: 40px;
+        width: 40px;
+      }
+      input {
+        margin-top: 7px;
+        margin-left: 40px;
+      }
+    }
+    .btn-row-container {
+      margin: 10px 0
+    }
+    .reply-to-comment-btn {
+      margin-top: 5px;
+    }
+  }
+
+  .comment-container {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+
+    small {
+      color: #777777;
+    }
+  }
+
+  .post-time {
+    font-size: 12px;
+    color: #989898;
+    margin: 0;
+  }
+}

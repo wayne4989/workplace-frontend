@@ -1,0 +1,35 @@
+.report-post-community-component {
+  .dropdown {
+    ul {
+      background-color: #fff;
+      padding: 0 15px;
+      li {
+        padding: 15px 15px;
+    color: #000000;
+    font-size: 15px;
+    border-bottom: 1px solid #dbdbdb;
+        &:hover {
+          cursor: pointer;
+        }
+        a {
+          font-size: 14px;
+    color: #631a90;
+    padding-left: 0;
+        }
+      }
+    }
+    .follow-btn {
+      background-color: #ffffff;
+      font-size: 12px;
+      padding: 3px 5px;
+      color: #d56900;
+      border: 1px solid;
+    }
+    button.follow {
+      margin-bottom: 10px;
+      background: white;
+      color: #631990;
+      border: 1px solid #631990;
+    }
+  }
+}

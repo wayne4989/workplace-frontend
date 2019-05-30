@@ -1,0 +1,39 @@
+<div class="shared-peers-you-may-know-component">
+  <div class="peers-you-may-know-header">
+      <span>
+        Peers You May Know
+      </span>
+      <span class="view-all">
+        <a [routerLink]="['/peers/list']" class="peersview-primary-color">VIEW ALL</a>
+      </span>
+  </div>
+  <div *ngFor="let peer of peers | slice:0:4; let i = index">
+    <div class="peer-item row">
+      <cl-image 
+      public-id="{{peer?.profilePicture}}"
+      height="40px"
+      radius="max"
+      class="peer-list-img"
+      >
+    </cl-image>
+    
+    <p class="peer-name">{{peer.firstName}} {{peer.lastName}}</p>
+    <span *ngIf="peer.schoolName">
+      <i class="material-icons">account_balance</i>
+      {{peer.schoolName}}
+    </span>
+    <span>
+      <i class="material-icons">school</i>
+      <span class="user-course-container" *ngFor="let item of peer.userCourses">
+        {{item.course.name}}
+      </span>
+    </span>
+    <button (click)="onFollowUser(peer.id)" [disabled]="peer.id === followUser.recipientId " class="flat-btn add-peer-btn">
+      <i class="material-icons">person_add</i>
+    </button>
+    <button title="Dismiss" class="flat-btn delete-peer-btn" (click)="removePeer(peer)">
+      <i class="material-icons">clear</i>
+    </button>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+.left-sidebar-component {
+  position: relative;
+  top: 25px;
+  // height: 100vh;
+  padding: 10px;
+  background-color: #fff;
+
+  hr {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .sidebar-label {
+    width: 100%;
+    display: inline-flex;
+    padding-left: 15px;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #eeeeee;
+    }
+
+    h5 {
+      width: 75%;
+      margin-left: 10px;
+    }
+  }
+
+  .group-management-section{
+    .group-management-options {
+      li {
+        padding: 5px 10px 0px 50px;
+      }
+    }  
+  }
+
+  .course-section {
+    .browse-courses {
+      display: inline-flex;
+      padding: 5px 10px 10px 50px;
+
+      input {
+        height: 40px;
+        border-radius: 5px 0px 0px 5px;
+      }
+
+      button {
+        border: none;
+        border-radius: 0px 5px 5px 0;
+      }
+    }
+  }
+
+  .sort-by-section {
+    .sort-by {
+      display: inline-flex;
+      padding: 5px 10px 10px 50px;
+
+      input {
+        height: 40px;
+        border-radius: 5px 0px 0px 5px;
+      }
+
+      button {
+        border: none;
+        border-radius: 0px 5px 5px 0;
+      }
+
+      .sort-by-dropdown {
+        width: 79%;
+        // display: inline-grid;
+        top: 42px;
+        margin-left: 50px;
+
+        a {
+          display: block;
+          padding: 2px 10px;
+        }
+      }
+    }
+  }
+
+  .course-section {
+    .sub-course {
+      padding: 0px 10px 10px 50px;
+    }
+
+    .checkbox, label {
+      width: 100%;
+    }
+  }
+
+}

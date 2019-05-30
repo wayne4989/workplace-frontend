@@ -1,0 +1,117 @@
+<div class="shared-share-post-modal-component" remove-css [cssToRemove]="'mat-dialog-is-open'">
+  <button class="modal-close" mat-dialog-close>
+    <i class="material-icons"> clear </i>
+  </button>
+  <div class="create-new-forum" remove-css>
+    <h3 class="modal-heading">Share Post</h3>
+    <div class="modal-divider"></div>
+    <div class="modal-body">
+      <div class="share-block-form">
+        <!-- <span class="share-user"><img src="/assets/images/profile.jpg" alt="" /></span> -->
+        <div class="form-group">
+          <textarea [(ngModel)]="share.message" placeholder="Say something about this..." class="form-control share-message-input"></textarea>
+        </div>
+      </div>
+      <div class="post-share-block">
+        <div class="col-xs-12 post-share-user">
+          <div class="pull-left">
+            <cl-image
+              class="post-image"
+              public-id="{{sharedPostDetail.user.socialImage ? (sharedPostDetail.user.profilePicture === 'avatar' ? sharedPostDetail.user.socialImage: sharedPostDetail.user.profilePicture): sharedPostDetail.user.profilePicture}}"
+            >
+              <cl-transformation width="50" height="50" radius="max" gravity="custom" crop="thumb">
+              </cl-transformation>
+            </cl-image>
+          </div>
+          <div class="user-name">
+            <span [ngStyle]="{'display': 'inline-grid'}" class="post-user-name">
+              {{sharedPostDetail.user.firstName}} {{sharedPostDetail.user.lastName}}
+            </span>
+            <div class="user-school-name">
+                {{sharedPostDetail.user.schoolName}}
+              </div>
+            <span class="post-time">
+              {{sharedPostDetail.createdAt | date :'short'}}
+            </span>
+          </div>
+        </div>
+        <div class="col-xs-12 post-message">
+          <h4 *ngIf="post.title">{{post.title}}</h4>
+          <p>
+            {{sharedPostDetail.message ? sharedPostDetail.title && !fullPostIsShown ? trimStory(sharedPostDetail.message, 280): sharedPostDetail.message : sharedPostDetail.question}}
+            <button
+              class="story-read-more-btn btn-peersview-sm"
+              *ngIf="sharedPostDetail.title || !fullPostIsShown"
+              (click)="fullPostIsShown = !fullPostIsShown;"
+            >
+              <em>{{ !fullPostIsShown ? 'Read more' : 'Show less' }}</em>
+            </button>
+          </p>
+        </div>
+        <div class="col-xs-12 poll-options" *ngIf="!!sharedPostDetail.question">
+          <ul>
+            <li *ngFor="let option of sharedPostDetail.postPollOptions; let i = index;">
+              <input type="radio" [value]="option.name"/> {{option.name}}
+              <div class="poll-percentage">{{ getPollPercentage(option, sharedPostDetail.postPollOptions) }}%</div>
+              <div class="vote-shade-percentage" [ngStyle]="{'width': getPollPercentage(option, post.postPollOptions) + '%'}"></div>
+            </li>
+          </ul>
+          <div class="col-xs-12 poll-details">
+            <div class="col-xs-3">
+              {{ getPollVoteCount(sharedPostDetail.postPollOptions) <= 1 ? getPollVoteCount(sharedPostDetail.postPollOptions) + ' vote' : getPollVoteCount(sharedPostDetail.postPollOptions) + ' votes'}}
+            </div>
+            <div class="col-xs-9">{{ getPollExpiryDuration(sharedPostDetail.createdAt, post.duration) }}</div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 post-images">
+          <div
+            class="image-outer"
+            *ngFor="let attachment of sharedPostDetail.attachments; let imageIndex = index"
+            [ngClass]="{'single-image': sharedPostDetail.attachments.length === 1, 'multiple-image': sharedPostDetail.attachments.length > 1}"
+          >
+            <div
+              class="image-inner"
+              *ngIf="attachment.cloudinaryPublicId"
+              >
+              <cl-image
+                public-id="{{attachment.cloudinaryPublicId}}"
+                >
+                <cl-transformation
+                  [attr.height]="sharedPostDetail.attachments.length > 1 ? 300 : 250"
+                  width="300"
+                  crop="fill"
+                  radius="3"
+                  gravity="face"
+                >
+                </cl-transformation>
+              </cl-image>
+            </div>
+          </div>
+        </div>
+        <!-- <cl-image
+          public-id="{{post.user.profilePicture}}"
+          *ngIf="post?.user?.profilePicture"
+          radius="max"
+          width="50">
+        </cl-image>
+        <label>{{post.user.firstName | titlecase}} {{post.user.lastName | titlecase}}</label>
+        <div>
+          <small class="post-time">{{post.createdAt | date : 'short'}}</small>
+        </div>
+        <div class="row">
+          <div class="col-md-4"><img src="/assets/images/post-img3.jpg" alt="" class="img-responsive" /></div>
+          <div class="col-md-12">
+            <h4>{{post.title}} </h4>
+            <h2>{{post.message}}</h2>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <div class="modal-footer text-right">
+      <button class="btn btn-peersview-cancel" mat-dialog-close>Cancel</button>
+      <button type="button" class="btn btn-peersview-secondary" (click)="sharePost()" [disabled]="isCurrentlySharing">Share</button>
+    </div>
+
+  </div>
+</div>

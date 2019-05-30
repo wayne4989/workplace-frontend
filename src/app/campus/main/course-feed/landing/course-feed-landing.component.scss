@@ -1,0 +1,50 @@
+.campus-classes-landing-component {
+  .tab-content {
+    .course-category-by-letter {
+      padding: 8px 10px;
+      width: 35.77px;
+      display: block;
+      font-size: 0.8em;
+      text-decoration: none;
+      color: #631a90;
+      background-color: #fff;
+      border-right: none;
+      border: 1px solid silver;
+    }
+    .active {
+      background-color: #eaeaea;
+    }
+  }
+  .box-content {
+    padding: 0 10px;
+  
+    .box-list {
+      border: solid 1px #631a90;
+      padding: 20px 20px 10px 20px;
+      margin: 10px 0;
+      box-shadow: 3px 2px 3px #ccc;
+      -webkit-box-shadow: 3px 2px 3px #ccc;
+      background: #fff;
+      a {
+        color: #631a90;
+        white-space: nowrap;
+        &:hover {
+          color: #ff5a00;
+        }
+      }
+      .student-count {
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        color: #631a90;
+      }
+      img {
+        margin: auto;
+      }
+      p {
+        margin-top: 10px;
+        font-size: 13px;
+      }
+    }
+  }
+}

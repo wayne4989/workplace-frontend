@@ -1,0 +1,46 @@
+<div class="shared-post-reply-comment-model-component" add-css [cssToAdd]="'mat-dialog-is-open'" remove-css [cssToRemove]="'mat-dialog-is-open'">
+  <button class="modal-close" mat-dialog-close>
+    <i class="material-icons"> clear </i>
+  </button>
+
+  <div class="post-outer-container">
+    <div class="post">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="pull-left">
+            <cl-image
+              class="post-image"
+              public-id="{{reply.user.socialImage ? (reply.user.profilePicture === 'avatar' ? reply.user.socialImage: reply.user.profilePicture): reply.user.profilePicture}}"
+              *ngIf="reply?.user?.profilePicture">
+              <cl-transformation width="50" height="50" radius="max" gravity="custom" crop="thumb">
+              </cl-transformation>
+            </cl-image>
+          </div>
+  
+          <div class="user-name">
+            <span
+              [ngStyle]="{'display': 'inline-grid'}"
+              (click)="onClickUserProfile(reply.user);"
+              class="post-user-name">
+              {{reply.user.firstName}} {{reply.user.lastName}}
+            </span>
+            <div class="user-school-name">
+              {{reply.user.schoolName}}
+            </div>
+            <span class="post-time">
+              {{reply.createdAt | date :'short'}}
+            </span>
+          </div>
+        </div>
+        <div class="col-xs-12 post-message">
+          <p>
+            {{reply.comment }}
+          </p>
+        </div>
+
+      </div>
+    </div>
+    <shared-post-reply-comment-component [post]="post" [reply]="reply"></shared-post-reply-comment-component>
+    <!--<shared-community-post-reply-component [communityPost]="communityPost" [reply]="reply" [courseId]="courseId" [questionId]="questionId"></shared-community-post-reply-component>-->
+  </div>
+</div>

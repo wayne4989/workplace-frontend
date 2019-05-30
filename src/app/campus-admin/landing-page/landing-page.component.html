@@ -1,0 +1,112 @@
+<div class="campus-admin-landing-page-component">
+<!-- <div id="join-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+>
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-brand text-center p-peersview-1">
+        <cl-image
+          class="mouse-pointer"
+          public-id="peersviewBrand"
+        >
+        </cl-image>
+      </div>
+      <h4 class="modal-heading text-center">Join Your University</h4>
+      <div class="modal-body">
+        <div>
+          <div class="form-group">
+            <label class="form-label">Select Your Institution</label>
+            <select
+              class="form-control"
+              (change)="onSelectedCampus($event.target.value);"
+            >
+              <option [attr.value]="'default'">Select</option>
+              <option
+                *ngFor="let campus of campuses; let i = index"
+                [attr.value]="campus.id"
+              >{{campus.name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          class="btn-peersview-cancel btn-peersview-md m-peersview-xr-1 btn-cancel-select-institution"
+          data-dismiss="modal"
+          #modalClose
+        > Cancel
+        </button>
+        <button
+          class="btn-peersview-primary btn-peersview-md"
+          (click)="modalClose.click();onJoinWithInstitution();"
+        >
+          Join With Institutions Account
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div
+  id="invite-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+>
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-brand text-center p-peersview-1">
+        <cl-image
+          class="mouse-pointer"
+          public-id="peersviewBrand"
+        >
+        </cl-image>
+      </div>
+      <h4 class="modal-heading text-center">Invite Your University</h4>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Name of institution</label>
+          <input class="form-control" type="text">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Institution Email</label>
+          <input class="form-control" type="text">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-control" rows="4"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          class="btn-peersview-cancel btn-peersview-md m-peersview-xr-1"
+          data-dismiss="modal"
+        > Cancel
+        </button>
+        <button class="btn-peersview-primary btn-peersview-md">
+          Invite
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+  <div class="col-md-12 text-center contents">
+    <div class="wrapper">
+      <div class="col-md-8 col-md-offset-2">
+        <h1>Stay In Control Of Your Students</h1>
+        <p class="text-center">
+          <button
+            class="btn-peersview-secondary btn-peersview-lg join-network"
+            data-toggle="modal"
+            data-target="#join-modal"
+            (click)="onSelectInstitution();"
+          > Select Your Institution
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

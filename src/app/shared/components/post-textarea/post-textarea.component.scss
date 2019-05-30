@@ -1,0 +1,263 @@
+.shared-post-textarea-component {
+  .post-menu {
+    display: inline-flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    li {
+      padding: 10px;
+      text-align: center;
+      a {
+        font-size: 14px;
+        font-weight: 500;
+        color: #323c47;
+      }
+    }
+    .active {
+      background-color: #f4f4f4;
+      border-bottom: 2px solid #323c47;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+      &:hover {
+        background-color: #f4f4f4;
+        color: #323c47;
+      }
+    }
+  }
+  .post {
+    position: relative;
+    border: 1px solid #631a90;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    // text-align: right;
+  }
+
+  .text-area-size-toggle {
+    float: right;
+    padding: 0;
+    margin-top: -20px;
+    border: none;
+
+    i {
+      font-size: 15px;
+    }
+  }
+
+  .text-area-expanded {
+    height: 220px;
+  }
+
+  .options {
+    padding: 5px;
+    .img-upload {
+      color: #631990;
+    }
+  }
+
+  .post-btn {
+    margin-top: -15px;
+  }
+  .poll {
+    margin-bottom: 15px;
+    border: solid 1px #631a90;
+    border-radius: 3px;
+
+    .duration-poll {
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 12px;
+
+      .duration-form {
+        display: inline-flex;
+        vertical-align: middle;
+
+        button {
+          padding: 0;
+          border: none;
+          background-color: #631a90;
+
+          &:first-child {
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+          }
+
+          &:last-child {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+          }
+
+          i {
+            color: #fff;
+          }
+        }
+
+        input {
+          text-align: center;
+        }
+      }
+    }
+  }
+  .poll-btn {
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+  .poll-option {
+    li {
+      border-top: solid 1px #e9eaed;
+      padding: 3px 10px;
+      input {
+        width: 100%;
+        padding-left: 15px;
+        display: block;
+        border: none;
+        background: url(/src/assets/images/icon-add-sm.png) no-repeat 0 6px transparent;
+      }
+    }
+  }
+  .btn-add-new {
+    display: block;
+    padding: 5px 25px;
+    background: url(/src/assets/images/icon-add-sm.png) no-repeat 10px 10px;
+    border-top: solid 1px #e9eaed;
+    cursor: pointer;
+  }
+  .bottom-block {
+    padding: 5px 10px;
+    background: #ffffff;
+    text-align: right;
+  }
+
+  /* Story */
+  .story {
+    border: 1px solid #631a90;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    text-align: right;
+
+    input {
+      width: 100%;
+    }
+
+    // button {
+    //   margin: 5px;
+    // }
+    .share_button {
+      margin: 5px;
+    }
+  }
+
+  /* link preview */
+
+  /* Left side Image */
+  .link-preview{
+  .link-area{
+    overflow: hidden;
+    position: relative;
+    margin: 1em 0 1em 0;
+    padding: 10px;
+    border: 1px #999 solid;}
+  .descriptions{
+    overflow: hidden;}
+  .og-title{
+    overflow: hidden;
+    font-size: 1.2em;
+    font-weight: bold;}
+  .og-description{
+    font-size: 0.86em;
+    margin-top: 0.2em;}
+  .og-url{
+    overflow: hidden;
+    font-size: 0.7em;
+    font-weight: bold;}
+  .og-image{
+    float:left;
+    margin-right: 10px;}
+    img{
+      max-width: 125px;
+    }
+  }
+
+  // .linkPreview{
+  //   .link-container{
+  //     padding: 10px;
+  //     border: 1px #000 solid;
+  //     img{
+  //       max-width: 100%;
+  //       text-align: center;
+  //     }
+  //     .link-details{
+  //       .link-title{
+  //         overflow: hidden;
+  //         font-weight: bold;
+  //         font-size: 16px;
+  //         margin-top: 5px;
+  //       }
+  //     }
+  //   }
+  // }
+  // Custom, iPhone Retina
+  @media only screen and (min-width : 320px) {
+    textarea {
+      resize: none;
+    }
+  }
+  // extra Small Devices, Phones
+  @media only screen and (min-width : 480px) {
+    .post-menu {
+      li a {
+        font-size: 15px;
+      }
+    }
+    .poll-btn {
+      margin-top: -5px;
+    }
+  }
+  // Small Devices, Tablets
+  @media only screen and (min-width : 768px) {
+    .post-menu {
+      li a {
+        font-size: 17px;
+      }
+      > li {
+        border-right: unset;
+        &:last-child {
+          border-right: unset;
+        }
+      }
+    }
+    .post {
+      textarea {
+        height: 50px;
+      }
+    }
+
+    .duration-label {
+      display: inline-flex;
+    }
+  }
+  // Medium Devices, Desktops
+  @media only screen and (min-width : 992px) {}
+  // Large Devices, Wide Screens
+  @media only screen and (min-width : 1200px) {
+    .text-area-size-toggle {
+      display: none;
+    }
+    textarea {
+      resize: vertical;
+      max-height: 220px;
+
+    }
+    .duration-form {
+      display: inline-flex;
+
+      button {
+        display: none;
+      }
+    }
+
+    .poll-duration-input {
+      width: 100%;
+      padding: 0;
+      text-indent: 5px;
+    }
+  }
+}

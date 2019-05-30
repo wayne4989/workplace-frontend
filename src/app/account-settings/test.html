@@ -1,0 +1,445 @@
+<shared-navbar-component></shared-navbar-component>
+<div class="account-settings-component container fixed-header">
+  <div class="page-name-title">Account Setting</div>
+  <div class="row">
+    <div class="col-md-3 col-sm-4 paddingR0 account-settings-nav">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs tabs-left">
+        <li [ngClass]="{active: active === 'general'}"><a class="tabChange" data-tab-name="general" data-toggle="tab">General</a></li>
+        <li *ngIf="user?.password" [ngClass]="{active: active === 'password'}"><a class="tabChange" data-tab-name="password" data-toggle="tab">Password</a></li>
+        <li [ngClass]="{active: active === 'security'}"><a class="tabChange" data-tab-name="security" data-toggle="tab">Security and Privacy</a></li>
+        <li [ngClass]="{active: active === 'blocking'}"><a class="tabChange" data-tab-name="blocking" data-toggle="tab">Blocking</a></li>
+        <li [ngClass]="{active: active === 'notifications'}"><a class="tabChange" data-tab-name="notifications" data-toggle="tab">Notifications</a></li>
+        <li [ngClass]="{active: active === 'billing'}"><a class="tabChange" data-tab-name="billing" data-toggle="tab">Billing</a></li>
+      </ul>
+    </div>
+    <div class="col-md-9 col-sm-8 tab-content-right">
+      <h3>General</h3>
+      <div class="row p-peersview-y-1">
+        <div class="col-sm-4">
+          <label class="setting-lbl">Change Image:</label>
+        </div>
+        <div class="col-sm-8">
+          <span class="setting-value"><input type="file"/></span>
+        </div>
+      </div>
+
+      <div class="row p-peersview-y-1">
+        <div class="col-sm-2">
+          <label>Name:</label>
+        </div>
+        <div class="col-sm-8">
+          <span *ngIf="name.status === 'Edit'">{{user.firstName}} {{user.lastName}}</span>
+          <span *ngIf="name.status === 'Save'">
+            <div class="col-sm-6">
+              <input
+                type="text"
+                placeholder="First Name"
+                class="form-control"/>
+            </div>
+            <div class="col-sm-6">
+              <input
+                type="text"
+                placeholder="Last Name"
+                class="form-control"/>
+            </div>
+          </span>
+        </div>
+        <div class="col-sm-2 edit-or-save">
+          <a
+            class="btn-peersview-primary btn-peersview-sm"
+            (click)="onEditOrSave(name)"
+            *ngIf="name.status === 'Save'">Cancel</a>
+          <a
+            class="btn-peersview-primary btn-peersview-sm"
+            (click)="onEditOrSave(name)">{{name.status === 'Save' ? 'Save': 'Edit'}}</a>
+        </div>
+      </div>
+
+      <div class="row p-peersview-y-1">
+        <div class="col-sm-2">
+          <label>Primary Email:</label>
+        </div>
+        <div class="col-sm-8">
+          <span *ngIf="email.status === 'Edit'">{{user?.email}}</span>
+          <span *ngIf="email.status === 'Save'">
+            <input
+              type="text"
+              placeholder="Email"
+              class="form-control"/>
+          </span>
+        </div>
+        <div class="col-sm-2 edit-or-save">
+          <a
+            class="btn-peersview-primary btn-peersview-sm"
+            (click)="onEditOrSave(email)"
+            *ngIf="email.status === 'Save'">Cancel</a>
+          <a
+            class="btn-peersview-primary btn-peersview-sm"
+            (click)="onEditOrSave(email)">{{email.status === 'Save' ? 'Save': 'Edit'}}</a>
+        </div>
+      </div>
+
+      <div class="row p-peersview-y-1">
+        <div class="col-sm-2">
+          <label>Language:</label>
+        </div>
+        <div class="col-sm-8">
+          <span *ngIf="languages.status === 'Edit'">{{user?.language}}</span>
+          <span *ngIf="languages.status === 'Save'">
+            <select class="form-control">
+              <option selected>Select Language</option>
+              <option *ngFor="let language of languagesData" value="language.id">{{language.value}}</option>
+            </select>
+          </span>
+        </div>
+        <div class="col-sm-2 edit-or-save">
+          <a
+            class="btn-peersview-primary btn-peersview-sm"
+            (click)="onEditOrSave(languages)"
+            *ngIf="languages.status === 'Save'">Cancel</a>
+          <a
+            class="btn-peersview-primary btn-peersview-sm"
+            (click)="onEditOrSave(languages)">{{languages.status === 'Save' ? 'Save': 'Edit'}}</a>
+        </div>
+      </div>
+
+      <div class="tab-content">
+        <div class="tab-pane active" id="general">
+          <ul>
+            <li>
+              <label class="setting-lbl">Institution/Company & Current Position</label>
+              <span class="setting-value">{{user.employmentPlace}}</span>
+              <span class="edit-field" style="display:none;">
+              <input type="text" [(ngModel)]="user.employmentPlace" value="{{user.employmentPlace}}" class="input-setting"/>
+              </span>
+              <a style="cursor: pointer;" (click)="openEdit($event)" class="setting-edit">Edit</a>
+            </li>
+            <li>
+              <label class="setting-lbl">Course/Area of Expertise</label>
+              <!-- <span class="setting-value">{{pagemodel.courseName}}</span> -->
+              <!-- <span class="edit-field" style="display:none;">
+                <select class="input-setting" value="{{user?.course?.id}}" [(ngModel)]="user.course">
+                <option>Select Course</option>
+                <option *ngFor="let course of courses" value="course.id">
+                  {{course.name}}
+                </option>
+                </select>
+              </span> -->
+              <a style="cursor: pointer;" (click)="openEdit($event)" class="setting-edit">Edit</a>
+            </li>
+            <li>
+              <label class="setting-lbl">Date of Birth</label>
+              <span class="setting-value">{{ user.birthDate | date}}</span>
+              <div class="edit-field" style="display:none;">
+                <mat-form-field>
+                  <input matInput mdInput [(ngModel)]="user.dateOfBirth" [matDatepicker]="picker" placeholder="Choose a date">
+                  <mat-datepicker-toggle mdSuffix [for]="picker"></mat-datepicker-toggle>
+                </mat-form-field>
+                <mat-datepicker #picker></mat-datepicker>
+              </div>
+              <a style="cursor: pointer;" (click)="openEdit($event)" class="setting-edit">Edit</a>
+            </li>
+            <li>
+              <label class="setting-lbl">City</label>
+              <span class="setting-value">{{user.city}}</span>
+              <span class="edit-field" style="display:none;">
+              <input type="text" [(ngModel)]="user.city" class="input-setting"/>
+              </span>
+              <a style="cursor: pointer;" (click)="openEdit($event)" class="setting-edit">Edit</a>
+            </li>
+            <li>
+              <label class="setting-lbl">Website</label>
+              <span class="setting-value">{{user.website}}</span>
+              <span class="edit-field" style="display:none;">
+              <input type="text" [(ngModel)]="user.website" class="input-setting"/>
+              </span>
+              <a style="cursor: pointer;" (click)="openEdit($event)" class="setting-edit">Edit</a>
+            </li>
+            <li>
+              <!-- <label class="setting-lbl">Status:</label>
+              <span class="setting-value">{{pagemodel?.student_type ? 'Ex-Student':'Student'}}</span>
+              <span class="edit-field" style="display:none;">
+                <select class="input-setting" [(ngModel)]="pagemodel.student_type">
+                <option [ngValue]="0">Student</option>
+                <option [ngValue]="1">Ex-Student</option>
+                </select>
+              </span> -->
+              <a style="cursor: pointer;" (click)="openEdit($event)" class="setting-edit">Edit</a>
+            </li>
+            <li class="setting-action" id="general-action" style="display:none;">
+              <label class="setting-lbl">&nbsp;</label>
+              <span class="setting-value">
+              <input
+                type="button"
+                (click)="updateuser()"
+                value="Save Changes"
+                class="btn btn-blue btn-sm gn-save"/>
+              &nbsp;&nbsp;
+              <input
+                type="button"
+                (click)="cancelEdit()"
+                value="Cancel"
+                class="btn btn-white btn-sm gn-cancel"/>
+              </span>
+            </li>
+          </ul>
+        </div>
+        <form #changepasswordform="ngForm" (ngSubmit)="changepassword()" class="tab-pane" id="password">
+          <div class="tab-title">Password</div>
+          <!-- <ul class="account-list">
+            <li>
+              <label class="setting-lbl">Current Password:</label>
+              <span class="setting-value">
+              <input type="text" name="currentpassword" [(ngModel)]="passwordchange.currentPassword"/>
+              </span>
+            </li>
+            <li>
+              <label class="setting-lbl">New Password:</label>
+              <span class="setting-value">
+              <input type="text" name="password" [(ngModel)]="passwordchange.password"/>
+              </span>
+            </li>
+            <li>
+              <label class="setting-lbl">Confirm Password:</label>
+              <span class="setting-value">
+              <input type="text" name="password" [(ngModel)]="passwordchange.confirmPassword"/>
+              </span>
+            </li>
+            <li class="setting-action">
+              <label class="setting-lbl">&nbsp;</label>
+              <span class="setting-value">
+                <button
+                type="button"
+                value="Save Changes"
+                class="btn btn-blue btn-sm"
+                (click)="onSavePassword();">Save changes</button>
+              </span>
+            </li>
+          </ul> -->
+        </form>
+        <div class="tab-pane" id="security">
+          <div class="tab-title">Security and Privacy</div>
+          <ul class="account-list">
+            <li>
+              <label class="setting-lbl">Protect my posts:</label>
+              <span class="setting-value">
+              <input type="checkbox" [(ngModel)]="user.protectPost"/>
+              </span>
+            </li>
+            <li>
+              <label class="setting-lbl">Direct Messages:</label>
+              <span class="setting-value">
+                <div class="checkbox margin0"><label><input
+                  type="checkbox" [(ngModel)]="user.profilePrivacy" /> Receive Direct Messages from anyone</label>
+                </div>
+                <div class="note-text">If selected, you will be able to receive messages from any Peersview user even if you do not follow them.</div>
+              </span>
+            </li>
+            <li>
+              <label class="setting-lbl">Who can View my Profile:</label>
+              <span class="setting-value">
+                <select [(ngModel)]="user.userPrivacyId">
+                <option value="1">Everyone</option>
+                <option value="2">People I Follow</option>
+                <option value="3">My Followers</option>
+                </select>
+              </span>
+            </li>
+            <li class="setting-action">
+              <label class="setting-lbl">&nbsp;</label>
+              <span class="setting-value">
+              <input (click)="onUpdatesecurityPrivacy()" type="button" value="Save Changes" class="btn btn-blue btn-sm">
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-pane" id="blocking">
+          <div class="tab-title">Blocking</div>
+          <!-- <ul class="account-list">
+            <li *ngFor="let user of pagemodel.blocked">
+              <label class="setting-lbl">Block Users:</label>
+              <span class="setting-value">{{user.first_name}} {{user.last_name}}
+              <input type="button" value="Unblock" (click)="unblockuser(user)" class="btn btn-blue btn-xs"/>
+              </span>
+            </li>
+          </ul> -->
+        </div>
+        <div class="tab-pane" id="notifications">
+          <div class="tab-title">Notifications</div>
+          <ul class="account-list">
+            <li>
+              <label class="setting-lbl">Email me When:</label>
+              <span class="setting-value">
+                <div class="checkbox">
+                  <label>
+                  <input type="checkbox" name="email-me"/>
+                  I have a new follower</label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                  <input type="checkbox" name="email-me"/>
+                  I have a Page view</label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                  <input type="checkbox" name="email-me"/>
+                  Someone Likes my Post or Media</label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                  <input type="checkbox" name="email-me"/>
+                  Someone tags me in a Post or Media</label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                  <input type="checkbox" name="email-me"/>
+                  There is an event I could be interested</label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                  <input type="checkbox" name="email-me"/>
+                  Suggestions for recommended accounts</label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                  <input type="checkbox" name="email-me"/>
+                  Suggestions based on my recent follows</label>
+                </div>
+              </span>
+            </li>
+            <li>
+              <label class="setting-lbl">Activity relating to my Account:</label>
+              <span class="setting-value">
+                <div class="checkbox">
+                  <label>
+                  <input type="checkbox" name="activity"/>
+                  Notifications from My Campus</label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                  <input type="checkbox" name="activity"/>
+                  Top posts relating to my interest</label>
+                </div>
+              </span>
+            </li>
+            <li class="setting-action">
+              <label class="setting-lbl">&nbsp;</label>
+              <span class="setting-value">
+              <input type="button" value="Save Changes" class="btn btn-blue btn-sm">
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-pane" id="billing">
+          <div class="tab-title">Billing</div>
+          <div class="billing">
+            <ul class="account-list">
+              <li>
+                <label class="setting-lbl">Billing Methods:</label>
+                <span class="setting-value">
+                  <select>
+                    <option>Paypal</option>
+                    <option>Visa</option>
+                    <option>Mastercard</option>
+                  </select>
+                  &nbsp;&nbsp;<a style="cursor: pointer;" (click)="isNewCardOpen = true" class="add-card-link">Add Billing Method</a>
+                  <div class="add-new-card" ng-if="vm.isNewCardOpen">
+                    <div class="add-card-widget">
+                      <div class="add-card-title">Add New Card</div>
+                      <div class="add-card-fields">
+                        <form>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label>Name on Card</label>
+                                <input type="text" class="form-control">
+                              </div>
+                              <div class="form-group">
+                                <label>Card Number</label>
+                                <div class="input-group">
+                                  <input type="text" class="form-control">
+                                  <div class="input-group-addon"><i class="icon-lock"></i></div>
+                                </div>
+                              </div>
+                              <div class="form-group"> <span class="date-fields">
+                                <label>Expiry Date</label>
+                                <input type="text" class="form-control" placeholder="MM">
+                                <input type="text" class="form-control" placeholder="YY">
+                                </span> <span class="cvv-fields">
+                                <label>Security Code</label>
+                                <input type="text" class="form-control">
+                                </span>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label>Country</label>
+                                <input type="text" class="form-control">
+                              </div>
+                              <div class="form-group">
+                                <label>Address</label>
+                                <input type="text" class="form-control">
+                              </div>
+                              <div class="form-group">
+                                <label>City</label>
+                                <input type="text" class="form-control">
+                              </div>
+                              <div class="form-group">
+                                <label>Post Code (Optional)</label>
+                                <input type="text" class="form-control">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-button">
+                            <input type="button" (click)="isNewCardOpen = false" class="btn btn-white btn-sm cancel-card" value="Cancel" />
+                            <input type="button" class="btn btn-blue btn-sm" value="Add Card" />
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </span>
+              </li>
+              <li>
+                <label class="setting-lbl">Card Ending 0345</label>
+                <a style="cursor: pointer;" (click)="openEdit($event)" class="setting-edit">Edit</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<!-- New Message Modal -->
+<div class="modal fade" id="message-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+          aria-hidden="true">×</span></button>
+        <h4 class="modal-title">New Message</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>To</label>
+          <input type="text" class="form-control" placeholder="Name" />
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Write a message here..." rows="3" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Attach a File</label>
+          <input type="file" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-grey" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-blue">Send</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+.account-settings-general-component {
+    li {
+      padding: 10px 0;
+      border-bottom: solid 1px #d8d8d8;
+      .setting-label {
+        display: block;
+        width: 250px;
+        margin: 0 20px 0 0;
+      }
+      .setting-value {
+        display: inline-block;
+        color: #666;
+      }
+      .input-setting {
+        padding: 2px 7px;
+        margin-right: 5px;
+        border: solid 1px #d8d8d8;
+        margin-bottom: 5px;
+        width: 100%;
+      }
+      .setting-edit {
+        float: right;
+        color: #631a90;
+      }
+      .mat-form-field-wrapper {
+        padding-bottom: 0;
+        .mat-form-field-infix {
+          border-bottom: 1px solid #ddd;
+        }
+        .mat-form-field-underline {
+          display: none;
+        }
+      }
+    }
+    .setting-action {
+      border-bottom: none;
+    }
+    .date-of-birth-container {
+      display: block;
+      a {
+        margin-left: auto;
+      }
+    }
+  
+  .change-image {
+    width: inherit;
+  }
+  .edit-or-save {
+    margin-top: 10px;
+  }
+
+  /* Custom, iPhone Retina */
+  @media only screen and (min-width : 320px) {}
+  /* Extra Small Devices, Phones */
+  @media only screen and (min-width : 480px) {}
+  /* Small Devices, Tablets */
+  @media only screen and (min-width : 768px) {
+    li {
+      .setting-label {
+        display: inline-block;
+      }
+      .input-setting {
+        margin-bottom: 0;
+        width: auto;
+      }
+    }
+  }
+  /* Medium Devices, Desktops */
+  @media only screen and (min-width : 992px) {
+  }
+  /* Large Devices, Wide Screens */
+  @media only screen and (min-width : 1200px) {}
+}

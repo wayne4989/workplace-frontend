@@ -1,0 +1,170 @@
+<div class="student-community-component">
+	<div class="community-header">
+
+		<ul class="text-center">
+			<li>
+				<a data-toggle="tab">
+					<span class="hidden-xs hidden-sm">Course</span>
+						<span class="course-container">
+							<select
+								required
+								class="form-control course"
+								placeholder = "Select Course"
+                [(ngModel)]="communityPost.courseId"
+								(change)="onChangeCourse($event.target.value)">
+								<option value="0" disabled>Course</option>
+								<option *ngFor="let course of courses" [value]="course.id">
+									{{course.name}}
+								</option>
+							</select>
+						<button (click)="onOpenAskQuestionModal()" class="btn-peersview-primary hidden-md hidden-lg btn-sm ask-modal">Ask
+							<i class="material-icons">add</i>
+						</button>
+					</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="community-ask-question-wrapper hidden-xs hidden-sm">
+		<div class="question-widget">
+			<h4 class="question-title text-center">Ask a question?</h4>
+			<div class="question-input">
+				<span class="by-user-img text-center">
+					<cl-image
+						public-id="{{user.socialImage ? (user.profilePicture === 'avatar' ? user.socialImage: user.profilePicture): user.profilePicture}}"
+						*ngIf="user?.profilePicture"
+						class="user-img"
+						[ngStyle]="{'border-radius': '50%'}"
+						(click)="onOpenShowImageDialogComponent(user)">
+						<cl-transformation width="120" height="120" radius="max" gravity="custom" crop="thumb">
+						</cl-transformation>
+					</cl-image>
+					<p class="hidden-xs hidden-sm" *ngIf="user">{{user.firstName | titlecase}} {{user.lastName | titlecase}}</p>
+				</span>
+				<div class="by-user-text">
+					<i class="input-caret grey-caret"></i>
+					<div class="question-input-container">
+						<textarea [(ngModel)]="communityPost.message" type="text" class="form-control" placeholder="What’s your question?"></textarea>
+						<i (click)="isToggleUploadComponentVisible = !isToggleUploadComponentVisible" class="material-icons">link</i>
+					</div>
+
+					<button
+						[disabled]="communityPost.courseId == null"
+						(click)="onAskQuestion()"
+						class="btn-peersview-primary btn-post-question">Post</button>
+				</div>
+				<shared-upload-image-component
+				*ngIf="isToggleUploadComponentVisible"
+				[uploadOptions]="{'queueLimit': 4, 'event': 'askQuestion'}" (uploadComplete)="onUploadComplete($event)"
+				(imageIsSelected)="onImageIsSelected($event)">
+			</shared-upload-image-component>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-xs-12 student-community-feed">
+		<div class="row">
+			<div class="col-md-8 p-peersview-0">
+				<div class="student-community-topics">
+					<b>LATEST DISCUSSIONS</b>
+				</div>
+				<div *ngIf="!communityPost.courseId">
+					<h3 class="text-center">Select course first.</h3>
+				</div>
+				<div *ngIf="communityPosts.length == 0 && communityPost.courseId">
+					<h3 class="text-center">No questions available.</h3>
+				</div>
+				<div *ngFor="let post of communityPosts; let i = index;" class="forum-item">
+					<div class="forum-header" (click)="onAnswerQuestion(post.id)" style="cursor: pointer">
+						<span *ngIf="post.attachments.length > 0">
+							<cl-image
+							public-id="{{post.attachments[0].cloudinaryPublicId}}"
+							>
+								<cl-transformation
+									[attr.height]="post.attachments.length > 1 ? 500 : 250"
+									width="500"
+									crop="fill"
+									radius="3"
+									gravity="face"
+								>
+								</cl-transformation>
+							</cl-image>
+						</span>
+						<h3 class="hidden-xs hidden-sm">{{post.message}}</h3>
+            <p class="hidden-md hidden-lg"><strong>{{post.message}}</strong> </p>
+					</div>
+          <div>
+            <button
+              (click)="onAnswerQuestion(post.id)"
+              class="btn-peersview-primary btn-md">
+              <i class="material-icons">create</i>
+              ANSWER
+            </button>
+            <button
+              (click)="onFollowQuestion(post)"
+              class="btn-md btn-follow"
+              [ngClass]="post.isUserFollowCommunityQuestion === true ? 'btn-peersview-primary' : 'btn-peersview-secondary'">
+              <i class="material-icons">person_add</i>
+              {{post.isUserFollowCommunityQuestion ? 'Following': 'Follow'}}
+            </button>
+            <div class="pull-right">
+              <report-post-community-component
+                [post]="post"
+                [user]="user"
+                (onDeletePost)="onDeletePost($event)">
+              </report-post-community-component>
+            </div>
+          </div>
+					<div class="forum-answers row m-peersview-0">
+						<div class="col-md-6 answer-item"  *ngFor="let item of post.reply; let i = index;">
+							<div  *ngIf="i < 2">
+
+
+							<div class="pull-left">
+								<cl-image
+									width="40px"
+									class="post-share-user-image"
+									public-id="{{item.user.socialImage ? (item.user.profilePicture === 'avatar' ? item.user.socialImage: item.user.profilePicture): item.user.profilePicture}}"
+									*ngIf="item.user?.profilePicture"
+									>
+								</cl-image>
+							</div>
+
+							<div >
+								<span>{{item.user.institutionName}}</span>
+								<span><b>{{item.user.name | titlecase}}</b></span>
+								<span>{{item.updatedAt | date :'short'}}</span>
+							</div>
+							<div>
+                {{ showFullAnswer[i] ? item.comment : trimStory(item.comment, 140) }}
+                <p class="read-more" *ngIf="!showFullAnswer[i]" (click)="showFullAnswer[i] = !showFullAnswer[i]">Read more</p>
+							</div>
+						</div>
+					</div>
+						<!-- <div class="col-md-6 answer-item">
+							<div class="pull-left">
+								<cl-image
+									width="40px"
+									class="post-share-user-image"
+									public-id="avatar"
+									>
+								</cl-image>
+							</div>
+							<span><b>Maria Angela Magtoto</b></span>
+							<span>City College of Angeles</span>
+							<span>10/2/18, 8:45 PM</span>
+							<div class="">
+                {{ showFullAnswer[i] ? sampleAnswer : trimStory(sampleAnswer, 140) }}
+                <p class="read-more" *ngIf="!showFullAnswer[i]" (click)="showFullAnswer[i] = !showFullAnswer[i]">Read more</p>
+							</div>
+						</div> -->
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 hidden-xs hidden-sm">
+				<community-right-menu-component></community-right-menu-component>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- {{ myString | limitTo: 20 }}{{myString.length > 20 ? '...' : ''}} -->

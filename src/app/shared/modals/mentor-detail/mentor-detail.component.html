@@ -1,0 +1,31 @@
+<div class="mentor-detail-component">
+	<button class="modal-close" mat-dialog-close>
+		<i class="material-icons"> clear </i>
+	</button>  
+	<div class="col-xs-12 text-center">
+		<cl-image
+			class="profile-picture m-peersview-y-1"
+			public-id="avatar"
+			>
+		</cl-image>
+	</div>
+	
+	<div class="mentor-detail-body col-xs-12 m-peersview-y-1 ">
+		<div class="detail-item">
+			<span>Mentor Name:</span>
+			<p class="peersview-primary-color">{{mentorDetailData.data.firstName}} {{ mentorDetailData.data.lastName}}</p>
+		</div>
+		<div class="detail-item">
+			<span>Topics of Expertise:</span>
+			<p class="peersview-primary-color">{{mentorDetailData.data.expertise}}</p>
+		</div>
+		<div class="detail-item">
+			<span>Contact Details:</span>
+			<p class="peersview-primary-color">{{mentorDetailData.data.contactDetals}}</p>
+		</div>
+		<div class="detail-item">
+			<span>Reason for becoming a Mentor:</span>
+			<p class="peersview-primary-color">{{mentorDetailData.data.reasonForBecomingAMentor}}</p>
+		</div>	
+	</div>
+</div>

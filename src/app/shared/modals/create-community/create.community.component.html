@@ -1,0 +1,89 @@
+<div class="create-community-modal-component">
+	<button class="modal-close" mat-dialog-close>
+		<i class="material-icons"> clear </i>
+	</button>
+	<div class="modal-heading">
+		<h3 class="text-center peersview-primary-color">Create new Community</h3>
+		<h5 class="text-center peersview-primary-color">
+			Communities are great for colaborating and sharing things with your peers
+		</h5>
+	</div>
+	<div class="modal-body">
+		<form
+		#community="ngForm"
+		(ngSubmit)="onSubmit(community);">
+			<div class="form-group">
+				<input 
+					[(ngModel)]="privateCommunity.communityName"
+					name="title"
+					type="text" 
+					required
+          placeholder="Name of your community"
+          autocomplete="off"
+					class="form-control">
+			</div>
+			<div class="form-group">
+				<input 
+					[(ngModel)]="privateCommunity.institutionName"
+					name="title"
+					type="text" 
+					required
+          placeholder="Your Institution"
+          autocomplete="off"
+					class="form-control">
+			</div>
+			<div class="add-people-container peersview-primary-color">
+				<i class="material-icons">group_add</i> 
+				<span>Add people to your community</span> 
+			</div>
+			<div class="form-group add-names">
+				<input 
+					name="title"
+					type="text" 
+          required
+          [(ngModel)]="keyword"
+          class="form-control" 
+          (keydown)="onSearchUser()"
+          autocomplete="off"
+          placeholder="Add users">
+					<!-- <button>
+						<i class="material-icons">add_circle_outline</i>
+          </button> -->
+        <ul class="list-group text-left result-group"
+          *ngIf="searchedUsers.length !== 0;">
+          <li class="list-group-item"
+              *ngFor="let item of searchedUsers; let i = index;" (click)="onResultSelected(item, i)">
+            <cl-image class="co-img" [public-id]="item.socialImage ? (item.profilePicture === 'avatar' ? item.socialImage: item.profilePicture): item.profilePicture">
+              <cl-transformation width="40" height="40" radius="max" gravity="custom" crop="thumb">
+              </cl-transformation>
+            </cl-image>
+            <div class="co-info">
+              <span class="co-name">{{item.name}}</span> 
+            </div>
+          </li>
+        </ul>
+        <div class="selected-users-list" *ngIf="selectedUsers.length !== 0;">
+          <div class="list-group" *ngFor="let item of selectedUsers; let i = index;">
+            <cl-image class="co-img" [public-id]="item.socialImage ? (item.profilePicture === 'avatar' ? item.socialImage: item.profilePicture): item.profilePicture">
+              <cl-transformation width="40" height="40" radius="max" gravity="custom" crop="thumb">
+              </cl-transformation>
+            </cl-image>
+            <div class="co-info">
+              <span class="co-name">{{item.name}}</span>
+              &nbsp; &nbsp;
+              <i class="material-icons clear-item" (click)="onClearSelected(i)"> clear </i>
+            </div>
+          </div>
+        </div>
+			</div>
+			<div class="form-group">
+				<button
+					[disabled]="!community.valid"
+					type="submit"
+					class="btn btn-peersview-secondary"
+					>Create
+				</button>
+			</div>
+		</form>
+	</div>
+</div>

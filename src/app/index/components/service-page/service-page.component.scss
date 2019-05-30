@@ -1,0 +1,28 @@
+@import '../../../../assets/scss/variables';
+
+.index-service-page-component {
+  display: none;
+  background: $primary-color-dark;
+  padding: 30px 0;
+  .img-responsive {
+    padding-bottom: 10px;
+  }
+  .service-widget {
+    min-height: 265px;
+    margin: 10px 0 30px 0;
+    padding: 15px;
+    background: #fff;
+    border-radius: 3px;
+  }
+  .link-und {
+    color: #631990;
+  }
+  .sign-up-here {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    button {
+      border-radius: 5px;
+    }
+  }
+}

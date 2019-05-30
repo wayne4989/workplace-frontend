@@ -1,0 +1,29 @@
+<div class="shared-conversation-list-component">
+  <ul class="conversation-list">
+    <li class="co-row" 
+      [ngClass]="{'active-conversation': conversation.toId === activeConversationId}"
+      *ngFor="let conversation of conversations;"
+      (click)="onUserClick(conversation)">
+      <a>
+        <cl-image class="co-img" [public-id]="conversation.to.socialImage ? conversation.to.socialImage : 'avatar'">
+          <cl-transformation width="40" height="40" radius="max" gravity="custom" crop="thumb">
+          </cl-transformation>
+        </cl-image>
+        <div class="co-info">
+          <span class="co-name">{{conversation.to.name}}</span> 
+          <span class="co-day">{{ conversation.fromNow }}</span>
+        </div>
+      </a>
+    </li>
+    <li class="text-center" *ngIf="conversations.length === 0">
+      No message yet. 
+    </li>
+    <br>
+  </ul>
+  <div class="flyout-view" *ngIf="conversations.length !== 0">
+    <hr>
+    <a [routerLink]="['/messages']">
+      View All
+    </a>
+  </div>
+</div>

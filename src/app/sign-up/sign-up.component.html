@@ -1,0 +1,106 @@
+<div class="sign-up-component">
+  <div class="sign-up-form">
+    <form #signUpForm="ngForm" (ngSubmit)="onSignUp(signUpForm.valid)">
+      <h2 class="text-center">
+        <div>
+          <cl-image
+            class="mouse-pointer"
+            public-id="peersviewBrand"
+            [routerLink]="['/']">
+          </cl-image>
+        </div>
+        <div class="signup-label">Sign Up</div>
+      </h2>
+      <div class="text-center social-btn">
+        <a class="btn btn-block facebook mouse-pointer" (click)="onSignUpViaSocial('facebook')">
+          <i class="fa fa-facebook"></i>
+          Sign up with
+          <b>Facebook</b>
+        </a>
+        <!-- <a class="btn btn-block linkedIn mouse-pointer" (click)="onSignUpViaSocial('linkedin')">
+          <i class="fa fa-twitter"></i>
+          Sign up with
+          <b>LinkedIn</b>
+        </a> -->
+        <a class="btn btn-block google mouse-pointer" (click)="onSignUpViaSocial('google')">
+          <i class="fa fa-google"></i>
+          Sign up with
+          <b>Google</b>
+        </a>
+      </div>
+      <div class="or-seperator"><i>or</i></div>
+      <!-- <form #signUpForm="ngForm" (ngSubmit)="onSignUp()" class="form-horizontal"> -->
+      <div class="form-group">
+        <div class="col-sm-12 sign-up-input">
+          <input type="text" class="form-control" placeholder="Full Name" name="name" autocomplete="name" [(ngModel)]="user.name" #username="ngModel" required pattern="[-'a-zA-Z]+\s[-'a-zA-Z\s]+" />
+          <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+            <div *ngIf="username.errors.required">
+              Name is required
+            </div>
+            <div *ngIf="username.errors.pattern">
+              At least two Names are required
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-12 sign-up-input">
+          <input type="text" class="form-control" placeholder="Email" name="email" autocomplete="email" [(ngModel)]="user.email" #userEmail="ngModel" required email/>
+          <div *ngIf="userEmail.invalid && (userEmail.dirty || userEmail.touched)" class="alert alert-danger">
+            <div *ngIf="userEmail.errors.required">
+              Email is required
+            </div>
+            <div *ngIf="userEmail.errors.email">
+              Email is invalid
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-12 sign-up-input">
+          <input type="password" class="form-control" placeholder="Password" name="password" autocomplete="password" [(ngModel)]="user.password" #password="ngModel" required minlength="8" />
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+            <div *ngIf="password.errors.required || password.errors.minlength">
+              Password required at least 8 characters
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-12 sign-up-input">
+          <input type="password" class="form-control" placeholder="Confirm Password" name="confirmPassword" autocomplete="confirmPassword" [(ngModel)]="user.confirmPassword" #confirmPass="ngModel" validateEqual="password" required />
+          <div *ngIf="confirmPass.invalid && (confirmPass.dirty || confirmPass.touched)" class="alert alert-danger">
+            <div *ngIf="!confirmPass.errors.validateEqual">
+              Password mismatch
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="terms-and-condition">
+        <label>
+          <input
+            type="checkbox"
+            name="hasconsented"
+            [(ngModel)]="hasAgreed"
+            #hasAgreedToTerms="ngModel"
+            required/>
+              I agree to the Terms & Conditions, Privacy Policy and Code of Conduct
+        </label>
+        <div *ngIf="hasAgreedToTerms.invalid && (hasAgreedToTerms.dirty || hasAgreedToTerms.touched)" class="alert alert-danger">
+          <div *ngIf="hasAgreedToTerms.errors.required">
+            This is required field
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-peersview-primary btn-block btn-peersview-md">Sign Up</button>
+    </form>
+    <div class="hint-text small">Already have an account?
+      <a class="sign-up-now peersview-secondary-color" [routerLink]="['/sign-in']">Sign-in</a>
+    </div>
+  </div>
+</div>

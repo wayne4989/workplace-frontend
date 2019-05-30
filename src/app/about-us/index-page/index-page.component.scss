@@ -1,0 +1,36 @@
+@import '../../../assets/scss/variables';
+
+.about-us-index-page-component {
+  height: 100%;
+  background: url('https://res.cloudinary.com/peersview-com/image/upload/v1519583449/aboutIndexPage.jpg') no-repeat;
+  background-size: cover;
+  .container {
+    height: 100%;
+  }
+  h1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    font-family: 'ProximaNovaAltLight';
+    font-size: 6rem;
+    font-weight: 800;
+    color: #ffffff;
+  }
+
+  // Custom, iPhone Retina
+  @media only screen and (min-width : 320px) {}
+  // extra Small Devices, Phones
+  @media only screen and (min-width : 480px) {}
+  // Small Devices, Tablets
+  @media only screen and (min-width : 768px) {
+    h1 {
+      font-size: 8rem;
+    }
+  }
+  // Medium Devices, Desktops
+  @media only screen and (min-width : 992px) {}
+  // Large Devices, Wide Screens
+  @media only screen and (min-width : 1200px) {}
+}
