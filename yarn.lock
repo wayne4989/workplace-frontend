@@ -8519,9 +8519,10 @@ timespan@2.3.x:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/timespan/-/timespan-2.3.0.tgz#4902ce040bd13d845c8f59b27e9d59bad6f39929"
 
-tinymce@4.8.0:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/tinymce/-/tinymce-4.8.0.tgz#3c4c88701d0526374efb45bafbb820c7715e2356"
+tinymce@5.6.0:
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/tinymce/-/tinymce-5.6.0.tgz#b5eda4888e1a607ddd545619cfaa137d59de14b4"
+  integrity sha512-f8LsyT80j8hD4wrL8Sac0DWDG5k10cDyykL/qkJ6kexn1KMt7w1ByrGlUm53XCYDqtavBA5snTU7odioMwSXSQ==
 
 tmp@0.0.24:
   version "0.0.24"
