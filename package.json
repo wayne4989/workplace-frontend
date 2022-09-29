@@ -37,7 +37,7 @@
     "chart.js": "^2.7.2",
     "cloudinary-core": "2.5.0",
     "core-js": "2.5.7",
-    "d3": "5.5.0",
+    "d3": "7.6.1",
     "jquery": "3.3.1",
     "lite-server": "2.4.0",
     "lodash": "4.17.10",
